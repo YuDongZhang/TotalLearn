@@ -7,10 +7,10 @@
     tools:context="com.example.totallearn.MainActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="80dp"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/linearLayout">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/bt_1"
@@ -37,10 +37,29 @@
             android:text="4" />
 
         <Button
-            android:id="@+id/bt_5"
+            android:id="@+id/bt_6"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:text="5" />
+            android:text="6" />
+
+        <Button
+            android:id="@+id/bt_7"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/bt_8"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="8" />
+
+        <Button
+            android:id="@+id/bt_9"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="9" />
+
 
     </LinearLayout>
 
@@ -50,6 +69,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/linearLayout">
+
     </FrameLayout>
 
 </RelativeLayout>

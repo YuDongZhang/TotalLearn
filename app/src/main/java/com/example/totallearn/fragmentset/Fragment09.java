@@ -1,8 +1,6 @@
 package com.example.totallearn.fragmentset;
 
 import android.content.Context;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,16 +12,13 @@ import android.view.ViewGroup;
 
 import com.example.totallearn.R;
 
-import java.io.IOException;
-
 /**
  * Created by pateo on 18-12-27.
  */
 
-public class Fragment05 extends Fragment {
+public class Fragment09 extends Fragment {
 
-    public static final String TAG = Fragment05.class.getSimpleName();
-    private MediaPlayer mMediaPlayer;
+    public static final String TAG = Fragment09.class.getSimpleName();
 
     @Override
     public void onAttach(Context context) {
@@ -35,34 +30,7 @@ public class Fragment05 extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG,"onCreate");
-        playMusic();
     }
-
-    //播放音乐
-    private void playMusic() {
-        try {
-            mMediaPlayer = new MediaPlayer();
-            mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-            mMediaPlayer.setDataSource("网址");
-            //准备同步多媒体播放器
-           // mMediaPlayer.prepare();
-            //准备异步的播放器
-            mMediaPlayer.prepareAsync();
-            //监听
-            mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mediaPlayer) {
-                    //多媒体对象准备完成的时候调用
-                    mMediaPlayer.start();
-                }
-            });
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 
     @Nullable
     @Override

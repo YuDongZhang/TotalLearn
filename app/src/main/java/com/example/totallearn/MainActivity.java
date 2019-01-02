@@ -11,6 +11,10 @@ import com.example.totallearn.fragmentset.Fragment02;
 import com.example.totallearn.fragmentset.Fragment03;
 import com.example.totallearn.fragmentset.Fragment04;
 import com.example.totallearn.fragmentset.Fragment05;
+import com.example.totallearn.fragmentset.Fragment06;
+import com.example.totallearn.fragmentset.Fragment07;
+import com.example.totallearn.fragmentset.Fragment08;
+import com.example.totallearn.fragmentset.Fragment09;
 
 /**
  * 在个人电脑上进行同步
@@ -22,12 +26,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button bt3;
     private Button bt4;
     private Button bt5;
+    private Button bt6;
+    private Button bt7;
+    private Button bt8;
+    private Button bt9;
 
     private Fragment01 mFragment01;
     private Fragment02 mFragment02;
     private Fragment03 mFragment03;
     private Fragment04 mFragment04;
     private Fragment05 mFragment05;
+    private Fragment06 mFragment06;
+    private Fragment07 mFragment07;
+    private Fragment08 mFragment08;
+    private Fragment09 mFragment09;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +56,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bt3 = findViewById(R.id.bt_3);
         bt4 = findViewById(R.id.bt_4);
         bt5 = findViewById(R.id.bt_5);
+        bt6 = findViewById(R.id.bt_6);
+        bt7 = findViewById(R.id.bt_7);
+        bt8 = findViewById(R.id.bt_8);
+        bt9 = findViewById(R.id.bt_9);
+
         bt1.setOnClickListener(this);
         bt2.setOnClickListener(this);
         bt3.setOnClickListener(this);
         bt4.setOnClickListener(this);
         bt5.setOnClickListener(this);
+        bt6.setOnClickListener(this);
+        bt7.setOnClickListener(this);
+        bt8.setOnClickListener(this);
+        bt9.setOnClickListener(this);
     }
 
 
@@ -70,7 +91,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_5:
                 showFragment(5);
                 break;
-
+            case R.id.bt_6:
+                showFragment(6);
+                break;
+            case R.id.bt_7:
+                showFragment(7);
+                break;
+            case R.id.bt_8:
+                showFragment(8);
+                break;
+            case R.id.bt_9:
+                showFragment(9);
+                break;
         }
     }
 
@@ -119,6 +151,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     ft.show(mFragment05);
                 }
                 break;
+            case 6:
+                if (mFragment06 == null) {
+                    mFragment06 = new Fragment06();
+                    ft.add(R.id.container, mFragment06);
+                } else {
+                    ft.show(mFragment06);
+                }
+                break;
+            case 7:
+                if (mFragment07 == null) {
+                    mFragment07 = new Fragment07();
+                    ft.add(R.id.container, mFragment07);
+                } else {
+                    ft.show(mFragment07);
+                }
+                break;
+            case 8:
+                if (mFragment08 == null) {
+                    mFragment08 = new Fragment08();
+                    ft.add(R.id.container, mFragment08);
+                } else {
+                    ft.show(mFragment08);
+                }
+                break;
+            case 9:
+                if (mFragment09 == null) {
+                    mFragment09 = new Fragment09();
+                    ft.add(R.id.container, mFragment09);
+                } else {
+                    ft.show(mFragment09);
+                }
+                break;
+
         }
         ft.commitAllowingStateLoss();
     }
@@ -139,5 +204,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (mFragment05 != null) {
             ft.hide(mFragment05);
         }
+        if (mFragment06 != null) {
+            ft.hide(mFragment06);
+        }
+        if (mFragment07 != null) {
+            ft.hide(mFragment07);
+        }
+        if (mFragment08 != null) {
+            ft.hide(mFragment08);
+        }
+        if (mFragment09 != null) {
+            ft.hide(mFragment09);
+        }
+
+
     }
 }
