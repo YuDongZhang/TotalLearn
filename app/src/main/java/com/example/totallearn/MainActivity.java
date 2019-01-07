@@ -1,8 +1,10 @@
 package com.example.totallearn;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,11 +17,14 @@ import com.example.totallearn.fragmentset.Fragment06;
 import com.example.totallearn.fragmentset.Fragment07;
 import com.example.totallearn.fragmentset.Fragment08;
 import com.example.totallearn.fragmentset.Fragment09;
+import com.example.totallearn.serviceset.TestService;
 
 /**
  * 在个人电脑上进行同步
  */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    public static final String TAG = MainActivity.class.getSimpleName();
 
     private Button bt1;
     private Button bt2;
@@ -98,10 +103,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 showFragment(7);
                 break;
             case R.id.bt_8:
-                showFragment(8);
+                Log.d(TAG,"点击按钮8");
+                Intent intent = new Intent(this, TestService.class);
+                startService(intent);
+                //showFragment(8);
                 break;
             case R.id.bt_9:
-                showFragment(9);
+                //showFragment(9);//暂时用做测试
+
                 break;
         }
     }
