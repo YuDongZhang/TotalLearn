@@ -103,14 +103,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 showFragment(7);
                 break;
             case R.id.bt_8:
-                Log.d(TAG,"点击按钮8");
-                Intent intent = new Intent(this, TestService.class);
-                startService(intent);
-                //showFragment(8);
+                showFragment(8);
                 break;
             case R.id.bt_9:
-                //showFragment(9);//暂时用做测试
-
+                showFragment(9);//暂时用做测试
                 break;
         }
     }

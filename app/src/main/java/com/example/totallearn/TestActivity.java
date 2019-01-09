@@ -14,5 +14,6 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
         Log.d(TAG,"onCreate");
         Intent intent = getIntent();
+
     }
 }

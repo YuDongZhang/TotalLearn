@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import com.example.totallearn.R;
 
@@ -19,6 +20,7 @@ import com.example.totallearn.R;
 public class Fragment09 extends Fragment {
 
     public static final String TAG = Fragment09.class.getSimpleName();
+    private WebView mWebView;
 
     @Override
     public void onAttach(Context context) {
@@ -37,8 +39,14 @@ public class Fragment09 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG,"onCreateView");
-        View view = inflater.inflate(R.layout.fragment_01,container,false);
+        View view = inflater.inflate(R.layout.fragment_09,container,false);
+        mWebView = view.findViewById(R.id.f9_webView);
+        initView();
         return view;
+    }
+
+    private void initView() {
+        mWebView.loadUrl("https://www.jianshu.com/p/3c94ae673e2a");
     }
 
     @Override

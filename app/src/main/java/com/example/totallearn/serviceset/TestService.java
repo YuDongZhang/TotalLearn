@@ -33,7 +33,7 @@ public class TestService extends Service{
         Log.d(TAG,"onStartCommand");
         Intent intent1 = new Intent(getBaseContext(), TestActivity.class);
         intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        getApplication().startActivity(intent1);
+        getApplication().startActivity(intent1);//在服务中启动 activity
         return super.onStartCommand(intent, flags, startId);
     }
 
