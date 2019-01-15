@@ -9,8 +9,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.totallearn.R;
+import com.example.totallearn.designmode.abstractfactorymode.FarmTest;
 
 /**
  * Created by pateo on 18-12-27.
@@ -37,7 +39,14 @@ public class Fragment08 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG,"onCreateView");
-        View view = inflater.inflate(R.layout.fragment_01,container,false);
+        View view = inflater.inflate(R.layout.fragment_08,container,false);
+        Button button = view.findViewById(R.id.f8_b1);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FarmTest ft = new FarmTest();
+            }
+        });
         return view;
     }
 

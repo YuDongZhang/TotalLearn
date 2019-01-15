@@ -4,12 +4,25 @@ import com.example.totallearn.utils.Log;
 
 public class FarmTest {
 
+    public FarmTest() {
+        Farm f;
+        Animal a;
+        Plant p;
+        f = new SGfarm();
+        a = f.newAnimal();
+        p = f.newPlant();
+        a.show();
+        p.show();
+    }
+
+
+
     public static void main(String[] args) {
         try {
             Farm f;
             Animal a;
             Plant p;
-            f = (Farm) ReadXML.getObject();
+            f = new SGfarm();
             a = f.newAnimal();
             p = f.newPlant();
             a.show();
@@ -42,11 +55,11 @@ class Cattle implements Animal {
 
 
     public Cattle() {
-        Log.d("", "");
+        Log.d("Cattle", "Cattle 构造");
     }
 
     public void show() {
-        Log.d("", "");
+        Log.d("Cattle", "Cattle.show");
     }
 }
 
@@ -60,11 +73,11 @@ class Fruitage implements Plant {
 
 
     public Fruitage() {
-
+        Log.d("Fruitage", "Fruitage.构造");
     }
 
     public void show() {
-
+        Log.d("Fruitage", "Fruitage.show");
     }
 }
 
@@ -72,11 +85,11 @@ class Fruitage implements Plant {
 class Vegetables implements Plant {
 
     public Vegetables() {
-
+        Log.d("Vegetables", "Vegetables.构造");
     }
 
     public void show() {
-
+        Log.d("Vegetables", "Vegetables.show");
     }
 }
 

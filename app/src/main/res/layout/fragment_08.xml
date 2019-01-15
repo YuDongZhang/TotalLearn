@@ -6,5 +6,14 @@
         android:text="Fragment08"
         android:textSize="35sp"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        android:id="@+id/textView2" />
+
+    <Button
+        android:text="abs工厂"
+        android:id="@+id/f8_b1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView2" />
 </RelativeLayout>
