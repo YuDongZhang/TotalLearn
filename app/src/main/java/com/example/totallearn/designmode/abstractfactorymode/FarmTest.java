@@ -5,10 +5,11 @@ import com.example.totallearn.utils.Log;
 public class FarmTest {
 
     public FarmTest() {
+
         Farm f;
         Animal a;
         Plant p;
-        f = new SGfarm();
+        f = new SGfarm(); //更换具体工厂就可以创造不同的东西
         a = f.newAnimal();
         p = f.newPlant();
         a.show();

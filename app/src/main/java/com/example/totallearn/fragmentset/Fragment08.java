@@ -13,12 +13,13 @@ import android.widget.Button;
 
 import com.example.totallearn.R;
 import com.example.totallearn.designmode.abstractfactorymode.FarmTest;
+import com.example.totallearn.designmode.prototypemode.PrototypeTest;
 
 /**
  * Created by pateo on 18-12-27.
  */
 
-public class Fragment08 extends Fragment {
+public class Fragment08 extends Fragment implements View.OnClickListener {
 
     public static final String TAG = Fragment08.class.getSimpleName();
 
@@ -40,14 +41,30 @@ public class Fragment08 extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG,"onCreateView");
         View view = inflater.inflate(R.layout.fragment_08,container,false);
-        Button button = view.findViewById(R.id.f8_b1);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FarmTest ft = new FarmTest();
-            }
-        });
+        Button f8b1 = view.findViewById(R.id.f8_b1);
+        Button f8b2 = view.findViewById(R.id.f8_b2);
+
+        f8b1.setOnClickListener(this);
+        f8b2.setOnClickListener(this);
         return view;
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.f8_b1:
+                FarmTest ft = new FarmTest();
+                break;
+            case R.id.f8_b2:
+                try {
+                    PrototypeTest pt = new PrototypeTest();
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
+                break;
+        }
+
     }
 
     @Override
