@@ -13,6 +13,8 @@ import android.widget.Button;
 
 import com.example.totallearn.R;
 import com.example.totallearn.designmode.abstractfactorymode.FarmTest;
+import com.example.totallearn.designmode.adaptermode.ClassAdapterTest;
+import com.example.totallearn.designmode.bridgemode.BridgeTest;
 import com.example.totallearn.designmode.prototypemode.PrototypeTest;
 
 /**
@@ -43,9 +45,16 @@ public class Fragment08 extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_08,container,false);
         Button f8b1 = view.findViewById(R.id.f8_b1);
         Button f8b2 = view.findViewById(R.id.f8_b2);
+        Button f8b3 = view.findViewById(R.id.f8_b3);
+
+
+        Button f8b10 = view.findViewById(R.id.f8_b10);
 
         f8b1.setOnClickListener(this);
         f8b2.setOnClickListener(this);
+        f8b3.setOnClickListener(this);
+
+        f8b10.setOnClickListener(this);
         return view;
     }
 
@@ -63,6 +72,15 @@ public class Fragment08 extends Fragment implements View.OnClickListener {
                     e.printStackTrace();
                 }
                 break;
+
+            case R.id.f8_b3:
+                ClassAdapterTest ct = new ClassAdapterTest();
+                break;
+
+            case R.id.f8_b10:
+                BridgeTest bridgeTest = new BridgeTest();
+                break;
+
         }
 
     }
