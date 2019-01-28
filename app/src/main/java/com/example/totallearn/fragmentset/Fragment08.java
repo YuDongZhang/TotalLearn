@@ -14,6 +14,7 @@ import android.widget.Button;
 import com.example.totallearn.R;
 import com.example.totallearn.designmode.abstractfactorymode.FarmTest;
 import com.example.totallearn.designmode.adaptermode.ClassAdapterTest;
+import com.example.totallearn.designmode.behaviortype.iteratormode.example1.IteratorPattern;
 import com.example.totallearn.designmode.bridgemode.BridgeTest;
 import com.example.totallearn.designmode.decoratormode.example1.DecoratorTest;
 import com.example.totallearn.designmode.prototypemode.PrototypeTest;
@@ -80,7 +81,10 @@ public class Fragment08 extends Fragment implements View.OnClickListener {
                 ClassAdapterTest ct = new ClassAdapterTest();
                 break;
             case R.id.f8_b4:
-                DecoratorTest dt = new DecoratorTest();
+              //  DecoratorTest dt = new DecoratorTest();
+
+                IteratorPattern ip = new IteratorPattern();
+
                 break;
 
             case R.id.f8_b10:
