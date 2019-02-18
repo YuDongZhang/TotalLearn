@@ -5,6 +5,7 @@ import android.util.Log;
 
 
 import java.io.Serializable;
+//文件夹实体  分类设计
 
 public class VideoEntry implements Serializable {
 

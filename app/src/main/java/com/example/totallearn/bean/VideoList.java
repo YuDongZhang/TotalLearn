@@ -6,6 +6,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+//用于文件夹的分类的设计
+
 public class VideoList {
     private final static String TAG = "VideoList";
 
