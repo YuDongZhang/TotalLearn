@@ -18,9 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".TestActivity" />
 
-        <service android:name=".serviceset.TestService"></service>
+        <service android:name=".serviceset.TestService" />
+
+        <activity android:name=".mvp_set.demo1.LoginActivity"></activity>
     </application>
 
 </manifest>
