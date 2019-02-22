@@ -5,7 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * Created by pateo on 19-2-20.
+ *
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
