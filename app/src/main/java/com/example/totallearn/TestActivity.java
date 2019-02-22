@@ -84,7 +84,7 @@ public class TestActivity extends AppCompatActivity {
 
      */
     @BindView(R.id.test_tv1)
-    private TextView testTv1;
+     TextView testTv1;
 
     /**
      * 如下所示，实现一个自定义注解处理器，至少重写四个方法，并且注册你的自定义Processor，详细可参考下方代码CustomProcessor。

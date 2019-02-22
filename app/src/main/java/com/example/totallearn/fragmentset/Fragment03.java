@@ -14,6 +14,7 @@ import android.widget.Button;
 
 import com.example.totallearn.R;
 import com.example.totallearn.TestActivity;
+import com.example.totallearn.fanshe.FanSheTest;
 
 /**
  * Created by pateo on 18-12-27.
@@ -60,6 +61,7 @@ public class Fragment03 extends Fragment implements View.OnClickListener {
                 startActivity(i);
                 break;
             case R.id.f3_b2:
+                FanSheTest  fst = new FanSheTest();
                 break;
         }
     }
