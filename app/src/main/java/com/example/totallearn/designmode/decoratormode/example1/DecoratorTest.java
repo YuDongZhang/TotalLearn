@@ -1,6 +1,6 @@
 package com.example.totallearn.designmode.decoratormode.example1;
 
-import com.example.totallearn.utils.Log;
+import com.example.totallearn.utils.LogUtils;
 
 /**
  * Created by pateo on 19-1-21.
@@ -12,7 +12,7 @@ public class DecoratorTest {
     public DecoratorTest() {
         Component p = new ConcreteComponent();
         p.operation();
-        Log.d("-------","----------");
+        LogUtils.d("-------","----------");
         Component d = new ConcreteDecorator(p);
         d.operation();
     }
@@ -27,12 +27,12 @@ interface Component{
 class ConcreteComponent implements Component{
 
     public ConcreteComponent() {
-        Log.d("ConcreteComponent","创建具体构件角色");
+        LogUtils.d("ConcreteComponent","创建具体构件角色");
     }
 
     @Override
     public void operation() {
-        Log.d("ConcreteComponent","调用具体构件角色的方法operation()");
+        LogUtils.d("ConcreteComponent","调用具体构件角色的方法operation()");
     }
 }
 
@@ -64,6 +64,6 @@ class ConcreteDecorator extends Decorator{
     }
 
     public void addedFunction(){
-        Log.d("ConcreteDecorator","为具体构件角色增加额外的功能addedFunction()");
+        LogUtils.d("ConcreteDecorator","为具体构件角色增加额外的功能addedFunction()");
     }
 }

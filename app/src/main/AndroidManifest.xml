@@ -22,7 +22,9 @@
 
         <service android:name=".serviceset.TestService" />
 
-        <activity android:name=".mvp_set.demo1.LoginActivity"></activity>
+        <activity android:name=".mvp_set.demo1.LoginActivity" />
+        <activity android:name=".okhttplearn.OkhttpActivity" />
+        <activity android:name=".recyclerviewlearn.RecyclerActivity"></activity>
     </application>
 
 </manifest>

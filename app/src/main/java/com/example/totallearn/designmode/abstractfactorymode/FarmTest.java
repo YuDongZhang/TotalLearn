@@ -1,6 +1,6 @@
 package com.example.totallearn.designmode.abstractfactorymode;
 
-import com.example.totallearn.utils.Log;
+import com.example.totallearn.utils.LogUtils;
 
 public class FarmTest {
 
@@ -43,11 +43,11 @@ interface Animal {
 class Horse implements Animal {
 
     public Horse() {
-        Log.d("Horse", "Horse 构造方法");
+        LogUtils.d("Horse", "Horse 构造方法");
     }
 
     public void show() {
-        Log.d("Horse", "Horse.show");
+        LogUtils.d("Horse", "Horse.show");
     }
 }
 
@@ -56,11 +56,11 @@ class Cattle implements Animal {
 
 
     public Cattle() {
-        Log.d("Cattle", "Cattle 构造");
+        LogUtils.d("Cattle", "Cattle 构造");
     }
 
     public void show() {
-        Log.d("Cattle", "Cattle.show");
+        LogUtils.d("Cattle", "Cattle.show");
     }
 }
 
@@ -74,11 +74,11 @@ class Fruitage implements Plant {
 
 
     public Fruitage() {
-        Log.d("Fruitage", "Fruitage.构造");
+        LogUtils.d("Fruitage", "Fruitage.构造");
     }
 
     public void show() {
-        Log.d("Fruitage", "Fruitage.show");
+        LogUtils.d("Fruitage", "Fruitage.show");
     }
 }
 
@@ -86,11 +86,11 @@ class Fruitage implements Plant {
 class Vegetables implements Plant {
 
     public Vegetables() {
-        Log.d("Vegetables", "Vegetables.构造");
+        LogUtils.d("Vegetables", "Vegetables.构造");
     }
 
     public void show() {
-        Log.d("Vegetables", "Vegetables.show");
+        LogUtils.d("Vegetables", "Vegetables.show");
     }
 }
 

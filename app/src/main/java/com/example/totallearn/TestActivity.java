@@ -12,8 +12,15 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -32,10 +39,56 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
         Log.d(TAG,"onCreate");
 
-        //通过注解生成view
-        getAllAnnotationView();
 
+       testThread();
+        //通过注解生成view
+        //getAllAnnotationView();
+       // initData();
     }
+
+
+    public void testThread(){
+        new Thread(){
+            @Override
+            public void run() {
+                try {
+                    sleep(50000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
+    private void initData() {
+        // 每隔1s执行一次事件
+        Observable.interval(1, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Long>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(@NonNull Long aLong) {
+                        Log.i("接收数据", String.valueOf(aLong));
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+
 
     /**
      * 解析注解 , 获取控件

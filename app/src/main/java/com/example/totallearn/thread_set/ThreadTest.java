@@ -1,11 +1,6 @@
 package com.example.totallearn.thread_set;
 
-import com.example.totallearn.utils.Log;
-
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
-
-import okhttp3.Call;
+import com.example.totallearn.utils.LogUtils;
 
 /**
  * Created by pateo on 19-2-15.
@@ -33,7 +28,7 @@ public class ThreadTest {
         @Override
         public void run() {
             // 处理耗时逻辑
-            Log.d("CustomThread", "这里执行耗时操作");
+            LogUtils.d("CustomThread", "这里执行耗时操作");
         }
     }
 
@@ -42,7 +37,7 @@ public class ThreadTest {
         @Override
         public void run() {
             // 处理耗时操作
-            Log.d("CustomThread2","耗时操作");
+            LogUtils.d("CustomThread2","耗时操作");
         }
     }
 

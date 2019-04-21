@@ -1,8 +1,5 @@
 package com.example.totallearn.designmode.flyweightmode.example1;
 
-import com.example.totallearn.utils.Log;
-
-import java.security.Key;
 import java.util.HashMap;
 
 /**
