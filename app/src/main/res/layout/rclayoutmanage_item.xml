@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/rc_manage_tv"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:textSize="40sp" />
+
+</LinearLayout>

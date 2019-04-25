@@ -10,7 +10,6 @@ import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +18,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.totallearn.R;
-import com.example.totallearn.recyclerviewlearn.RecyclerActivity;
+import com.example.totallearn.recyclerviewlearn.RClayoutmanager.RcLMActivity;
+import com.example.totallearn.recyclerviewlearn.RCpicture.RecyclerActivity;
 import com.example.totallearn.serviceset.TestService;
 import com.example.totallearn.utils.LogUtils;
 
@@ -143,7 +143,7 @@ public class Fragment01 extends Fragment implements View.OnClickListener {
             case R.id.f1_bt3:
                 Log.d(TAG, "f1_bt3");
                 //在service 中启动服务要 getActivity
-                Intent i = new Intent(getActivity(), RecyclerActivity.class);
+                Intent i = new Intent(getActivity(), RcLMActivity.class);
                 startActivity(i);
                 break;
 

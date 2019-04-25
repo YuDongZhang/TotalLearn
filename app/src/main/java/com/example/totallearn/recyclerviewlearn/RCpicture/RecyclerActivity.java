@@ -1,11 +1,10 @@
-package com.example.totallearn.recyclerviewlearn;
+package com.example.totallearn.recyclerviewlearn.RCpicture;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.example.totallearn.MainActivity;
 import com.example.totallearn.R;
 
 import java.util.ArrayList;

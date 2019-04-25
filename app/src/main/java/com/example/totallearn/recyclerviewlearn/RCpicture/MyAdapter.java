@@ -1,4 +1,4 @@
-package com.example.totallearn.recyclerviewlearn;
+package com.example.totallearn.recyclerviewlearn.RCpicture;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

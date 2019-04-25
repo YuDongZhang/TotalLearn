@@ -24,7 +24,8 @@
 
         <activity android:name=".mvp_set.demo1.LoginActivity" />
         <activity android:name=".okhttplearn.OkhttpActivity" />
-        <activity android:name=".recyclerviewlearn.RecyclerActivity"></activity>
+        <activity android:name=".recyclerviewlearn.RCpicture.RecyclerActivity" />
+        <activity android:name=".recyclerviewlearn.RClayoutmanager.RcLMActivity"></activity>
     </application>
 
 </manifest>
