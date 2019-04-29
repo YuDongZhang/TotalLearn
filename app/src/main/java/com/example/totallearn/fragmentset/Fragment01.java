@@ -17,11 +17,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.totallearn.PdfActivity;
 import com.example.totallearn.R;
 import com.example.totallearn.recyclerviewlearn.RClayoutmanager.RcLMActivity;
 import com.example.totallearn.recyclerviewlearn.RCpicture.RecyclerActivity;
 import com.example.totallearn.serviceset.TestService;
 import com.example.totallearn.utils.LogUtils;
+
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -143,8 +145,11 @@ public class Fragment01 extends Fragment implements View.OnClickListener {
             case R.id.f1_bt3:
                 Log.d(TAG, "f1_bt3");
                 //在service 中启动服务要 getActivity
-                Intent i = new Intent(getActivity(), RcLMActivity.class);
-                startActivity(i);
+                /*Intent i = new Intent(getActivity(), RcLMActivity.class);
+                startActivity(i);*/
+
+                Intent intent2 = new Intent(getActivity(), PdfActivity.class);
+                startActivity(intent2);
                 break;
 
         }
