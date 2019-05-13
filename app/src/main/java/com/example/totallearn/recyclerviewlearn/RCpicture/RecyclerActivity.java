@@ -75,7 +75,7 @@ public class RecyclerActivity extends AppCompatActivity {
     private ArrayList<String> getData() {
         ArrayList<String> data = new ArrayList<>();
         for (String next : eatFoodyImages) {
-//            LogUtils.i("RetrofitLog", "message = " + next);
+//            LogUtil.i("RetrofitLog", "message = " + next);
             data.add(next);
         }
         return data;

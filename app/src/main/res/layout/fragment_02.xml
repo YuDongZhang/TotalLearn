@@ -3,9 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
+        android:id="@+id/f2_tv1"
         android:text="Fragment02"
         android:textSize="35sp"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
+
+    <Button
+        android:id="@+id/f2_bt1"
+        android:text="ssractivity"
+        android:layout_below="@+id/f2_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

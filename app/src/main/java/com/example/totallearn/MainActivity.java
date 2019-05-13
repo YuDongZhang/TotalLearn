@@ -50,9 +50,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        test();
         initView();
 
+    }
+
+    private void test() {
+        Intent intent = new Intent(this,SwipeScrollRecyclerActivity.class);
+        startActivity(intent);
     }
 
     private void initView() {

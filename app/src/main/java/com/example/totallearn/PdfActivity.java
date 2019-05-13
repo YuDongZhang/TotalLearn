@@ -245,8 +245,6 @@ public class PdfActivity extends AppCompatActivity {
     int y = -1000;
     @OnClick(R.id.button)
     public void onViewClicked() {
-
-
         y = y-1000;
         pdfview.moveTo(0,y);
     }
