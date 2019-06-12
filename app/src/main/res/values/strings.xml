@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TotalLearn</string>
+    <string name="open">TotalLearn</string>
+    <string name="close">TotalLearn</string>
 </resources>

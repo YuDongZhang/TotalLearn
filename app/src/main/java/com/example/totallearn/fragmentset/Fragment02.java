@@ -6,13 +6,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.totallearn.R;
-import com.example.totallearn.SwipeScrollRecyclerActivity;
+import com.example.totallearn.new_view_test.DrawerTestActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -99,9 +100,19 @@ public class Fragment02 extends Fragment {
     }
 
 
-    @OnClick(R.id.f2_bt1)
-    public void onViewClicked() {
-        Intent intent = new Intent(getActivity(), SwipeScrollRecyclerActivity.class);
-        startActivity(intent);
+    @OnClick({R.id.f2_b1, R.id.f2_b2, R.id.f2_b3, R.id.f2_b4})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.f2_b1:
+                Intent intentb1 = new Intent(getActivity(), DrawerTestActivity.class);
+                startActivity(intentb1);
+                break;
+            case R.id.f2_b2:
+                break;
+            case R.id.f2_b3:
+                break;
+            case R.id.f2_b4:
+                break;
+        }
     }
 }

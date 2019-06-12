@@ -33,6 +33,9 @@
         <activity android:name=".recyclerviewlearn.RCpicture.RecyclerActivity" />
         <activity android:name=".recyclerviewlearn.RClayoutmanager.RcLMActivity" />
         <activity android:name=".PdfActivity" />
+        <activity android:name=".recyclerviewlearn.RClayoutmanager.RcLMActivity" />
+        <activity android:name=".PdfActivity" />
+        <activity android:name=".new_view_test.DrawerTestActivity"></activity>
     </application>
 
 </manifest>

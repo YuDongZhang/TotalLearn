@@ -27,6 +27,15 @@
         android:text="关服务" />
 
     <Button
+        android:id="@+id/f1_bt5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_marginStart="11dp"
+        android:layout_toEndOf="@+id/f1_bt2"
+        android:text="关服务" />
+
+    <Button
         android:id="@+id/f1_bt3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,6 +51,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/f1_bt3"
         android:text="图文混排测试" />
+
 
     <RelativeLayout
         android:layout_width="100dp"

@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         test();
         initView();
 
+        showFragment(2);//预加载第一页
+
     }
 
     private void test() {
