@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -15,12 +17,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.totallearn.R;
+import com.example.totallearn.fragmentset.Fragment01;
+import com.example.totallearn.fragmentset.Fragment02;
+import com.example.totallearn.fragmentset.Fragment03;
+import com.example.totallearn.fragmentset.Fragment04;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DrawerNavigationActivity extends AppCompatActivity {
@@ -53,12 +61,22 @@ public class DrawerNavigationActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         navigationView = findViewById(R.id.navigationView);
 
-
+        initFragments();
         initViewPager();
+
         initBottomNavigationView();
         initNavigationView();
 
 
+
+    }
+
+    private void initFragments() {
+        fragments = new ArrayList<>();
+        fragments.add(new Fragment01());
+        fragments.add(new Fragment02());
+        fragments.add(new Fragment03());
+        fragments.add(new Fragment04());
     }
 
     private void initViewPager() {
@@ -185,22 +203,45 @@ public class DrawerNavigationActivity extends AppCompatActivity {
     }
 
 
-    private class TabFragmentPagerAdapter extends PagerAdapter {
+    private class TabFragmentPagerAdapter extends FragmentPagerAdapter{
+        private List<Fragment> fragmentList;
+        public TabFragmentPagerAdapter(FragmentManager fm,List<Fragment> fragmentList1) {
+            super(fm);
+            this.fragmentList = fragmentList1;
+        }
 
-        public TabFragmentPagerAdapter() {
+        @Override
+        public Fragment getItem(int position) {
+            return fragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return fragmentList.size();
+        }
+    }
+
+   /* private class TabFragmentPagerAdapter extends PagerAdapter {
+
+        public TabFragmentPagerAdapter(FragmentManager fragmentManager, List<Fragment> fragmentList) {
 
         }
 
         @Override
         public int getCount() {
-            return 0;
+            return fragments.size();
         }
 
         @Override
         public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-            return false;
+            return view==object;
         }
-    }
+
+        @Override
+        public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+            container.removeView(fragments.get(position));
+        }
+    }*/
 
 
 }

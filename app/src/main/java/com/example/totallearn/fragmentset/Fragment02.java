@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.totallearn.R;
+import com.example.totallearn.new_view_test.DrawerNavigationActivity;
 import com.example.totallearn.new_view_test.DrawerTestActivity;
 
 import butterknife.ButterKnife;
@@ -104,10 +105,12 @@ public class Fragment02 extends Fragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f2_b1:
-                Intent intentb1 = new Intent(getActivity(), DrawerTestActivity.class);
-                startActivity(intentb1);
+                Intent intent = new Intent(getActivity(), DrawerTestActivity.class);
+                startActivity(intent);
                 break;
             case R.id.f2_b2:
+                intent = new Intent(getActivity(), DrawerNavigationActivity.class);
+                startActivity(intent);
                 break;
             case R.id.f2_b3:
                 break;
