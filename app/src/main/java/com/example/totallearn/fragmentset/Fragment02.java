@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.totallearn.R;
+import com.example.totallearn.dagger_learn.mvp_login.LoginDaggerActivity;
 import com.example.totallearn.new_view_test.DrawerNavigationActivity;
 import com.example.totallearn.new_view_test.DrawerTestActivity;
 
@@ -113,6 +114,8 @@ public class Fragment02 extends Fragment {
                 startActivity(intent);
                 break;
             case R.id.f2_b3:
+                intent = new Intent(getActivity(), LoginDaggerActivity.class);
+                startActivity(intent);
                 break;
             case R.id.f2_b4:
                 break;

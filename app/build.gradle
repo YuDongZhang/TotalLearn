@@ -44,5 +44,11 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
     //工具类 超级
     implementation 'com.blankj:utilcode:1.23.7'
+
+    //dagger2
+    compile 'com.google.dagger:dagger:2.19'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.13'
+
+
     implementation project(':library')
 }
