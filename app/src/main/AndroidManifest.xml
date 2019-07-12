@@ -36,7 +36,8 @@
         <activity android:name=".new_view_test.DrawerTestActivity" />
         <activity android:name=".thrid_party_view.EasyActivity" />
         <activity android:name=".new_view_test.DrawerNavigationActivity" />
-        <activity android:name=".dagger_learn.mvp_login.LoginDaggerActivity"></activity>
+        <activity android:name=".dagger_learn.mvp_login.LoginDaggerActivity" />
+        <activity android:name=".dagger_learn.register_login.RegisterLoginActivity"></activity>
     </application>
 
 </manifest>
