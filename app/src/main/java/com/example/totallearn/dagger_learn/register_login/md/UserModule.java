@@ -9,6 +9,7 @@ import dagger.Provides;
 public class UserModule {
 
     public UserModule() {
+
     }
 
     @Provides
