@@ -41,6 +41,22 @@ public class UserModule3 {
     //可以点进去查看 @named 的方法 ,
 
     @Provides
+    @DevTest
+    public ApiService3 privideApiserviceDevTest(){
+        ApiService3 apiService3 = new ApiService3(context);
+        return apiService3;
+    }
+
+    @Provides
+    @ReleaseTest
+    public ApiService3 privideApiserviceReleaseTest(){
+        ApiService3 apiService3 = new ApiService3(context);
+        return apiService3;
+    }
+
+
+
+    @Provides
     public String providerUrl(){
         return "www.baidu.com";
     }

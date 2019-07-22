@@ -4,10 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.totallearn.R;
-import com.example.totallearn.dagger_learn.register_login.cp.DaggerUserComponet;
 import com.example.totallearn.dagger_learn.register_login_2.UserManager2;
 import com.example.totallearn.dagger_learn.register_login_3.ApiService3;
-import com.example.totallearn.dagger_learn.register_login_3.UserModule3;
+import com.example.totallearn.dagger_learn.register_login_3.DevTest;
+import com.example.totallearn.dagger_learn.register_login_3.ReleaseTest;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -30,7 +30,16 @@ public class RegisterLoginActivity extends AppCompatActivity {
     @Inject
     ApiService3 apiService3_2;
 
+    @DevTest
+    @Inject
+    ApiService3 apiService3_3;
+
+    @ReleaseTest
+    @Inject
+    ApiService3 apiService3_4;
+
     private boolean is_Dev = true;
+
 
 
     @Override
@@ -52,9 +61,9 @@ public class RegisterLoginActivity extends AppCompatActivity {
         mManager2.register2();*/
 
         //第 3 套的设计  , 主要是在 usermodule3中的修改
-        DaggerUserComponet.builder().userModule3(new UserModule3(this)).build().inject(this);
+        /*DaggerUserComponet.builder().userModule3(new UserModule3(this)).build().inject(this);
         apiService3_1.register3();
-        apiService3_2.register3();
+        apiService3_2.register3();*/
 
 
 

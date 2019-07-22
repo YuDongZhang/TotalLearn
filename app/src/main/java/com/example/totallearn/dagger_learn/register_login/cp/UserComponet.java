@@ -8,6 +8,7 @@ import dagger.Component;
 
 //@Component(modules = {UserModule.class, UserModule2.class})
 //@Component(modules = {UserModule2.class})
+//@Component(modules = {UserModule3.class})
 @Component(modules = {UserModule3.class})
 public interface UserComponet {
 
