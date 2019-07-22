@@ -1,10 +1,11 @@
-package com.example.totallearn.dagger_learn.register_login.md;
+package com.example.totallearn.dagger_learn.register_login_2;
 
 import android.content.Context;
 
 import com.example.totallearn.dagger_learn.register_login.ApiService;
-import com.example.totallearn.dagger_learn.register_login.UserManager2;
 import com.example.totallearn.dagger_learn.register_login.UserStroe;
+import com.example.totallearn.dagger_learn.register_login_2.UserManager2;
+import com.example.totallearn.dagger_learn.register_login_2.UserStroe2;
 
 import dagger.Module;
 import dagger.Provides;
@@ -24,9 +25,9 @@ public class UserModule2 {
     }
 
     @Provides
-    public ApiService provideApiService() {
+    public ApiService2 provideApiService() {
 
-        return new ApiService();
+        return new ApiService2();
     }
 
     @Provides
@@ -35,7 +36,7 @@ public class UserModule2 {
     }
 
     @Provides
-    public UserManager2 provideUserManager(UserStroe userStroe,ApiService apiService) {
-        return new UserManager2(userStroe, apiService);
+    public UserManager2 provideUserManager(UserStroe2 userStroe2, ApiService2 apiService2) {
+        return new UserManager2(userStroe2, apiService2);
     }
 }

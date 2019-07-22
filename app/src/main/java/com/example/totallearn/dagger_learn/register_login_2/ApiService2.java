@@ -1,16 +1,16 @@
-package com.example.totallearn.dagger_learn.register_login;
+package com.example.totallearn.dagger_learn.register_login_2;
 
 import android.util.Log;
 
 import javax.inject.Inject;
 
-public class ApiService {
+public class ApiService2 {
 
     @Inject
-    public ApiService() {
+    public ApiService2() {
     }
 
-    public void register() {
+    public void register2() {
         //注册的方法
          Log.i("TAG", "ApiService: ");
     }

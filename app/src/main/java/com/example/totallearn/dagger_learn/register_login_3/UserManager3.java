@@ -1,23 +1,21 @@
-package com.example.totallearn.dagger_learn.register_login;
+package com.example.totallearn.dagger_learn.register_login_3;
 
 import javax.inject.Inject;
 
-import dagger.Module;
+public class UserManager3 {
 
-public class UserManager2 {
-
-    UserStroe mUserStroe;
-    ApiService mApiService;
+    UserStroe3 mUserStroe3;
+    ApiService3 mApiService3;
 
     @Inject
-    public UserManager2(UserStroe mUserStroe, ApiService mApiService) {
-        this.mUserStroe = mUserStroe;
-        this.mApiService = mApiService;
+    public UserManager3(UserStroe3 mUserStroe3, ApiService3 mApiService3) {
+        this.mUserStroe3 = mUserStroe3;
+        this.mApiService3 = mApiService3;
     }
 
-    public void register2() {
-        mApiService.register();
-        mUserStroe.login();
+    public void register3() {
+        mApiService3.register3();
+        mUserStroe3.login3();
     }
 
 
@@ -47,7 +45,7 @@ public class UserManager {
 调用处new UserManager(this);但是你注意看，我们只是需要一个context就要将UserManager和MainActivity中的代码都要改，
 要是在实际项目中，需要改更多的参数呢？所以我们来看下用
 
-Dagger2该如何解决。这里我把需求再复杂话一些。首先我们还是先从module来看：
+Dagger3该如何解决。这里我把需求再复杂话一些。首先我们还是先从module来看：
  这里我们将例子复杂一下假设ApiService需要一个context，userStroe需要一个url。我们就可以这样写
 
  @Module
