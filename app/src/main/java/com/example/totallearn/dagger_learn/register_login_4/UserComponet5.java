@@ -1,17 +1,6 @@
 package com.example.totallearn.dagger_learn.register_login_4;
 
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-
-import com.example.totallearn.MainActivity;
-import com.example.totallearn.R;
-import com.example.totallearn.dagger_learn.register_login.ApiService;
-import com.example.totallearn.dagger_learn.register_login.cp.DaggerUserComponet;
-import com.example.totallearn.dagger_learn.register_login.md.UserModule;
-
-import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import dagger.Component;

@@ -39,7 +39,9 @@
         <activity android:name=".dagger_learn.mvp_login.LoginDaggerActivity" />
         <activity android:name=".dagger_learn.register_login.RegisterLoginActivity" />
         <activity android:name=".dagger_learn.register_login_4.RegisterLogin_4Activity" />
-        <activity android:name=".dagger_learn.register_login_4.Login_4Activity"></activity>
+        <activity android:name=".dagger_learn.register_login_4.Login_4Activity" />
+        <activity android:name=".dagger_learn.register_login_6.RegisterLogin_6Activity" />
+        <activity android:name=".dagger_learn.register_login_6.Login_6Activity"></activity>
     </application>
 
 </manifest>
