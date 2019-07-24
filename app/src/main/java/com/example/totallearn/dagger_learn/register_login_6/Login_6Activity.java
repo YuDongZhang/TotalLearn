@@ -5,14 +5,13 @@ import android.os.Bundle;
 
 import com.example.totallearn.MyApplication;
 import com.example.totallearn.R;
-import com.example.totallearn.dagger_learn.register_login_4.DaggerUserCLoginComponet;
 
 import javax.inject.Inject;
 
 public class Login_6Activity extends AppCompatActivity {
 
-    @Inject
-    ApiService6 apiService6;//这个是后来加的看是否会打印
+    /*@Inject
+    ApiService6 apiService6;*///这个是后来加的看是否会打印
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

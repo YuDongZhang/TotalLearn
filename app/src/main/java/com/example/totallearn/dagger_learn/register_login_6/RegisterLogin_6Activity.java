@@ -5,14 +5,14 @@ import android.os.Bundle;
 
 import com.example.totallearn.MyApplication;
 import com.example.totallearn.R;
-import com.example.totallearn.dagger_learn.register_login.cp.DaggerUserComponet;
 
 import javax.inject.Inject;
 
 public class RegisterLogin_6Activity extends AppCompatActivity {
 
+    /*//这个地方加入 也会报错 , 看得重新探索 全局单例的使用
     @Inject
-    ApiService6 apiService6;
+    ApiService6 apiService6;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
