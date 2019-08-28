@@ -14,8 +14,9 @@
         android:id="@+id/f2_b1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/f2_tv1"
+        android:layout_alignBaseline="@+id/f2_bt1"
+        android:layout_alignBottom="@+id/f2_bt1"
+        android:layout_toStartOf="@+id/f2_b2"
         android:text="1:抽屉布局" />
 
     <Button
@@ -23,32 +24,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/f2_tv1"
-        android:layout_toEndOf="@+id/f2_b1"
+        android:layout_toStartOf="@+id/f2_b3"
         android:text="2:预留按钮" />
 
     <Button
         android:id="@+id/f2_b3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_below="@+id/f2_tv1"
-        android:layout_toEndOf="@+id/f2_b2"
-        android:text="3:预留按钮" />
+        android:text="3:dagger2" />
 
     <Button
         android:id="@+id/f2_b4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/f2_b3"
-        android:layout_alignBottom="@+id/f2_b3"
-        android:layout_toEndOf="@+id/f2_b3"
-        android:text="4:预留按钮" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/f2_b1"
+        android:text="4:倒计时的测试" />
 
 
     <Button
         android:id="@+id/f2_bt1"
-        android:text="ssractivity"
+        android:text="sractivity"
         android:layout_below="@+id/f2_tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/f2_b5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/f2_b4"
+        android:layout_alignBottom="@+id/f2_b4"
+        android:layout_toEndOf="@+id/f2_b4"
+        android:text="5.daggermvp" />
+
+    <Button
+        android:id="@+id/f2_b6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/f2_b2"
+        android:layout_toEndOf="@+id/f2_b5"
+        android:text="6.okgo" />
 
 </RelativeLayout>

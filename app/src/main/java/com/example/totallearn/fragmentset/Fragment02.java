@@ -16,6 +16,10 @@ import com.example.totallearn.R;
 import com.example.totallearn.dagger_learn.mvp_login.LoginDaggerActivity;
 import com.example.totallearn.new_view_test.DrawerNavigationActivity;
 import com.example.totallearn.new_view_test.DrawerTestActivity;
+import com.example.totallearn.time_test.TimeActivity;
+import com.example.totallearn.utils.LogUtil;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.model.Response;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -118,7 +122,21 @@ public class Fragment02 extends Fragment {
                 startActivity(intent);
                 break;
             case R.id.f2_b4:
+
+                intent = new Intent(getActivity(), TimeActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.f2_b5:
+
+                break;
+            case R.id.f2_b6:
+
                 break;
         }
     }
+
+
+
+
 }

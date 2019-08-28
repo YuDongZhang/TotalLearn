@@ -42,7 +42,8 @@
         <activity android:name=".dagger_learn.register_login_4.Login_4Activity" />
         <activity android:name=".dagger_learn.register_login_6.RegisterLogin_6Activity" />
         <activity android:name=".dagger_learn.register_login_6.Login_6Activity" />
-        <activity android:name=".dagger_learn.register_login_7.Login_7Activity"></activity>
+        <activity android:name=".dagger_learn.register_login_7.Login_7Activity" />
+        <activity android:name=".time_test.TimeActivity"></activity>
     </application>
 
 </manifest>
