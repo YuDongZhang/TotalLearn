@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.totallearn.base.BaseActivity;
 import com.example.totallearn.fragmentset.Fragment01;
 import com.example.totallearn.fragmentset.Fragment02;
 import com.example.totallearn.fragmentset.Fragment03;
@@ -22,7 +23,7 @@ import com.example.totallearn.serviceset.TestService;
 /**
  * 在个人电脑上进行同步
  */
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     public static final String TAG = MainActivity.class.getSimpleName();
 

@@ -1,10 +1,10 @@
 package com.example.totallearn.utils;
 
-public class LogUtil {
+public class MyLogUtil {
     public static final String BIAOZHI = "TotalLearn";
     public static final boolean IS_PRINT_LOG = true;
 
-    public LogUtil() {
+    public MyLogUtil() {
     }
 
     public static void v(String tag, String msg) {

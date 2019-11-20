@@ -20,7 +20,7 @@ import android.widget.TextView;
 import com.example.totallearn.PdfActivity;
 import com.example.totallearn.R;
 import com.example.totallearn.serviceset.TestService;
-import com.example.totallearn.utils.LogUtil;
+import com.example.totallearn.utils.MyLogUtil;
 
 
 import java.util.regex.Matcher;
@@ -155,12 +155,12 @@ public class Fragment01 extends Fragment implements View.OnClickListener {
 
     @OnClick(R.id.f1_bt4)
     public void onViewClicked() {
-        LogUtil.i(TAG,"onclick");
+        MyLogUtil.i(TAG,"onclick");
         //<img src"manager/upload/5920032-2.gif\>"\u003e前伸\u003cimg src\u003d\"manager/upload/02003.gif\"\u003e时有早接触
         String s = "乳腺恶性淋巴瘤的声像图特征是：<img src\"manager/upload/5920032-2.gif\\>①肿块常单发，呈圆球状或分叶状②肿块常多发，形态不规则③肿块较大，常>10cm，少数<5cm④肿块较小，常<3cm⑤肿块边界清晰，有包膜样回声⑥肿块边界不清晰，无包膜样回声⑦内呈低回声均匀，后方声加强⑧内呈高回声，不均匀，后方声衰减";
         s = TextUtils.htmlEncode(s);
-      //  LogUtil.d(TAG, TextUtils.htmlEncode(s));
-     //   LogUtil.d(TAG, s);
+      //  MyLogUtil.d(TAG, TextUtils.htmlEncode(s));
+     //   MyLogUtil.d(TAG, s);
       //  f1Tv2.setText(getClickableHtml(s));
 
         test();
@@ -186,26 +186,26 @@ public class Fragment01 extends Fragment implements View.OnClickListener {
         // 现在创建 matcher 对象
         Matcher m = r.matcher(line);
         while (m.find( )) {
-            LogUtil.d(TAG,m.group());
+            MyLogUtil.d(TAG,m.group());
 
            line = line.replace(m.group(),"XX"+m.group().charAt(1));
 
         }
 
-        LogUtil.d(TAG,line);
+        MyLogUtil.d(TAG,line);
     }
 
 
     private CharSequence getClickableHtml(String html) {
         // Spanned spannedHtml = Html.fromHtml(html, imageGetter, null);
         Spanned spannedHtml = Html.fromHtml(html, null, null);
-        LogUtil.d(TAG,"  xxx  "+ html);
+        MyLogUtil.d(TAG,"  xxx  "+ html);
         SpannableStringBuilder clickableHtmlBuilder = new SpannableStringBuilder(spannedHtml);
 
        // ImageSpan[] urls = clickableHtmlBuilder.getSpans(0, spannedHtml.length(), ImageSpan.class);
-        LogUtil.v(TAG,"spannedHtml "+spannedHtml.length());
+        MyLogUtil.v(TAG,"spannedHtml "+spannedHtml.length());
        /* for (final ImageSpan span : urls) {
-            LogUtil.e(TAG,"span  "+span.getSource());
+            MyLogUtil.e(TAG,"span  "+span.getSource());
             if (span.getSource().equals("type")) {//自己加的图片标签，不用添加点击事件
 
                 continue;

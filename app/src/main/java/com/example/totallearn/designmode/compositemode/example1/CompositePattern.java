@@ -1,6 +1,6 @@
 package com.example.totallearn.designmode.compositemode.example1;
 
-import com.example.totallearn.utils.LogUtil;
+import com.example.totallearn.utils.MyLogUtil;
 
 import java.util.ArrayList;
 
@@ -61,7 +61,7 @@ class Leaf implements Component {
 
     @Override
     public void operation() {
-        LogUtil.d("树叶构件", name + "被访问");
+        MyLogUtil.d("树叶构件", name + "被访问");
     }
 }
 

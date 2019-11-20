@@ -1,6 +1,6 @@
 package com.example.totallearn.thread_set;
 
-import com.example.totallearn.utils.LogUtil;
+import com.example.totallearn.utils.MyLogUtil;
 
 /**
  * Created by pateo on 19-2-15.
@@ -28,7 +28,7 @@ public class ThreadTest {
         @Override
         public void run() {
             // 处理耗时逻辑
-            LogUtil.d("CustomThread", "这里执行耗时操作");
+            MyLogUtil.d("CustomThread", "这里执行耗时操作");
         }
     }
 
@@ -37,7 +37,7 @@ public class ThreadTest {
         @Override
         public void run() {
             // 处理耗时操作
-            LogUtil.d("CustomThread2","耗时操作");
+            MyLogUtil.d("CustomThread2","耗时操作");
         }
     }
 

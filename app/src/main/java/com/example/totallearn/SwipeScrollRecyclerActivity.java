@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
-import com.example.totallearn.utils.LogUtil;
+import com.example.totallearn.utils.MyLogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +78,7 @@ public static final String TAG = "SSRecycler";
                 }else if (view.getScrollY()==0){
                     swipelayout.setEnabled(true);
                 }
-              //  LogUtil.d(TAG ,"1 ="+i+"   i1 = "+i1 +"  i2 = "+i2+" i3 = "+i3+"   y  "+view.getScrollY());
+              //  MyLogUtil.d(TAG ,"1 ="+i+"   i1 = "+i1 +"  i2 = "+i2+" i3 = "+i3+"   y  "+view.getScrollY());
             }
         });
 
@@ -89,13 +89,13 @@ public static final String TAG = "SSRecycler";
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        LogUtil.d(TAG,"y "+motionEvent.getY());
+                        MyLogUtil.d(TAG,"y "+motionEvent.getY());
                         break;
                     case MotionEvent.ACTION_UP:
-                        LogUtil.d(TAG,"y "+motionEvent.getY());
+                        MyLogUtil.d(TAG,"y "+motionEvent.getY());
                         break;
                     case MotionEvent.ACTION_MOVE:
-                        LogUtil.d(TAG,"y "+motionEvent.getY());
+                        MyLogUtil.d(TAG,"y "+motionEvent.getY());
                         break;
                 }
                 return false;

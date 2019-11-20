@@ -1,6 +1,6 @@
 package com.example.totallearn.designmode.decoratormode.example2;
 
-import com.example.totallearn.utils.LogUtil;
+import com.example.totallearn.utils.MyLogUtil;
 
 /**
  * Created by pateo on 19-1-22.
@@ -34,7 +34,7 @@ class original implements Morrigan
     private String t="Morrigan0.jpg";
     public original()
     {
-        LogUtil.d("original","original构造");
+        MyLogUtil.d("original","original构造");
     }
     public void setImage(String t)
     {
@@ -42,7 +42,7 @@ class original implements Morrigan
     }
     public void display()
     {
-        LogUtil.d("original","display");
+        MyLogUtil.d("original","display");
     }
 }
 //抽象装饰角色：变形

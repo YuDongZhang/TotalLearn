@@ -2,11 +2,10 @@ package com.example.totallearn.dagger_learn.register_login_7;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.totallearn.MyApplication;
 import com.example.totallearn.R;
-import com.example.totallearn.utils.LogUtil;
+import com.example.totallearn.utils.MyLogUtil;
 
 import javax.inject.Inject;
 
@@ -21,7 +20,7 @@ public class Login_7Activity extends AppCompatActivity {
         setContentView(R.layout.activity_login_7);
 
         ((MyApplication)getApplicationContext()).getFComponent().addCComponent().Inject(this);
-        LogUtil.d("Login_7Activity", "onCreate: "+mUserStroe7);
+        MyLogUtil.d("Login_7Activity", "onCreate: "+mUserStroe7);
 
         /**
          * 首先我们先创建FComponent，他属于App级别的。我们在MyApplication创建它。FComponent中调用者提供CComponent。

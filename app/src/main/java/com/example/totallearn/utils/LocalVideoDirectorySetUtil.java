@@ -88,7 +88,7 @@ public class LocalVideoDirectorySetUtil {
 
 
    public void operateFileWithMenu(VideoList playListEntry) {
-        LogUtil.d(TAG, "In LocalVideoDirectorySetUtil:opreateFileWithMenu().");
+        MyLogUtil.d(TAG, "In LocalVideoDirectorySetUtil:opreateFileWithMenu().");
         try {
             if (playListEntry == null) {
                 return;
@@ -109,14 +109,14 @@ public class LocalVideoDirectorySetUtil {
             List<String> path = ExternalUsbPath.getUsbPath();
             //防止U盘已经插入,打开视频应用,path中存在/dev/null的路径,在RealMainActivity中
             for (String itemPath : path) {
-                LogUtil.d(TAG, "operateFileWithMenu:itemPath:" + itemPath);
+                MyLogUtil.d(TAG, "operateFileWithMenu:itemPath:" + itemPath);
                 if (itemPath.toLowerCase().contains("null")) {
                     ExternalUsbPath.addAllUsbPath(ExternalDevicesState.getUsbVolume(NetVideoApplication.getContext()));
                     path = ExternalUsbPath.getUsbPath();
                     break;
                 }
             }
-            LogUtil.d(TAG, "In LocalVideoDirectorySetUtil:path=" + path);
+            MyLogUtil.d(TAG, "In LocalVideoDirectorySetUtil:path=" + path);
             if (path.isEmpty()) {
                 return;
             }
@@ -125,7 +125,7 @@ public class LocalVideoDirectorySetUtil {
                 rootDir.add(getFileName(dir));
             }
 
-            LogUtil.d(TAG, "In LocalVideoDirectorySetUtil:rootDir=" + rootDir);
+            MyLogUtil.d(TAG, "In LocalVideoDirectorySetUtil:rootDir=" + rootDir);
             //临时根目录文件集,后面还要做U盘插入先后顺序排序,然后放到rootList中
             List<VideoEntry> tmpRootList = new ArrayList<>();
             //实际跟目录文件集
@@ -136,7 +136,7 @@ public class LocalVideoDirectorySetUtil {
                 String videoPath = videoEntry.getPath();
                 // 按照路径划分目录，并将目录保存起来
                 String[] menus = videoPath.split("/");
-                LogUtil.d(TAG, "In LocalVideoDirectorySetUtil:opreateFileWithMenu(),menus=" + menus);
+                MyLogUtil.d(TAG, "In LocalVideoDirectorySetUtil:opreateFileWithMenu(),menus=" + menus);
                 String dir = menus[menus.length - 2];
                 videoEntry.setInDirName(dir);
                 if (menus.length == 4) {
@@ -147,10 +147,10 @@ public class LocalVideoDirectorySetUtil {
                     //文件不在根目录下,放到map中 ,key是usbName/文件夹名称
                     String usbName = menus[2];
                     if (map.containsKey(usbName + "/" + dir)) {
-                        LogUtil.d(TAG, "In LocalVideoDirectorySetUtil:opreateFileWithMenu(),map.containsKey");
+                        MyLogUtil.d(TAG, "In LocalVideoDirectorySetUtil:opreateFileWithMenu(),map.containsKey");
                         map.get(usbName + "/" + dir).add(videoEntry);
                     } else {
-                        LogUtil.d(TAG, "In LocalVideoDirectorySetUtil:opreateFileWithMenu(),map not containsKey(menu)");
+                        MyLogUtil.d(TAG, "In LocalVideoDirectorySetUtil:opreateFileWithMenu(),map not containsKey(menu)");
                         List<VideoEntry> dirlist = new ArrayList<VideoEntry>();
                         dirlist.add(videoEntry);
                         map.put(usbName + "/" + dir, dirlist);
@@ -181,7 +181,7 @@ public class LocalVideoDirectorySetUtil {
                     rootList.add(videoEntry);
                 }
             }
-            LogUtil.d(TAG, "In LocalVideoDirectorySetUtil:opreateFileWithMenu(),dirlist size:" + dirList.size());
+            MyLogUtil.d(TAG, "In LocalVideoDirectorySetUtil:opreateFileWithMenu(),dirlist size:" + dirList.size());
             mVideoListNotInDirectory.addAll(dirList);
             mVideoListNotInDirectory.addAll(rootList);
             fileList.addAll(rootList);
@@ -219,12 +219,12 @@ public class LocalVideoDirectorySetUtil {
 
     //获取视频列表没有复制
     public ArrayList<VideoEntry> getVideoListNotDuplicated(List<VideoEntry> listParam) {
-        //LogUtil.d(TAG,"In LocalVideoDirectorySetUtil:checkListDuplicatedVideo().listParam="+listParam);
+        //MyLogUtil.d(TAG,"In LocalVideoDirectorySetUtil:checkListDuplicatedVideo().listParam="+listParam);
         ArrayList<VideoEntry> listRet = new ArrayList<VideoEntry>();
         boolean bTemp = false;
         for (int i = 0; i < listParam.size(); i++) {
             VideoEntry videoEntry = listParam.get(i);
-            //LogUtil.d(TAG,"In LocalVideoDirectorySetUtil:checkListDuplicatedVideo().videoEntry="+videoEntry);
+            //MyLogUtil.d(TAG,"In LocalVideoDirectorySetUtil:checkListDuplicatedVideo().videoEntry="+videoEntry);
             bTemp = checkLocalVideoIfDuplicated(mVideoListNotInDirectory, videoEntry);
             if (bTemp) {
                 continue;
@@ -260,15 +260,15 @@ public class LocalVideoDirectorySetUtil {
         }
         VideoEntry veRet = null;
         String vePath = veParam.getPath();
-        //LogUtil.d(TAG,"In LocalVideoDirectorySetUtil:getCopiedVideo().vePath="+vePath);
+        //MyLogUtil.d(TAG,"In LocalVideoDirectorySetUtil:getCopiedVideo().vePath="+vePath);
         int pos1 = vePath.lastIndexOf('.');
         String strSuffix = vePath.substring(pos1);
-        //LogUtil.d(TAG,"In LocalVideoDirectorySetUtil:getCopiedVideo().strSuffix="+strSuffix);
+        //MyLogUtil.d(TAG,"In LocalVideoDirectorySetUtil:getCopiedVideo().strSuffix="+strSuffix);
         int pos2 = vePath.lastIndexOf('/');
         String strPathPre = vePath.substring(0, pos2 + 1);
-        //LogUtil.d(TAG,"In LocalVideoDirectorySetUtil:getCopiedVideo().strPathPre="+strPathPre);
+        //MyLogUtil.d(TAG,"In LocalVideoDirectorySetUtil:getCopiedVideo().strPathPre="+strPathPre);
         String dirName = getVideoDirName(veParam);
-        //LogUtil.d(TAG,"In LocalVideoDirectorySetUtil:getCopiedVideo().dirName="+dirName);
+        //MyLogUtil.d(TAG,"In LocalVideoDirectorySetUtil:getCopiedVideo().dirName="+dirName);
         veRet = new VideoEntry();
         veRet.setName(dirName + strSuffix);
         veRet.setPath(strPathPre + veRet.getName());
@@ -289,7 +289,7 @@ public class LocalVideoDirectorySetUtil {
         }
         List<VideoEntry> videoListRet = null;
         for (Map.Entry<String, List<VideoEntry>> entry : map.entrySet()) {
-            //LogUtil.d(TAG,"In LocalVideoDirectorySetUtil:getVideoListByDirName().In for looop:entry.getKey()="+entry.getKey());
+            //MyLogUtil.d(TAG,"In LocalVideoDirectorySetUtil:getVideoListByDirName().In for looop:entry.getKey()="+entry.getKey());
             if (dirName.equals(entry.getKey())) {
                 Log.d(TAG, "In LocalVideoDirectorySetUtil:getVideoListByDirName().entry.getKey() equals dirName.");
                 videoListRet = entry.getValue();

@@ -3,7 +3,7 @@ package com.example.totallearn.dagger_learn.register_login_3;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.totallearn.utils.LogUtil;
+import com.example.totallearn.utils.MyLogUtil;
 
 /**
  * 两个构造方法   参数不同  , 可以查看 usermode 中怎么来进行创建的
@@ -16,7 +16,7 @@ public class ApiService3 {
     }
 
     public ApiService3(String url){
-        LogUtil.d(TAG, "ApiService4 "+url);
+        MyLogUtil.d(TAG, "ApiService4 "+url);
     }
 
 
