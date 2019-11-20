@@ -1,26 +1,30 @@
 package com.example.totallearn.fragmentset.frag04;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.example.totallearn.R;
 import com.example.totallearn.base.BaseActivity;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class OkhttpActivity extends BaseActivity {
@@ -29,41 +33,81 @@ public class OkhttpActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_okhttp);
+        ButterKnife.bind(this);
     }
 
-    OkHttpClient client = new OkHttpClient.Builder().readTimeout(5, TimeUnit.SECONDS).build();
 
-    public void synRequest() {
-        Request request = new Request.Builder().url("http://www.baidu.com").get().build();
+    @OnClick({R.id.oh_get, R.id.oh_post})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.oh_get:
+                okhttpGet();
+                break;
 
-        Call call = client.newCall(request);
+            case R.id.oh_post:
 
-        try {
-            Response response = call.execute();
-            System.out.print(response.body().string());
-        } catch (IOException e) {
-            e.printStackTrace();
+                break;
         }
-
-
     }
 
-    public void aynResquest(){
-        Request request = new Request.Builder().url("http://www.baidu.com").get().build();
-
-        Call call = client.newCall(request);
-        call.enqueue(new Callback() {
+    private void okhttpGet() {
+        //第一步获取okHttpClient对象
+        OkHttpClient client = new OkHttpClient.Builder().build();
+        //第二步构建Request对象
+        Request request = new Request.Builder()
+                .url("https://www.baidu.com")
+                .get()
+                .build();
+        //第三步构建Call对象
+        final Call call = client.newCall(request);
+        //第四步:异步get请求
+        call.enqueue(new Callback() {//记住这两个方法在子线程
             @Override
             public void onFailure(Call call, IOException e) {
-
+                LogUtils.i("onFailure", e.getMessage());
             }
-            //这个两个方法在工作线程
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                System.out.print(response.body().string());
+                //得到的子线程
+                String result = response.body().string();
+                LogUtils.i("result", result);
             }
         });
+
+        //第四步 同步请求  要在子线程
+       /* new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    //call.execute();//同步请求
+                    Response response = call.execute();
+                    LogUtils.d(TAG, response.body().string());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();*/
+
     }
+
+
+    private void okhttpPost(){
+        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        RequestBody requestBody = new FormBody().Builder().add
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     /*
      OkHttpClient -->Request -->Call call = client.newCall(request);
      -->Response response = call.execute()
@@ -71,7 +115,7 @@ public class OkhttpActivity extends BaseActivity {
      */
 
 
-    public void rxjavaTest(){
+    public void rxjavaTest() {
         Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override
             public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
@@ -101,6 +145,8 @@ public class OkhttpActivity extends BaseActivity {
                     }
                 });
     }
+
+
     /*
     其实本来 是  Observable.subscribe(Observer),不过是被观察者需要操作符，
     subscribeOn(): 指定Observable(被观察者)所在的线程，或者叫做事件产生的线程。

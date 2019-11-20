@@ -10,9 +10,11 @@
         android:textSize="35sp" />
 
     <TextView
+        android:background="@color/colorAccent"
+        android:padding="3dp"
         android:textSize="20sp"
         android:layout_marginTop="50dp"
-        android:id="@+id/f4_t1"
+        android:id="@+id/f4_tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="okhttp" />
