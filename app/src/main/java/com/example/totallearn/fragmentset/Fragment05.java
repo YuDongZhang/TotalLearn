@@ -69,7 +69,7 @@ public class Fragment05 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG,"onCreateView");
-        View view = inflater.inflate(R.layout.fragment_01,container,false);
+        View view = inflater.inflate(R.layout.fragment_05,container,false);
         return view;
     }
 

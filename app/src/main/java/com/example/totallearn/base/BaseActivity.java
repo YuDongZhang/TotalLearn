@@ -2,6 +2,7 @@ package com.example.totallearn.base;
 
 import android.support.v7.app.AppCompatActivity;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.example.totallearn.utils.MyLogUtil;
 
 /**
@@ -14,6 +15,6 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        MyLogUtil.d(TAG,"onResume");
+        LogUtils.d(TAG,"onResume");
     }
 }

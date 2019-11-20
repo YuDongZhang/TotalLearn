@@ -19,6 +19,8 @@ import android.widget.TextView;
 
 import com.example.totallearn.PdfActivity;
 import com.example.totallearn.R;
+import com.example.totallearn.base.BaseActivity;
+import com.example.totallearn.base.BaseFragment;
 import com.example.totallearn.serviceset.TestService;
 import com.example.totallearn.utils.MyLogUtil;
 
@@ -35,7 +37,7 @@ import butterknife.Unbinder;
  * Created by pateo on 18-12-27.
  */
 
-public class Fragment01 extends Fragment implements View.OnClickListener {
+public class Fragment01 extends BaseFragment implements View.OnClickListener {
 
     public static final String TAG = Fragment01.class.getSimpleName();
     @BindView(R.id.f1_tv2)

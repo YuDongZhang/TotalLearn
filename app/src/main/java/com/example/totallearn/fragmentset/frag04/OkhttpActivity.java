@@ -1,9 +1,10 @@
-package com.example.totallearn.okhttplearn;
+package com.example.totallearn.fragmentset.frag04;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.totallearn.R;
+import com.example.totallearn.base.BaseActivity;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -22,7 +23,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class OkhttpActivity extends AppCompatActivity {
+public class OkhttpActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

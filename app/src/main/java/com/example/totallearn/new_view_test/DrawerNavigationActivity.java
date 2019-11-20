@@ -1,6 +1,5 @@
 package com.example.totallearn.new_view_test;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -9,16 +8,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +21,7 @@ import com.example.totallearn.R;
 import com.example.totallearn.fragmentset.Fragment01;
 import com.example.totallearn.fragmentset.Fragment02;
 import com.example.totallearn.fragmentset.Fragment03;
-import com.example.totallearn.fragmentset.Fragment04;
+import com.example.totallearn.fragmentset.frag04.Fragment04;
 
 import java.util.ArrayList;
 import java.util.List;

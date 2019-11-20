@@ -1,41 +1,31 @@
 package com.example.totallearn;
 
 import android.content.Intent;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
-import android.widget.Button;
 
 import com.example.totallearn.base.BaseActivity;
 import com.example.totallearn.fragmentset.Fragment01;
 import com.example.totallearn.fragmentset.Fragment02;
 import com.example.totallearn.fragmentset.Fragment03;
-import com.example.totallearn.fragmentset.Fragment04;
+import com.example.totallearn.fragmentset.frag04.Fragment04;
 import com.example.totallearn.fragmentset.Fragment05;
 import com.example.totallearn.fragmentset.Fragment06;
 import com.example.totallearn.fragmentset.Fragment07;
 import com.example.totallearn.fragmentset.Fragment08;
 import com.example.totallearn.fragmentset.Fragment09;
-import com.example.totallearn.serviceset.TestService;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 在个人电脑上进行同步
  */
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity {
 
     public static final String TAG = MainActivity.class.getSimpleName();
 
-    private Button bt1;
-    private Button bt2;
-    private Button bt3;
-    private Button bt4;
-    private Button bt5;
-    private Button bt6;
-    private Button bt7;
-    private Button bt8;
-    private Button bt9;
 
     private Fragment01 mFragment01;
     private Fragment02 mFragment02;
@@ -51,44 +41,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         //test();
-        initView();
+
 
         showFragment(2);//预加载第一页
 
     }
 
     private void test() {
-        Intent intent = new Intent(this,SwipeScrollRecyclerActivity.class);
+        Intent intent = new Intent(this, SwipeScrollRecyclerActivity.class);
         startActivity(intent);
     }
 
-    private void initView() {
-        bt1 = findViewById(R.id.bt_1);
-        bt2 = findViewById(R.id.bt_2);
-        bt3 = findViewById(R.id.bt_3);
-        bt4 = findViewById(R.id.bt_4);
-        bt5 = findViewById(R.id.bt_5);
-        bt6 = findViewById(R.id.bt_6);
-        bt7 = findViewById(R.id.bt_7);
-        bt8 = findViewById(R.id.bt_8);
-        bt9 = findViewById(R.id.bt_9);
 
-        bt1.setOnClickListener(this);
-        bt2.setOnClickListener(this);
-        bt3.setOnClickListener(this);
-        bt4.setOnClickListener(this);
-        bt5.setOnClickListener(this);
-        bt6.setOnClickListener(this);
-        bt7.setOnClickListener(this);
-        bt8.setOnClickListener(this);
-        bt9.setOnClickListener(this);
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4, R.id.bt_5, R.id.bt_6, R.id.bt_7, R.id.bt_8, R.id.bt_9})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
             case R.id.bt_1:
                 showFragment(1);
                 break;
@@ -114,10 +83,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 showFragment(8);
                 break;
             case R.id.bt_9:
-                showFragment(9);//暂时用做测试
+                showFragment(9);
                 break;
         }
     }
+
+
 
     public void showFragment(int index) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -232,4 +203,5 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
     }
+
 }

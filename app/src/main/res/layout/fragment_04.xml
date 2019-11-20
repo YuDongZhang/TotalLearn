@@ -2,11 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <TextView
-        android:text="Fragment04"
-        android:textSize="35sp"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        android:text="Fragment04"
+        android:textSize="35sp" />
+
+    <TextView
+        android:textSize="20sp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/f4_t1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="okhttp" />
 
     <Button
         android:id="@+id/f4_bt1"

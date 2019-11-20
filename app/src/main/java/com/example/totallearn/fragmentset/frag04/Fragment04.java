@@ -1,4 +1,4 @@
-package com.example.totallearn.fragmentset;
+package com.example.totallearn.fragmentset.frag04;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by pateo on 18-12-27.
+ * 需要给出相关文章的网址
  */
 
 public class Fragment04 extends Fragment {
@@ -33,11 +33,6 @@ public class Fragment04 extends Fragment {
             TimeUnit.SECONDS,//上面时间属性的单位
             new LinkedBlockingDeque<Runnable>(100));//任务队列
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        Log.d(TAG,"onAttach");
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
