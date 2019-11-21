@@ -140,13 +140,19 @@ public class Fragment04 extends Fragment {
     }
 
 
-    @OnClick({R.id.f4_tv1, R.id.f4_bt1})
+    @OnClick({R.id.f4_tv1, R.id.f4_bt1, R.id.f4_tv2})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f4_tv1:
-                Intent intent = new Intent(mMainActivity,OkhttpActivity.class);
+                Intent intent = new Intent(mMainActivity, OkhttpActivity.class);
                 startActivity(intent);
                 break;
+
+            case R.id.f4_tv2:
+                intent = new Intent(mMainActivity, RxjavaActivity.class);
+                startActivity(intent);
+                break;
+
 
             case R.id.f4_bt1:
                 break;

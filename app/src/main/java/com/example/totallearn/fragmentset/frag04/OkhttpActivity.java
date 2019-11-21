@@ -28,7 +28,10 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class OkhttpActivity extends BaseActivity {
-
+    //https://www.jianshu.com/p/10382cc71127
+    //https://blog.csdn.net/Vazzz/article/details/84099982
+    //https://www.jianshu.com/p/9e7937e174ab
+    //用法记忆 : OkHttpClient  Request  call  客户请求(请求实体)呼叫
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +48,7 @@ public class OkhttpActivity extends BaseActivity {
                 break;
 
             case R.id.oh_post:
-
+                okhttpPost();
                 break;
         }
     }
@@ -71,7 +74,8 @@ public class OkhttpActivity extends BaseActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 //得到的子线程
                 String result = response.body().string();
-                LogUtils.i("result", result);
+               // LogUtils.i("result", result);
+                LogUtils.xml(result);
             }
         });
 
@@ -91,17 +95,36 @@ public class OkhttpActivity extends BaseActivity {
 
     }
 
+    //这个是他的post请求
+    private void okhttpPost() {//如果再pdxx测试要打开wifi
+        //第一步创建OKHttpClient
+        OkHttpClient client = new OkHttpClient.Builder()
+                .build();
+        //第二步创建RequestBody（Form表达）
+        RequestBody body = new FormBody.Builder()
+                .add("lectureFlow", "eea5f95d0d524b73859fb629750d52eb")
+                .build();
+        //第三步创建Rquest
+        Request request = new Request.Builder()
+                .url("http://192.168.2.96:9090/pdapp/res/gydxj/admin/getLecture")
+                .post(body)
+                .build();
+        //第四步创建call回调对象
+        final Call call = client.newCall(request);
+        //第五步发起请求
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                LogUtils.i("onFailure", e.getMessage());
+            }
 
-    private void okhttpPost(){
-        OkHttpClient client = new OkHttpClient().newBuilder().build();
-        RequestBody requestBody = new FormBody().Builder().add
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String result = response.body().string();
+                LogUtils.d("result", result);
+            }
+        });
     }
-
-
-
-
-
-
 
 
 
