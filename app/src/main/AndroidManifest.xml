@@ -44,7 +44,8 @@
         <activity android:name=".dagger_learn.register_login_6.Login_6Activity" />
         <activity android:name=".dagger_learn.register_login_7.Login_7Activity" />
         <activity android:name=".time_test.TimeActivity" />
-        <activity android:name=".fragmentset.frag04.RxjavaActivity"></activity>
+        <activity android:name=".fragmentset.frag04.RxjavaActivity" />
+        <activity android:name=".mvvm_set.MvvMActivity"></activity>
     </application>
 
 </manifest>
