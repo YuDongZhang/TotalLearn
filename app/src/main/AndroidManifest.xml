@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+
 
     <application
         android:name=".MyApplication"
@@ -45,7 +47,8 @@
         <activity android:name=".dagger_learn.register_login_7.Login_7Activity" />
         <activity android:name=".time_test.TimeActivity" />
         <activity android:name=".fragmentset.frag04.RxjavaActivity" />
-        <activity android:name=".mvvm_set.MvvMActivity"></activity>
+        <activity android:name=".mvvm_set.MvvMActivity" />
+        <activity android:name=".fragmentset.frag04.RetrofitActivity"></activity>
     </application>
 
 </manifest>

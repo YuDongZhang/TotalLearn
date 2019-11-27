@@ -17,7 +17,7 @@ android {
         }
     }
 
-    dataBinding{
+    dataBinding {//这个是为 mvvm 来进行准备的
         enabled = true
     }
 }
@@ -32,6 +32,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    api 'com.squareup.retrofit2:converter-gson:2.0.2'//gosn数据解析
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.0.2'//rxjava支持
+
     //butterknife
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
@@ -48,6 +51,8 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
     //工具类 超级
     implementation 'com.blankj:utilcode:1.23.7'
+    //权限请求
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
 
     //dagger2
     compile 'com.google.dagger:dagger:2.19'
