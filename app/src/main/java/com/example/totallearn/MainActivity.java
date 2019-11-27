@@ -1,12 +1,14 @@
 package com.example.totallearn;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.example.totallearn.base.BaseActivity;
-import com.example.totallearn.fragmentset.Fragment01;
+import com.example.totallearn.fragmentset.frag01.Fragment01;
 import com.example.totallearn.fragmentset.Fragment02;
 import com.example.totallearn.fragmentset.Fragment03;
 import com.example.totallearn.fragmentset.frag04.Fragment04;
@@ -15,9 +17,11 @@ import com.example.totallearn.fragmentset.Fragment06;
 import com.example.totallearn.fragmentset.Fragment07;
 import com.example.totallearn.fragmentset.Fragment08;
 import com.example.totallearn.fragmentset.Fragment09;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.functions.Consumer;
 
 /**
  * 在个人电脑上进行同步
@@ -44,10 +48,28 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
         //test();
 
-
         showFragment(2);//预加载第一页
 
+        requestPermissions();
+
     }
+
+    private void requestPermissions(){
+        RxPermissions rxPermissions = new RxPermissions(MainActivity.this);
+        rxPermissions.request(Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .subscribe(new Consumer<Boolean>() { //observer 也可以,代码多一点
+                               @Override
+                               public void accept(Boolean aBoolean) throws Exception {
+                                   if (aBoolean){
+                                       ToastUtils.showShort("权限开启");
+                                   }else {
+                                       ToastUtils.showShort("去权限设置打开权限,方便使用");
+                                   }
+                               }
+                           });
+    }
+
+
 
     private void test() {
         Intent intent = new Intent(this, SwipeScrollRecyclerActivity.class);

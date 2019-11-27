@@ -52,6 +52,11 @@
         android:layout_below="@+id/f1_bt3"
         android:text="图文混排测试" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
 
     <RelativeLayout
         android:layout_width="100dp"

@@ -1,11 +1,10 @@
-package com.example.totallearn.fragmentset;
+package com.example.totallearn.fragmentset.frag01;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -19,7 +18,6 @@ import android.widget.TextView;
 
 import com.example.totallearn.PdfActivity;
 import com.example.totallearn.R;
-import com.example.totallearn.base.BaseActivity;
 import com.example.totallearn.base.BaseFragment;
 import com.example.totallearn.serviceset.TestService;
 import com.example.totallearn.utils.MyLogUtil;
