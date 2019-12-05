@@ -60,5 +60,10 @@ dependencies {
 
     //okgo
     compile 'com.lzy.net:okgo:3.0.4'
+
+    //鲁班
+    implementation 'top.zibin:Luban:1.1.8'
+
+
     implementation project(':library')
 }
