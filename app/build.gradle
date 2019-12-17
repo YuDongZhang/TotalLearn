@@ -20,6 +20,13 @@ android {
     dataBinding {//这个是为 mvvm 来进行准备的
         enabled = true
     }
+
+    externalNativeBuild {//这个是为了设置cmake版本
+        cmake {
+
+            version "3.10.2"
+        }
+    }
 }
 
 dependencies {
@@ -53,6 +60,8 @@ dependencies {
     implementation 'com.blankj:utilcode:1.23.7'
     //权限请求
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+
+
 
     //dagger2
     compile 'com.google.dagger:dagger:2.19'

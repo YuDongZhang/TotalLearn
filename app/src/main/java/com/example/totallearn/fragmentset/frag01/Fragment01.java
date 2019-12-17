@@ -1,10 +1,13 @@
 package com.example.totallearn.fragmentset.frag01;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -29,6 +32,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+
+import static com.example.totallearn.R.color.SkyBlue;
 
 /**
  * Created by pateo on 18-12-27.
@@ -118,7 +123,7 @@ public class Fragment01 extends BaseFragment {
         Log.d(TAG, "onDestroy");
     }
 
-    @OnClick({R.id.f1_bt1, R.id.f1_bt2, R.id.f1_bt5, R.id.f1_bt3, R.id.f1_bt4, R.id.f1_tv2, R.id.f1_tv3})
+    @OnClick({R.id.f1_bt1, R.id.f1_bt2, R.id.f1_bt5, R.id.f1_bt3, R.id.f1_bt4, R.id.f1_tv2, R.id.f1_tv3, R.id.f1_tv4})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f1_bt1:
@@ -145,11 +150,46 @@ public class Fragment01 extends BaseFragment {
 
                 break;
             case R.id.f1_tv3:
-                intent = new Intent(getActivity(),ImgCompressActivity.class);
+                intent = new Intent(getActivity(), ImgCompressActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.f1_tv4:
+                showDialog();
+                break;
+
+
         }
     }
+
+
+    private void showDialog() {
+        AlertDialog alertDialog = new AlertDialog.Builder(getActivity())
+                .setTitle("这是标题")
+                .setMessage("")
+                .setIcon(R.mipmap.ic_launcher)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        MyLogUtil.d(TAG,"点击了确定");
+                    }
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        MyLogUtil.d(TAG,"点击取消");
+                    }
+                })
+                /*.setNeutralButton("普通按钮", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        MyLogUtil.d(TAG,"普通按钮");
+                    }
+                })*/
+                .create();
+        alertDialog.show();
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.SkyBlue));
+    }
+
 
     private void test4() {
         MyLogUtil.i(TAG, "onclick");
