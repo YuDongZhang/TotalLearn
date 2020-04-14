@@ -3,7 +3,6 @@ package com.example.totallearn.fragmentset.frag01;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,9 +18,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.example.totallearn.PdfActivity;
 import com.example.totallearn.R;
 import com.example.totallearn.base.BaseFragment;
+import com.example.totallearn.ndkdemo.NDKTools;
 import com.example.totallearn.serviceset.TestService;
 import com.example.totallearn.utils.MyLogUtil;
 
@@ -33,8 +34,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
-import static com.example.totallearn.R.color.SkyBlue;
-
 /**
  * Created by pateo on 18-12-27.
  */
@@ -45,6 +44,9 @@ public class Fragment01 extends BaseFragment {
     @BindView(R.id.f1_tv2)
     TextView f1Tv2;
     Unbinder unbinder;
+    @BindView(R.id.item_progress)
+    ItemProgress itemProgress;
+
     private Button f01bt1;
     private Button f01bt3;
 
@@ -71,6 +73,10 @@ public class Fragment01 extends BaseFragment {
         Log.d(TAG, "onCreateView");
         View view = inflater.inflate(R.layout.fragment_01, container, false);
         unbinder = ButterKnife.bind(this, view);
+        itemProgress.setProgress(50);
+        itemProgress.setMax(100);
+        itemProgress.setDays("10");
+
         return view;
     }
 
@@ -123,7 +129,8 @@ public class Fragment01 extends BaseFragment {
         Log.d(TAG, "onDestroy");
     }
 
-    @OnClick({R.id.f1_bt1, R.id.f1_bt2, R.id.f1_bt5, R.id.f1_bt3, R.id.f1_bt4, R.id.f1_tv2, R.id.f1_tv3, R.id.f1_tv4})
+    @OnClick({R.id.f1_bt1, R.id.f1_bt2, R.id.f1_bt5, R.id.f1_bt3, R.id.f1_bt4, R.id.f1_tv2, R.id.f1_tv3, R.id.f1_tv4,
+            R.id.f1_tv8, R.id.f1_tv9, R.id.f1_tv10})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f1_bt1:
@@ -156,8 +163,21 @@ public class Fragment01 extends BaseFragment {
             case R.id.f1_tv4:
                 showDialog();
                 break;
+            case R.id.f1_tv8:
+                String s = NDKTools.getStringFromNDK();
+                LogUtils.d(s);
+                break;
+            case R.id.f1_tv9:
 
+                if (0 == Double.valueOf("0.0")) {
+                    LogUtils.d("成功");
+                }
+                break;
 
+            case R.id.f1_tv10:
+                intent = new Intent(getActivity(), FragmentBackActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 
@@ -170,13 +190,13 @@ public class Fragment01 extends BaseFragment {
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        MyLogUtil.d(TAG,"点击了确定");
+                        MyLogUtil.d(TAG, "点击了确定");
                     }
                 })
                 .setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        MyLogUtil.d(TAG,"点击取消");
+                        MyLogUtil.d(TAG, "点击取消");
                     }
                 })
                 /*.setNeutralButton("普通按钮", new DialogInterface.OnClickListener() {
@@ -194,7 +214,9 @@ public class Fragment01 extends BaseFragment {
     private void test4() {
         MyLogUtil.i(TAG, "onclick");
         //<img src"manager/upload/5920032-2.gif\>"\u003e前伸\u003cimg src\u003d\"manager/upload/02003.gif\"\u003e时有早接触
-        String s = "乳腺恶性淋巴瘤的声像图特征是：<img src\"manager/upload/5920032-2.gif\\>①肿块常单发，呈圆球状或分叶状②肿块常多发，形态不规则③肿块较大，常>10cm，少数<5cm④肿块较小，常<3cm⑤肿块边界清晰，有包膜样回声⑥肿块边界不清晰，无包膜样回声⑦内呈低回声均匀，后方声加强⑧内呈高回声，不均匀，后方声衰减";
+        String s = "乳腺恶性淋巴瘤的声像图特征是：<img src\"manager/upload/5920032-2.gif\\>①肿块常单发，呈圆球状或分叶状②肿块常多发，" +
+                "形态不规则③肿块较大，常>10cm，少数<5cm④肿块较小，常<3cm⑤肿块边界清晰，有包膜样回声⑥肿块边界不清晰，无包膜样回声⑦内呈低回声均匀，" +
+                "后方声加强⑧内呈高回声，不均匀，后方声衰减";
         s = TextUtils.htmlEncode(s);
         //  MyLogUtil.d(TAG, TextUtils.htmlEncode(s));
         //   MyLogUtil.d(TAG, s);

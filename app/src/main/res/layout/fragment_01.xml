@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -94,20 +95,104 @@
 
 
             <LinearLayout
-                android:padding="5dp"
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:padding="5dp"
-                    android:background="@color/SkyBlue"
-                    android:text="弹窗"
                     android:id="@+id/f1_tv4"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@color/SkyBlue"
+                    android:padding="5dp"
+                    android:text="弹窗" />
+
+                <TextView
+                    android:id="@+id/f1_tv5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@color/SkyBlue"
+                    android:padding="5dp"
+                    android:text="自定义弹窗" />
+
+                <TextView
+                    android:id="@+id/f1_tv6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@color/SkyBlue"
+                    android:padding="5dp"
+                    android:text="popuwindow" />
+
+                <TextView
+                    android:id="@+id/f1_tv7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@color/SkyBlue"
+                    android:padding="5dp"
+                    android:text="dilogFragment" />
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/f1_tv8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@color/yellow"
+                    android:padding="5dp"
+                    android:text="jni老方式" />
+
+                <TextView
+                    android:id="@+id/f1_tv9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@color/yellow"
+                    android:padding="5dp"
+                    android:text="cmake方式" />
+
+                <TextView
+                    android:id="@+id/f1_tv10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@color/yellow"
+                    android:padding="5dp"
+                    android:text="fragment回退栈" />
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+
+                <com.github.lzyzsd.circleprogress.ItemProgress
+                    android:id="@+id/item_progress"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    app:donut_finished_stroke_width="3dp"
+                    app:donut_progress="0"
+                    app:donut_text_color="#000"
+                    app:donut_text_size="9sp"
+                    app:donut_unfinished_stroke_width="2dp" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
 

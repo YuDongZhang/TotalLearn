@@ -48,7 +48,8 @@
         <activity android:name=".fragmentset.frag04.RxjavaActivity" />
         <activity android:name=".mvvm_set.MvvMActivity" />
         <activity android:name=".fragmentset.frag04.RetrofitActivity" />
-        <activity android:name=".fragmentset.frag01.ImgCompressActivity"></activity>
+        <activity android:name=".fragmentset.frag01.ImgCompressActivity" />
+        <activity android:name=".fragmentset.frag01.FragmentBackActivity"></activity>
     </application>
 
 </manifest>

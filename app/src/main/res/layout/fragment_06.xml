@@ -7,4 +7,14 @@
         android:textSize="35sp"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
+
+    <TextView
+        android:text="66测试"
+        android:id="@+id/f6_t1"
+        android:textSize="20sp"
+        android:padding="5dp"
+        android:layout_marginTop="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>
