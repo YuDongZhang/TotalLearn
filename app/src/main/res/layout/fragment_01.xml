@@ -179,7 +179,7 @@
                 android:layout_height="100dp"
                 android:orientation="horizontal">
 
-                <com.github.lzyzsd.circleprogress.ItemProgress
+                <com.example.totallearn.fragmentset.frag01.ItemProgress
                     android:id="@+id/item_progress"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
