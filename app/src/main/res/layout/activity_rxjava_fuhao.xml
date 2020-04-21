@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.totallearn.fragmentset.frag04.RxjavaActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+       <!-- <TextView
+            android:id="@+id/Action_0"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Action_0"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/Action_1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Action_1"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/Action_1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Action_1"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/Consumer"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Consumer"
+            android:textSize="15sp" />
+-->
+        <TextView
+            android:id="@+id/create"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Create"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Map"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/zip"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Zip"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/concat"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Concat"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/flat_map"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="FlatMap"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/concat_map"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="concatMap"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/distinct"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="distinct"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/filter"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Filter"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/buffer"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="buffer"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="timer"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/interval"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="interval"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/doOnNext"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="doOnNext"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/skip"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="skip"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/take"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="take"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/just"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="just"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/Single"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Single"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/debounce"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="debounce"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/defer"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="defer"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/last"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="last"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/merge"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="merge"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/reduce"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="reduce"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/scan"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="scan"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/window"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="window"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+
+</ScrollView>

@@ -6,21 +6,55 @@
     android:layout_height="match_parent"
     tools:context="com.example.totallearn.fragmentset.frag04.RxjavaActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-      <TextView
-          android:text="测试1"
-          android:id="@+id/tv1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content">
-
-      </TextView>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="测试方法一"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="测试方法二"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="测试方法三"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv4"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/selector_rxjava_item"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="测试方法四"
+            android:textSize="15sp" />
 
 
-    </RelativeLayout>
+
+
+    </LinearLayout>
 
 </ScrollView>

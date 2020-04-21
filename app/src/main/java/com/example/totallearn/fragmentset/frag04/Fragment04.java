@@ -140,7 +140,7 @@ public class Fragment04 extends Fragment {
     }
 
 
-    @OnClick({R.id.f4_tv1, R.id.f4_bt1, R.id.f4_tv2})
+    @OnClick({R.id.f4_tv1, R.id.f4_bt1, R.id.f4_tv2,R.id.f4_tv3})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f4_tv1:
@@ -153,9 +153,14 @@ public class Fragment04 extends Fragment {
                 startActivity(intent);
                 break;
 
-
             case R.id.f4_bt1:
                 break;
+
+            case R.id.f4_tv3:
+                intent = new Intent(mMainActivity, RxjavaActivity.class);
+                startActivity(intent);
+                break;
+
         }
     }
 }
