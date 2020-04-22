@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.example.totallearn.R;
 import com.example.totallearn.fragmentset.frag01.Fragment01;
-import com.example.totallearn.fragmentset.Fragment02;
+import com.example.totallearn.fragmentset.frag02.Fragment02;
 import com.example.totallearn.fragmentset.Fragment03;
 import com.example.totallearn.fragmentset.frag04.Fragment04;
 
