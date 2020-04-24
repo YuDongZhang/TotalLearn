@@ -20,11 +20,10 @@ import com.example.totallearn.new_view_test.DrawerTestActivity;
 import com.example.totallearn.time_test.TimeActivity;
 import com.example.totallearn.utils.MyLogUtil;
 import com.lzy.okgo.OkGo;
-import com.lzy.okgo.callback.Callback;
-import com.lzy.okgo.model.Progress;
+import com.lzy.okgo.callback.FileCallback;
 import com.lzy.okgo.model.Response;
-import com.lzy.okgo.request.base.Request;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.HashMap;
@@ -127,49 +126,38 @@ public class Fragment02 extends Fragment {
     }
 
 
-    @OnClick({R.id.f2_b1, R.id.f2_b2, R.id.f2_b3, R.id.f2_b4,R.id.f2_b5,R.id.f2_b6})
+    @OnClick({R.id.f2_b1, R.id.f2_b2, R.id.f2_b3, R.id.f2_b4, R.id.f2_b5, R.id.f2_b6})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f2_b1:
                 Intent intent = new Intent(getActivity(), DrawerTestActivity.class);
                 startActivity(intent);
                 break;
+
             case R.id.f2_b2:
                 intent = new Intent(getActivity(), DrawerNavigationActivity.class);
                 startActivity(intent);
                 break;
+
             case R.id.f2_b3:
                 intent = new Intent(getActivity(), LoginDaggerActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.f2_b4:
 
+            case R.id.f2_b4:
                 intent = new Intent(getActivity(), TimeActivity.class);
                 startActivity(intent);
                 break;
 
             case R.id.f2_b5:
-
-                /*Call<UserEntity> call = retrofit.create(TestApi.class).getPostData2("@teh666",
-                        "130923199212011021",
-                        "[{\"evalScore\":\"4.0\",\"targetFlow\":\"a0be0c778c2943fdb48fa288fcc8b04b\",\"targetName\":\"活动开展规范，顺利\"}]"
-                );*/
-                final Map< String, String > paramsMap = new HashMap<>();
-                paramsMap.put("userPasswd","@teh666");
-                paramsMap.put("userCode","130923199212011021");
-                paramsMap.put("test","[{\"evalScore\":\"4.0\",\"targetFlow\":\"a0be0c778c2943fdb48fa288fcc8b04b\",\"targetName\":\"活动开展规范，顺利\"}]");
-
-//      append( "username", account ).
-//        append( "password",URLEncoded(password) ).
-//        build();
-
-//https://blog.csdn.net/u010126792/article/details/82422139
-
+                final Map<String, String> paramsMap = new HashMap<>();
+                paramsMap.put("userPasswd", "@teh666");
+                paramsMap.put("userCode", "130923199212011021");
                 Call<UserEntity> call = retrofit.create(TestApi.class).getPostData2(paramsMap);
                 call.enqueue(new retrofit2.Callback<UserEntity>() {
                     @Override
                     public void onResponse(Call<UserEntity> call, retrofit2.Response<UserEntity> response) {
-                        LogUtils.d("成功"+response.message());
+                        LogUtils.d("成功" + response.message());
                     }
 
                     @Override
@@ -178,6 +166,7 @@ public class Fragment02 extends Fragment {
                     }
                 });
                 break;
+
             case R.id.f2_b6:
                 testOkgo();
                 break;
@@ -188,14 +177,14 @@ public class Fragment02 extends Fragment {
     //自定义OkHttpClient
     OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder();
 
-    public void add(){
+    public void add() {
         okHttpClient.addInterceptor(new Interceptor() {
             @Override
             public okhttp3.Response intercept(Chain chain) throws IOException {
                 //获得请求信息，此处如有需要可以添加headers信息
                 okhttp3.Request request = chain.request();
                 //添加Cookie信息
-                request.newBuilder().addHeader("Cookie","aaaa");
+                request.newBuilder().addHeader("Cookie", "aaaa");
                 //打印请求信息
                 System.out.println("url:" + request.url());
                 System.out.println("method:" + request.method());
@@ -212,15 +201,13 @@ public class Fragment02 extends Fragment {
                 }
                 long tookMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNs);
                 //打印请求耗时
-                System.out.println("耗时:"+tookMs+"ms");
+                System.out.println("耗时:" + tookMs + "ms");
                 //使用response获得headers(),可以更新本地Cookie。
                 System.out.println("headers==========");
                 Headers headers = response.headers();
                 System.out.println(headers.toString());
-
                 //获得返回的body，注意此处不要使用responseBody.string()获取返回数据，原因在于这个方法会消耗返回结果的数据(buffer)
                 ResponseBody responseBody = response.body();
-
                 //为了不消耗buffer，我们这里使用source先获得buffer对象，然后clone()后使用
                 BufferedSource source = responseBody.source();
                 source.request(Long.MAX_VALUE); // Buffer the entire body.
@@ -235,61 +222,21 @@ public class Fragment02 extends Fragment {
         retrofit = new Retrofit.Builder()
                 .baseUrl("http://47.99.88.134:8080/pdapp/res/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(okHttpClient.build())
+                .client(okHttpClient.build())//添加了定义的拦截器
                 .build();
     }
 
 
-
-
-
-
-
-    private void testOkgo(){
-        MyLogUtil.d(TAG,"点击了");
-        OkGo.<UserEntity>post("http://47.99.88.134:8080/pdapp/res/gzdh/login").tag(this)
-                .params("userPasswd","@teh666")
-                .params("userCode","130923199212011021")
-                .params("test","[{\"evalScore\":\"4.0\",\"targetFlow\":\"a0be0c778c2943fdb48fa288fcc8b04b\",\"targetName\":\"活动开展规范，顺利\"}]")
-                .execute(new Callback<UserEntity>() {
+    private void testOkgo() {
+        MyLogUtil.d(TAG, "点击了");
+        OkGo.<File>get("http://192.168.2.235:8080/pdapp/res/gzdh/student/downFile?fileFlow=ee565c6033c34a2d8259f6c582c980b0").tag(this)
+                //也可以不指定名字 在 filecallback中不传值 , 也可以拿到名字, 把路径返回出去就可以了
+                .execute(new FileCallback("/storage/emulated/0/download/","abc.xls") {
                     @Override
-                    public void onStart(Request<UserEntity, ? extends Request> request) {
-
-                    }
-
-                    @Override
-                    public void onSuccess(Response<UserEntity> response) {
-
-                    }
-
-                    @Override
-                    public void onCacheSuccess(Response<UserEntity> response) {
-
-                    }
-
-                    @Override
-                    public void onError(Response<UserEntity> response) {
-
-                    }
-
-                    @Override
-                    public void onFinish() {
-
-                    }
-
-                    @Override
-                    public void uploadProgress(Progress progress) {
-
-                    }
-
-                    @Override
-                    public void downloadProgress(Progress progress) {
-
-                    }
-
-                    @Override
-                    public UserEntity convertResponse(okhttp3.Response response) throws Throwable {
-                        return null;
+                    public void onSuccess(Response<File> response) {
+                           MyLogUtil.d(TAG,response.body().getAbsolutePath());
+                           MyLogUtil.d(TAG,response.body().getName());
+                           MyLogUtil.d(TAG,response.body().getPath());
                     }
                 });
     }
