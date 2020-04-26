@@ -1,12 +1,17 @@
 package com.example.totallearn.frame_set.retrofit_set;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.JsonUtils;
 import com.example.totallearn.R;
 import com.example.totallearn.base.BaseActivity;
 import com.example.totallearn.fragmentset.frag04.f4entity.JokeEntity;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -15,6 +20,8 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -94,18 +101,41 @@ public class RetrofitActivity extends BaseActivity {
         }*/
     }
 
+    HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+        @Override
+        public void log(String message) {
+            try {
+                String text = URLDecoder.decode(message, "utf-8");
+
+                Log.d(TAG, JsonUtils.formatJson(text));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                Log.e(TAG, "log: " + message);
+            }
+        }
+    });
+
 
     private void rxjavaAndRetrofit() {
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        // 四个级别：NONE,BASIC,HEADER,BODY
+        // BASEIC:请求/响应行
+        // HEADER:请求/响应行 + 头
+        // BODY:请求/响应航 + 头 + 体
+
+        // OkHttpClient mClient = new OkHttpClient.Builder().addInterceptor(interceptor).build();//这个是添加日志拦截器, 网上说的添加网络拦截器
+        OkHttpClient mClient = new OkHttpClient.Builder().addNetworkInterceptor(interceptor).build();//这个是添加日志拦截器, 网上说的添加网络拦截器
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.apiopen.top/")
                 .addConverterFactory(GsonConverterFactory.create())//converter 转换器 , 转为gson对象  Converter是对于Call<T>中T的转换
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//CallAdapter则可以对Call转换，这样的话Call<T>中的Call也是可以被替换的
+                .client(mClient)
                 .build();
 
         //3 . 创建网络请求接口实例
         JokeService service = retrofit.create(JokeService.class);
-        service.RxJokeCall(1,10,"video")
-              .subscribeOn(Schedulers.io())
+        service.RxJokeCall(1, 10, "video")
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<JokeEntity>() {
                     @Override
@@ -130,7 +160,6 @@ public class RetrofitActivity extends BaseActivity {
                 });
 
     }
-
 
 
 }

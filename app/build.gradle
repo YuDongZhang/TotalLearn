@@ -63,6 +63,8 @@ dependencies {
     //rxjava2
     implementation 'io.reactivex.rxjava2:rxjava:2.1.7'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    //日志的请求
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     //okhttp
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     //Glide
