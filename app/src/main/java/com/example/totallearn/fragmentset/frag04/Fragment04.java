@@ -14,6 +14,7 @@ import android.widget.Button;
 
 import com.example.totallearn.MainActivity;
 import com.example.totallearn.R;
+import com.example.totallearn.frame_set.retrofit_set.RetrofitActivity;
 
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -140,7 +141,7 @@ public class Fragment04 extends Fragment {
     }
 
 
-    @OnClick({R.id.f4_tv1, R.id.f4_bt1, R.id.f4_tv2,R.id.f4_tv3})
+    @OnClick({R.id.f4_tv1, R.id.f4_bt1, R.id.f4_tv2, R.id.f4_tv3})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f4_tv1:
@@ -153,7 +154,10 @@ public class Fragment04 extends Fragment {
                 startActivity(intent);
                 break;
 
-            case R.id.f4_bt1:
+            case R.id.f4_bt1://跳转到retrofit界面
+                intent = new Intent(mMainActivity, RetrofitActivity.class);
+                startActivity(intent);
+
                 break;
 
             case R.id.f4_tv3:

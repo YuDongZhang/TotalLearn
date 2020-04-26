@@ -47,7 +47,7 @@
         <activity android:name=".time_test.TimeActivity" />
         <activity android:name=".fragmentset.frag04.RxjavaActivity" />
         <activity android:name=".mvvm_set.MvvMActivity" />
-        <activity android:name=".fragmentset.frag04.RetrofitActivity" />
+        <activity android:name=".frame_set.retrofit_set.RetrofitActivity" />
         <activity android:name=".fragmentset.frag01.ImgCompressActivity" />
         <activity android:name=".fragmentset.frag01.FragmentBackActivity" />
         <activity android:name=".fragmentset.frag04.RxSymbolActivity"></activity>
