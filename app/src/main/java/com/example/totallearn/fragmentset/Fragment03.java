@@ -1,7 +1,6 @@
 package com.example.totallearn.fragmentset;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,22 +9,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.example.totallearn.R;
-import com.example.totallearn.TestActivity;
-import com.example.totallearn.fanshe.FanSheTest;
 
 /**
  * Created by pateo on 18-12-27.
  */
 
-public class Fragment03 extends Fragment implements View.OnClickListener {
+public class Fragment03 extends Fragment {
 
     public static final String TAG = Fragment03.class.getSimpleName();
 
-    private Button f3b1;
-    private Button f3b2;
 
     @Override
     public void onAttach(Context context) {
@@ -45,26 +39,9 @@ public class Fragment03 extends Fragment implements View.OnClickListener {
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
         View view = inflater.inflate(R.layout.fragment_03, container, false);
-        f3b1 = view.findViewById(R.id.f3_b1);
-        f3b2 = view.findViewById(R.id.f3_b2);
-        f3b1.setOnClickListener(this);
-        f3b2.setOnClickListener(this);
         return view;
     }
 
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.f3_b1:
-                Intent i = new Intent(getActivity(), TestActivity.class);
-                startActivity(i);
-                break;
-            case R.id.f3_b2:
-                FanSheTest  fst = new FanSheTest();
-                break;
-        }
-    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
