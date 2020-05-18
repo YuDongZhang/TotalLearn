@@ -1,14 +1,12 @@
-package com.example.totallearn.kotlin_set
+package com.pdxx.xxpt.kotlinlibrary
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
-import com.example.totallearn.R
-
-class KotlinLearnActivity : AppCompatActivity() {
+class KotlinActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_kotlin_learn)
+        setContentView(R.layout.activity_kotlin)
     }
 }

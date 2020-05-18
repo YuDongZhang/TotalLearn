@@ -1,6 +1,7 @@
 package com.example.totallearn.fragmentset;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,6 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.totallearn.R;
+import com.example.totallearn.TestActivity;
+import com.example.totallearn.fanshe.FanSheTest;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 
 /**
  * Created by pateo on 18-12-27.
@@ -19,6 +26,7 @@ import com.example.totallearn.R;
 public class Fragment03 extends Fragment {
 
     public static final String TAG = Fragment03.class.getSimpleName();
+    Unbinder unbinder;
 
 
     @Override
@@ -39,6 +47,7 @@ public class Fragment03 extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
         View view = inflater.inflate(R.layout.fragment_03, container, false);
+        unbinder = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -77,6 +86,7 @@ public class Fragment03 extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         Log.d(TAG, "onDestroyView");
+        unbinder.unbind();
     }
 
     @Override
@@ -92,4 +102,22 @@ public class Fragment03 extends Fragment {
     }
 
 
+    @OnClick({R.id.f3_b1, R.id.f3_b2, R.id.f3_tv3})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.f3_b1:
+                Intent intent = new Intent(getActivity(), TestActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.f3_b2:
+                FanSheTest fst = new FanSheTest();
+                break;
+
+            case R.id.f3_tv3:
+
+
+                break;
+        }
+    }
 }
