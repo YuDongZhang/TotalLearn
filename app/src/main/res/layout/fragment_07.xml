@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <TextView
-        android:text="Fragment07"
-        android:textSize="35sp"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
-</RelativeLayout>
+        android:layout_height="50dp"
+        android:text="Fragment07"
+        android:textSize="35sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/f7_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:layout_margin="3dp"
+            android:padding="3dp"
+            android:text="1,静态方法"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -7,8 +7,8 @@ import android.widget.FrameLayout;
 
 import com.example.totallearn.R;
 import com.example.totallearn.base.BaseActivity;
-import com.example.totallearn.fragmentset.Fragment05;
-import com.example.totallearn.fragmentset.Fragment06;
+import com.example.totallearn.fragmentset.frag05.Fragment05;
+import com.example.totallearn.fragmentset.frag06.Fragment06;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

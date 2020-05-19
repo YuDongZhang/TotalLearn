@@ -1,4 +1,4 @@
-package com.example.totallearn.fragmentset;
+package com.example.totallearn.fragmentset.frag07;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -37,7 +37,7 @@ public class Fragment07 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG,"onCreateView");
-        View view = inflater.inflate(R.layout.fragment_01,container,false);
+        View view = inflater.inflate(R.layout.fragment_07,container,false);
         return view;
     }
 

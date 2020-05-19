@@ -51,7 +51,7 @@
         <activity android:name=".fragmentset.frag01.ImgCompressActivity" />
         <activity android:name=".fragmentset.frag01.FragmentBackActivity" />
         <activity android:name=".fragmentset.frag04.RxSymbolActivity" />
-        <activity android:name=".kotlin_set.KotlinLearnActivity"></activity>
+
     </application>
 
 </manifest>
