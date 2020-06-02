@@ -105,6 +105,7 @@ public class MainActivity extends BaseActivity {
                 showFragment(8);
                 break;
             case R.id.bt_9:
+                finish();
                 showFragment(9);
                 break;
         }

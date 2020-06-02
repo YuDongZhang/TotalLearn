@@ -12,9 +12,15 @@ android {
 
         ndk {
             moduleName "ndkdemotest-jni"
-            abiFilters "armeabi-v7a", "x86"
+            abiFilters "armeabi-v7a", "x86", 'arm64-v8a'//极光也要求添加这些东西
 
         }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : "com.example.totallearn",
+                JPUSH_APPKEY : "734f68d11623e72c47661479", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
     }
     buildTypes {
         release {
@@ -53,6 +59,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    implementation project(':library')
+
     //butterknife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
@@ -89,12 +97,10 @@ dependencies {
     //鲁班
     implementation 'top.zibin:Luban:1.1.8'
 
-
-    implementation project(':library')
-
-
     //环形弧度条
 
-    //添加kotlin
+    //极光推送需要的东西
+    implementation 'cn.jiguang.sdk:jpush:3.6.0'  // 此处以JPush 3.6.0 版本为例。
+    implementation 'cn.jiguang.sdk:jcore:2.3.4'  // 此处以JCore 2.3.4 版本为例。
 
 }

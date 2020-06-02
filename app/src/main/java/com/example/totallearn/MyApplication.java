@@ -14,6 +14,7 @@ import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
+import cn.jpush.android.api.JPushInterface;
 import okhttp3.OkHttpClient;
 
 
@@ -38,8 +39,11 @@ public class MyApplication extends Application {
         super.onCreate();
         //在写的时候看到  包 4中也有一个 DaggerAppComponent, 这个应该是遗留下来的 , 现在用的 是包 6中
         mAppComponent = DaggerAppComponent.builder().appMoudle(new AppMoudle(this)).build();
-
         fComponent = DaggerFComponent.builder().build();
+
+        //极光需要的 api
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
 
         initOkgo();
     }
