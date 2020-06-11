@@ -191,6 +191,15 @@
                     app:donut_text_size="9sp"
                     app:donut_unfinished_stroke_width="2dp" />
 
+                <TextView
+                    android:id="@+id/f1_tv11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@color/yellow"
+                    android:padding="5dp"
+                    android:text="11.测试 viewpager" />
+
             </LinearLayout>
 
 

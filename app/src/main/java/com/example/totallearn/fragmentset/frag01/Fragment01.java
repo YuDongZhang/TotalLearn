@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.blankj.utilcode.util.LogUtils;
 import com.example.totallearn.PdfActivity;
 import com.example.totallearn.R;
+import com.example.totallearn.activity.TestViewPagerActivity;
 import com.example.totallearn.base.BaseFragment;
 import com.example.totallearn.ndkdemo.NDKTools;
 import com.example.totallearn.serviceset.TestService;
@@ -92,23 +93,9 @@ public class Fragment01 extends BaseFragment {
         Log.d(TAG, "onResume");
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.d(TAG, "onPause");
-    }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.d(TAG, "onStart");
-    }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        Log.d(TAG, "onStop");
-    }
+
 
     @Override
     public void onDestroyView() {
@@ -129,8 +116,8 @@ public class Fragment01 extends BaseFragment {
         Log.d(TAG, "onDestroy");
     }
 
-    @OnClick({R.id.f1_bt1, R.id.f1_bt2, R.id.f1_bt5, R.id.f1_bt3, R.id.f1_bt4, R.id.f1_tv2, R.id.f1_tv3, R.id.f1_tv4,
-            R.id.f1_tv8, R.id.f1_tv9, R.id.f1_tv10})
+    @OnClick({R.id.f1_bt1, R.id.f1_bt2, R.id.f1_bt5, R.id.f1_bt3, R.id.f1_bt4, R.id.f1_tv2, R.id.f1_tv3,
+            R.id.f1_tv4, R.id.f1_tv8, R.id.f1_tv9, R.id.f1_tv10,R.id.f1_tv11})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f1_bt1:
@@ -178,6 +165,12 @@ public class Fragment01 extends BaseFragment {
                 intent = new Intent(getActivity(), FragmentBackActivity.class);
                 startActivity(intent);
                 break;
+
+            case R.id.f1_tv11:
+                intent = new Intent(getActivity(), TestViewPagerActivity.class);
+                startActivity(intent);
+                break;
+
         }
     }
 
