@@ -1,5 +1,6 @@
 package com.example.totallearn.fragmentset.frag01;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.LogUtils;
@@ -94,9 +96,6 @@ public class Fragment01 extends BaseFragment {
     }
 
 
-
-
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -117,7 +116,7 @@ public class Fragment01 extends BaseFragment {
     }
 
     @OnClick({R.id.f1_bt1, R.id.f1_bt2, R.id.f1_bt5, R.id.f1_bt3, R.id.f1_bt4, R.id.f1_tv2, R.id.f1_tv3,
-            R.id.f1_tv4, R.id.f1_tv8, R.id.f1_tv9, R.id.f1_tv10,R.id.f1_tv11})
+            R.id.f1_tv4, R.id.f1_tv8, R.id.f1_tv9, R.id.f1_tv10, R.id.f1_tv11, R.id.f1_tv12, R.id.f1_tv13})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f1_bt1:
@@ -171,6 +170,14 @@ public class Fragment01 extends BaseFragment {
                 startActivity(intent);
                 break;
 
+            case R.id.f1_tv12:
+                showProgressDialog();
+                break;
+
+            case R.id.f1_tv13:
+                showProgressBar();
+                break;
+
         }
     }
 
@@ -201,6 +208,26 @@ public class Fragment01 extends BaseFragment {
                 .create();
         alertDialog.show();
         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.SkyBlue));
+    }
+
+    private void showProgressDialog() {
+        ProgressDialog pd; // 进度条对话框
+        pd = new ProgressDialog(getActivity());
+        pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        pd.setMessage("正在下载更新");
+        pd.setCanceledOnTouchOutside(false);
+        pd.setCancelable(false);
+        pd.show();
+        pd.setMax(100);
+        pd.setProgress(50);
+    }
+
+
+    private void showProgressBar() {
+        ProgressBar progressBar = new ProgressBar(getActivity());
+        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setMax(100);
+        progressBar.setProgress(50);
     }
 
 
