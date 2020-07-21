@@ -1,0 +1,4 @@
+Inject    注射
+Component 组件 
+Module    模块
+Provides  提供
