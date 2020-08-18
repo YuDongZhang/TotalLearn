@@ -1,4 +1,12 @@
 Inject    注射
 Component 组件 
-Module    模块
-Provides  提供
+Module   [ˈmɑːdʒuːl]   模块
+Provides  [prəˈvaɪdz]  提供
+
+ Qualifier          [ˈkwɑːlɪfaɪər]  限定符
+
+ Singleton  单利
+
+ Scope  作用域
+
+ SubComponent
