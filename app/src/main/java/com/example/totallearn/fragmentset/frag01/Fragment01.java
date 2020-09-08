@@ -25,6 +25,7 @@ import com.example.totallearn.PdfActivity;
 import com.example.totallearn.R;
 import com.example.totallearn.activity.TestViewPagerActivity;
 import com.example.totallearn.base.BaseFragment;
+import com.example.totallearn.mvvm_set.MvvMActivity;
 import com.example.totallearn.ndkdemo.NDKTools;
 import com.example.totallearn.serviceset.TestService;
 import com.example.totallearn.utils.MyLogUtil;
@@ -171,7 +172,9 @@ public class Fragment01 extends BaseFragment {
                 break;
 
             case R.id.f1_tv12:
-                showProgressDialog();
+               // showProgressDialog();
+                intent = new Intent(getActivity(), MvvMActivity.class);
+                startActivity(intent);
                 break;
 
             case R.id.f1_tv13:
