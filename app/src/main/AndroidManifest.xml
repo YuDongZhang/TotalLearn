@@ -17,7 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".fragmentset.frag04.retrofit.RetrofitLearnActivity"></activity>
+        <activity android:name=".fragmentset.frag03.ACTActivity"></activity>
+        <activity android:name=".fragmentset.frag03.MaterialDesignActivity" />
+        <activity android:name=".fragmentset.frag04.retrofit.RetrofitLearnActivity" />
         <activity android:name=".fragmentset.frag07.StaticActivity" />
         <activity android:name=".SwipeScrollRecyclerActivity" />
         <activity android:name=".MainActivity">

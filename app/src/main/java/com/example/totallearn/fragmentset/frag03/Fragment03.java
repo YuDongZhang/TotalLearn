@@ -1,4 +1,4 @@
-package com.example.totallearn.fragmentset;
+package com.example.totallearn.fragmentset.frag03;
 
 import android.content.Context;
 import android.content.Intent;
@@ -115,8 +115,8 @@ public class Fragment03 extends Fragment {
                 break;
 
             case R.id.f3_tv3:
-
-
+                intent = new Intent(getActivity(), MaterialDesignActivity.class);
+                startActivity(intent);
                 break;
         }
     }

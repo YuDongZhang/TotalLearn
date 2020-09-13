@@ -50,21 +50,20 @@
 
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/f3_tv3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorAccent"
+                android:background="#2B2B2B"
                 android:padding="5dp"
-                android:text="kotlin"
+                android:text="3.Material_Design"
                 android:textSize="20sp" />
-
-
-
 
 
         </LinearLayout>

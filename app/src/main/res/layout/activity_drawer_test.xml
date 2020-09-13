@@ -37,22 +37,15 @@
 
         </RelativeLayout>
 
-        <!-- 左侧滑动栏 -->
-        <RelativeLayout
-            android:id="@+id/main_left_drawer_layout"
-            android:layout_width="240dp"
+        <android.support.design.widget.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:background="@color/colorPrimary"
-            android:paddingTop="50dp">
+            app:headerLayout="@layout/home_nav_header"
+            app:menu="@menu/home_nav_drawer" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="左边菜单测试" />
 
-        </RelativeLayout>
 
         <!-- 右侧滑动栏 -->
         <RelativeLayout

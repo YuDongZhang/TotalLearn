@@ -20,7 +20,7 @@ import android.widget.Toast;
 import com.example.totallearn.R;
 import com.example.totallearn.fragmentset.frag01.Fragment01;
 import com.example.totallearn.fragmentset.frag02.Fragment02;
-import com.example.totallearn.fragmentset.Fragment03;
+import com.example.totallearn.fragmentset.frag03.Fragment03;
 import com.example.totallearn.fragmentset.frag04.Fragment04;
 
 import java.util.ArrayList;
@@ -216,27 +216,7 @@ public class DrawerNavigationActivity extends AppCompatActivity {
         }
     }
 
-   /* private class TabFragmentPagerAdapter extends PagerAdapter {
 
-        public TabFragmentPagerAdapter(FragmentManager fragmentManager, List<Fragment> fragmentList) {
-
-        }
-
-        @Override
-        public int getCount() {
-            return fragments.size();
-        }
-
-        @Override
-        public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-            return view==object;
-        }
-
-        @Override
-        public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-            container.removeView(fragments.get(position));
-        }
-    }*/
 
 
 }
