@@ -25,6 +25,7 @@ import com.example.totallearn.PdfActivity;
 import com.example.totallearn.R;
 import com.example.totallearn.activity.TestViewPagerActivity;
 import com.example.totallearn.base.BaseFragment;
+import com.example.totallearn.frame_set.retrofit_set.RetrofitActivity;
 import com.example.totallearn.mvvm_set.MvvMActivity;
 import com.example.totallearn.ndkdemo.NDKTools;
 import com.example.totallearn.serviceset.TestService;
@@ -45,8 +46,6 @@ import butterknife.Unbinder;
 public class Fragment01 extends BaseFragment {
 
     public static final String TAG = Fragment01.class.getSimpleName();
-    @BindView(R.id.f1_tv2)
-    TextView f1Tv2;
     Unbinder unbinder;
     @BindView(R.id.item_progress)
     ItemProgress itemProgress;
@@ -116,8 +115,8 @@ public class Fragment01 extends BaseFragment {
         Log.d(TAG, "onDestroy");
     }
 
-    @OnClick({R.id.f1_bt1, R.id.f1_bt2, R.id.f1_bt5, R.id.f1_bt3, R.id.f1_bt4, R.id.f1_tv2, R.id.f1_tv3,
-            R.id.f1_tv4, R.id.f1_tv8, R.id.f1_tv9, R.id.f1_tv10, R.id.f1_tv11, R.id.f1_tv12, R.id.f1_tv13})
+    @OnClick({R.id.f1_bt1, R.id.f1_bt2, R.id.f1_bt3, R.id.f1_bt4,  R.id.f1_bt5,R.id.f1_tv6, R.id.f1_tv7,
+             R.id.f1_tv8, R.id.f1_tv9, R.id.f1_tv10, R.id.f1_tv11, R.id.f1_tv12, R.id.f1_tv13})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f1_bt1:
@@ -140,44 +139,48 @@ public class Fragment01 extends BaseFragment {
             case R.id.f1_bt5:
 
                 break;
-            case R.id.f1_tv2:
-
+            case R.id.f1_tv6:
+                intent = new Intent(getActivity(), RetrofitActivity.class);
+                startActivity(intent);
                 break;
-            case R.id.f1_tv3:
+            case R.id.f1_tv7:
                 intent = new Intent(getActivity(), ImgCompressActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.f1_tv4:
+            case R.id.f1_tv8:
                 showDialog();
                 break;
-            case R.id.f1_tv8:
+            case R.id.f1_tv9:
                 String s = NDKTools.getStringFromNDK();
                 LogUtils.d(s);
                 break;
-            case R.id.f1_tv9:
+            case R.id.f1_tv10:
 
                 if (0 == Double.valueOf("0.0")) {
                     LogUtils.d("成功");
                 }
                 break;
 
-            case R.id.f1_tv10:
-                intent = new Intent(getActivity(), FragmentBackActivity.class);
-                startActivity(intent);
+            case R.id.f1_tv11://11.dialogFragment
+                TestDialogFragment testDialogFragment = new TestDialogFragment();
+                testDialogFragment.show(getFragmentManager(),"cao");
+
+               /* intent = new Intent(getActivity(), FragmentBackActivity.class);
+                startActivity(intent);*/
                 break;
 
-            case R.id.f1_tv11:
+            case R.id.f1_tv12:
                 intent = new Intent(getActivity(), TestViewPagerActivity.class);
                 startActivity(intent);
                 break;
 
-            case R.id.f1_tv12:
+            case R.id.f1_tv13:
                // showProgressDialog();
                 intent = new Intent(getActivity(), MvvMActivity.class);
                 startActivity(intent);
                 break;
 
-            case R.id.f1_tv13:
+            case R.id.f1_tv14:
                 showProgressBar();
                 break;
 
@@ -241,9 +244,7 @@ public class Fragment01 extends BaseFragment {
                 "形态不规则③肿块较大，常>10cm，少数<5cm④肿块较小，常<3cm⑤肿块边界清晰，有包膜样回声⑥肿块边界不清晰，无包膜样回声⑦内呈低回声均匀，" +
                 "后方声加强⑧内呈高回声，不均匀，后方声衰减";
         s = TextUtils.htmlEncode(s);
-        //  MyLogUtil.d(TAG, TextUtils.htmlEncode(s));
-        //   MyLogUtil.d(TAG, s);
-        //  f1Tv2.setText(getClickableHtml(s));
+
         test();
     }
 

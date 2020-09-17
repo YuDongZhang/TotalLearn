@@ -48,7 +48,7 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
         //test();
 
-        showFragment(2);//预加载第一页
+        showFragment(1);//预加载第一页
 
         requestPermissions();
 

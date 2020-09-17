@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/textView"
-                    android:text="服务" />
+                    android:text="1.服务" />
 
                 <Button
                     android:id="@+id/f1_bt2"
@@ -40,102 +40,59 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textView"
                     android:layout_toEndOf="@+id/f1_bt1"
-                    android:text="关服务" />
+                    android:text="2.关服务" />
 
                 <Button
-                    android:id="@+id/f1_bt5"
+                    android:id="@+id/f1_bt3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textView"
                     android:layout_marginStart="11dp"
                     android:layout_toEndOf="@+id/f1_bt2"
-                    android:text="关服务" />
+                    android:text="3.打开pdf" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/f1_bt3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/f1_bt1"
-                    android:text="启动activity" />
 
                 <Button
                     android:id="@+id/f1_bt4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:layout_below="@+id/f1_bt1"
+                    android:text="4.启动activity" />
+
+                <Button
+                    android:id="@+id/f1_bt5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
                     android:layout_below="@+id/f1_bt3"
-                    android:text="图文混排测试" />
+                    android:text="5.图文混排测试" />
 
             </LinearLayout>
 
             <TextView
-                android:id="@+id/f1_tv2"
+                android:id="@+id/f1_tv6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/relativeLayout"
                 android:layout_marginTop="17dp"
-                android:text="图文混排" />
+                android:text="6.图文混排" />
 
             <TextView
-                android:id="@+id/f1_tv3"
+                android:id="@+id/f1_tv7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:background="@color/Pink"
                 android:padding="10dp"
-                android:text="图片压缩" />
+                android:text="7.图片压缩" />
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/f1_tv4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:background="@color/SkyBlue"
-                    android:padding="5dp"
-                    android:text="弹窗" />
-
-                <TextView
-                    android:id="@+id/f1_tv5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:background="@color/SkyBlue"
-                    android:padding="5dp"
-                    android:text="自定义弹窗" />
-
-                <TextView
-                    android:id="@+id/f1_tv6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:background="@color/SkyBlue"
-                    android:padding="5dp"
-                    android:text="popuwindow" />
-
-                <TextView
-                    android:id="@+id/f1_tv7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:background="@color/SkyBlue"
-                    android:padding="5dp"
-                    android:text="dilogFragment" />
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -147,27 +104,64 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
-                    android:background="@color/yellow"
+                    android:background="@color/SkyBlue"
                     android:padding="5dp"
-                    android:text="jni老方式" />
+                    android:text="8.弹窗" />
 
                 <TextView
                     android:id="@+id/f1_tv9"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
-                    android:background="@color/yellow"
+                    android:background="@color/SkyBlue"
                     android:padding="5dp"
-                    android:text="cmake方式" />
+                    android:text="9.自定义弹窗" />
 
                 <TextView
                     android:id="@+id/f1_tv10"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
+                    android:background="@color/SkyBlue"
+                    android:padding="5dp"
+                    android:text="10.popuwindow" />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/f1_tv11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@color/SkyBlue"
+                    android:padding="5dp"
+                    android:text="11.dilogFragment" />
+
+                <TextView
+                    android:id="@+id/f1_tv12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
                     android:background="@color/yellow"
                     android:padding="5dp"
-                    android:text="fragment回退栈" />
+                    android:text="12.jni老方式" />
+
+                <TextView
+                    android:id="@+id/f1_tv13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@color/yellow"
+                    android:padding="5dp"
+                    android:text="13.cmake方式" />
+
 
 
 
@@ -178,6 +172,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/f1_tv14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@color/yellow"
+                    android:padding="5dp"
+                    android:text="14.fragment回退栈" />
+
 
                 <com.example.totallearn.fragmentset.frag01.ItemProgress
                     android:id="@+id/item_progress"
@@ -192,13 +196,13 @@
                     app:donut_unfinished_stroke_width="2dp" />
 
                 <TextView
-                    android:id="@+id/f1_tv11"
+                    android:id="@+id/f1_tv15"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:background="@color/yellow"
                     android:padding="5dp"
-                    android:text="11.测试 viewpager" />
+                    android:text="15.测试 viewpager" />
 
             </LinearLayout>
 
@@ -208,16 +212,16 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/f1_tv12"
+                    android:id="@+id/f1_tv16"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:background="@color/yellow2"
                     android:padding="5dp"
-                    android:text="12.progressdialog" />
+                    android:text="16.progressdialog" />
 
                 <TextView
-                    android:id="@+id/f1_tv13"
+                    android:id="@+id/f1_tv17"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
@@ -226,7 +230,7 @@
                     android:text="13" />
 
                 <TextView
-                    android:id="@+id/f1_tv14"
+                    android:id="@+id/f1_tv18"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
