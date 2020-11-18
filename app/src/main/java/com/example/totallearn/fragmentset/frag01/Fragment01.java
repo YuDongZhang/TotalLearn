@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,8 +18,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.example.totallearn.PdfActivity;
@@ -49,6 +50,8 @@ public class Fragment01 extends BaseFragment {
     Unbinder unbinder;
     @BindView(R.id.item_progress)
     ItemProgress itemProgress;
+    @BindView(R.id.f1_et19)
+    EditText f1Et19;
 
     private Button f01bt1;
     private Button f01bt3;
@@ -79,7 +82,8 @@ public class Fragment01 extends BaseFragment {
         itemProgress.setProgress(50);
         itemProgress.setMax(100);
         itemProgress.setDays("10");
-
+        f1Et19.setHint("wocao");
+        f1Et19.setHintTextColor(getResources().getColor(R.color.colorPrimary));
         return view;
     }
 
@@ -115,8 +119,8 @@ public class Fragment01 extends BaseFragment {
         Log.d(TAG, "onDestroy");
     }
 
-    @OnClick({R.id.f1_bt1, R.id.f1_bt2, R.id.f1_bt3, R.id.f1_bt4,  R.id.f1_bt5,R.id.f1_tv6, R.id.f1_tv7,
-             R.id.f1_tv8, R.id.f1_tv9, R.id.f1_tv10, R.id.f1_tv11, R.id.f1_tv12, R.id.f1_tv13})
+    @OnClick({R.id.f1_bt1, R.id.f1_bt2, R.id.f1_bt3, R.id.f1_bt4, R.id.f1_bt5, R.id.f1_tv6, R.id.f1_tv7,
+            R.id.f1_tv8, R.id.f1_tv9, R.id.f1_tv10, R.id.f1_tv11, R.id.f1_tv12, R.id.f1_tv13})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f1_bt1:
@@ -163,7 +167,7 @@ public class Fragment01 extends BaseFragment {
 
             case R.id.f1_tv11://11.dialogFragment
                 TestDialogFragment testDialogFragment = new TestDialogFragment();
-                testDialogFragment.show(getFragmentManager(),"cao");
+                testDialogFragment.show(getFragmentManager(), "cao");
 
                /* intent = new Intent(getActivity(), FragmentBackActivity.class);
                 startActivity(intent);*/
@@ -175,7 +179,7 @@ public class Fragment01 extends BaseFragment {
                 break;
 
             case R.id.f1_tv13:
-               // showProgressDialog();
+                // showProgressDialog();
                 intent = new Intent(getActivity(), MvvMActivity.class);
                 startActivity(intent);
                 break;

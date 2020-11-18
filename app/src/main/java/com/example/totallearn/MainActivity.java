@@ -1,6 +1,7 @@
 package com.example.totallearn;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -48,12 +49,13 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
         //test();
 
-        showFragment(1);//预加载第一页
+        showFragment(5);//预加载第一页
 
         requestPermissions();
 
     }
 
+    @SuppressLint("CheckResult")
     private void requestPermissions(){
         RxPermissions rxPermissions = new RxPermissions(MainActivity.this);
         rxPermissions.request(Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE)
