@@ -63,8 +63,9 @@ public class OkhttpActivity extends BaseActivity {
                 .build();
         //第三步构建Call对象
         final Call call = client.newCall(request);
+
         //第四步:异步get请求
-        call.enqueue(new Callback() {//记住这两个方法在子线程
+        /*call.enqueue(new Callback() {//记住这两个方法在子线程
             @Override
             public void onFailure(Call call, IOException e) {
                 LogUtils.i("onFailure", e.getMessage());
@@ -77,10 +78,10 @@ public class OkhttpActivity extends BaseActivity {
                // LogUtils.i("result", result);
                 LogUtils.xml(result);
             }
-        });
+        });*/
 
         //第四步 同步请求  要在子线程
-       /* new Thread(new Runnable() {
+        new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -91,7 +92,7 @@ public class OkhttpActivity extends BaseActivity {
                     e.printStackTrace();
                 }
             }
-        }).start();*/
+        }).start();
 
     }
 

@@ -10,6 +10,7 @@ buildscript {
             url 'http://maven.aliyun.com/nexus/content/groups/public/'
         }*/
         mavenCentral()
+        maven { url 'https://dl.bintray.com/umsdk/release' } //友盟
 
     }
     dependencies {
@@ -32,6 +33,7 @@ allprojects {
         }
 
         maven { url 'https://jitpack.io' }
+        maven { url 'https://dl.bintray.com/umsdk/release' } //友盟
 
     }
 }

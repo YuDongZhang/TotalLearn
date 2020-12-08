@@ -32,6 +32,7 @@ public class Fragment09 extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG,"onCreate");
+        
     }
 
     @Nullable
@@ -58,6 +59,7 @@ public class Fragment09 extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+
         Log.d(TAG,"onResume");
     }
 

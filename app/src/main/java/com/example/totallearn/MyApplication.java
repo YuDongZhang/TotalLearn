@@ -10,6 +10,8 @@ import com.example.totallearn.dagger_learn.register_login_7.DaggerFComponent;
 import com.example.totallearn.dagger_learn.register_login_7.FComponent;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
+import com.umeng.analytics.MobclickAgent;
+import com.umeng.commonsdk.UMConfigure;
 
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -45,11 +47,21 @@ public class MyApplication extends Application {
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
 
+        //友盟数据统计
+        UMConfigure.init(this,"5fb79183690bda19c7867569","Umeng",UMConfigure.DEVICE_TYPE_PHONE,null);
+        
+        // 选用AUTO页面采集模式
+        MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO);
+
+        //友盟 log
+        UMConfigure.setLogEnabled(true);//log
+
+
         initOkgo();
     }
 
     private void initOkgo() {
-//配置okgo
+        //配置okgo
         OkGo.getInstance().init(this)
                 //必须调用初始化
                 .setOkHttpClient(getOkHttpClient())//建议设置OkHttpClient，不设置将使用默认的

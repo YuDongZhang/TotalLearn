@@ -17,6 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
+
+        <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
+            android:value="false"/>
+
+
         <activity android:name=".fragmentset.frag03.ACTActivity"></activity>
         <activity android:name=".fragmentset.frag03.MaterialDesignActivity" />
         <activity android:name=".fragmentset.frag04.retrofit.RetrofitLearnActivity" />

@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.totallearn.base.BaseActivity;
+import com.example.totallearn.fragmentset.Fragment09;
 import com.example.totallearn.fragmentset.frag01.Fragment01;
 import com.example.totallearn.fragmentset.frag02.Fragment02;
 import com.example.totallearn.fragmentset.frag03.Fragment03;
@@ -17,7 +18,6 @@ import com.example.totallearn.fragmentset.frag05.Fragment05;
 import com.example.totallearn.fragmentset.frag06.Fragment06;
 import com.example.totallearn.fragmentset.frag07.Fragment07;
 import com.example.totallearn.fragmentset.Fragment08;
-import com.example.totallearn.fragmentset.Fragment09;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import butterknife.ButterKnife;
@@ -107,7 +107,7 @@ public class MainActivity extends BaseActivity {
                 showFragment(8);
                 break;
             case R.id.bt_9:
-                finish();
+
                 showFragment(9);
                 break;
         }
