@@ -4,20 +4,14 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.totallearn.R;
-import com.example.totallearn.fragmentset.adapter.FragAdapter;
 
-import java.util.ArrayList;
-
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -25,18 +19,11 @@ import butterknife.Unbinder;
  * Created by pateo on 18-12-27.
  */
 
-public class Fragment11 extends Fragment {
+public class FragmentTab_02 extends Fragment {
 
-    public static final String TAG = Fragment11.class.getSimpleName();
-    @BindView(R.id.tab_layout)
-    TabLayout tabLayout;
-    @BindView(R.id.viewpager)
-    ViewPager viewPager;
+    public static final String TAG = FragmentTab_02.class.getSimpleName();
     Unbinder unbinder;
-
-    private String[] titles = new String[]{"测试1","测试2","测试3"};
-    private ArrayList<Fragment> fragments = new ArrayList<>();
-    private FragAdapter fragAdapter;
+    View view;
 
     @Override
     public void onAttach(Context context) {
@@ -55,7 +42,9 @@ public class Fragment11 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
-        View view = inflater.inflate(R.layout.fragment_11, container, false);
+        if (view == null) {
+            view = inflater.inflate(R.layout.fragment_tab, container, false);
+        }
         unbinder = ButterKnife.bind(this, view);
         return view;
     }
@@ -64,23 +53,7 @@ public class Fragment11 extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        fragments.add(new FragmentTab_01());
-        fragments.add(new FragmentTab_02());
-        fragments.add(new FragmentTab_03());
-        viewPager.setOffscreenPageLimit(2);
-        for(int i=0;i<titles.length;i++){
 
-            tabLayout.addTab(tabLayout.newTab());
-        }
-
-        tabLayout.setupWithViewPager(viewPager);
-
-        fragAdapter = new FragAdapter(getChildFragmentManager(),fragments);
-        viewPager.setAdapter(fragAdapter);
-
-        for(int i=0;i<titles.length;i++){
-            tabLayout.getTabAt(i).setText(titles[i]);
-        }
     }
 
     @Override

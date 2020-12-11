@@ -65,9 +65,9 @@ public class Fragment10 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-            fragments.add(new FragmentTab());
-            fragments.add(new FragmentTab());
-            fragments.add(new FragmentTab());
+            fragments.add(new FragmentTab_01());
+            fragments.add(new FragmentTab_02());
+            fragments.add(new FragmentTab_03());
            titles.add("测试1");
            titles.add("测试2");
            titles.add("测试3");
