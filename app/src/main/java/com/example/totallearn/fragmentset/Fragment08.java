@@ -16,7 +16,6 @@ import com.example.totallearn.designmode.abstractfactorymode.FarmTest;
 import com.example.totallearn.designmode.adaptermode.ClassAdapterTest;
 import com.example.totallearn.designmode.behaviortype.iteratormode.example1.IteratorPattern;
 import com.example.totallearn.designmode.bridgemode.BridgeTest;
-import com.example.totallearn.designmode.decoratormode.example1.DecoratorTest;
 import com.example.totallearn.designmode.prototypemode.PrototypeTest;
 
 /**
