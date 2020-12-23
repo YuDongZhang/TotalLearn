@@ -4,9 +4,6 @@ import android.app.Application;
 
 import com.blankj.utilcode.util.Utils;
 import com.example.totallearn.dagger_learn.register_login_6.AppComponent;
-import com.example.totallearn.dagger_learn.register_login_6.AppMoudle;
-import com.example.totallearn.dagger_learn.register_login_6.DaggerAppComponent;
-import com.example.totallearn.dagger_learn.register_login_7.DaggerFComponent;
 import com.example.totallearn.dagger_learn.register_login_7.FComponent;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
@@ -40,8 +37,8 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         //在写的时候看到  包 4中也有一个 DaggerAppComponent, 这个应该是遗留下来的 , 现在用的 是包 6中
-        mAppComponent = DaggerAppComponent.builder().appMoudle(new AppMoudle(this)).build();
-        fComponent = DaggerFComponent.builder().build();
+//        mAppComponent = DaggerAppComponent.builder().appMoudle(new AppMoudle(this)).build();
+//        fComponent = DaggerFComponent.builder().build();
 
         //极光需要的 api
         JPushInterface.setDebugMode(true);
