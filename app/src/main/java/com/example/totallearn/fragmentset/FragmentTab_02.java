@@ -75,7 +75,6 @@ public class FragmentTab_02 extends Fragment {
         GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2, OrientationHelper.VERTICAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.addItemDecoration(new MDGridRvDividerDecoration(getActivity()));
-
         mRecyclerView.setAdapter(new RVAdapter(mDataList));
     }
 
