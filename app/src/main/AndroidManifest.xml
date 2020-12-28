@@ -3,11 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.totallearn">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -17,12 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
+        <activity android:name=".activity.MainActivity"></activity>
 
-        <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
-            android:value="false"/>
+        <activity android:name=".fragmentset.frag03.ACTActivity" />
 
-
-        <activity android:name=".fragmentset.frag03.ACTActivity"></activity>
         <activity android:name=".fragmentset.frag03.MaterialDesignActivity" />
         <activity android:name=".fragmentset.frag04.retrofit.RetrofitLearnActivity" />
         <activity android:name=".fragmentset.frag07.StaticActivity" />
@@ -35,11 +28,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".TestActivity" />
-
-        <service android:name=".serviceset.TestService" />
-
         <activity android:name=".mvp_set.demo1.LoginActivity" />
+
         <activity android:name=".fragmentset.frag04.OkhttpActivity" />
+
         <activity android:name=".recyclerviewlearn.RCpicture.RecyclerActivity" />
         <activity android:name=".recyclerviewlearn.RClayoutmanager.RcLMActivity" />
         <activity android:name=".PdfActivity" />
@@ -60,21 +52,10 @@
         <activity android:name=".fragmentset.frag01.ImgCompressActivity" />
         <activity android:name=".fragmentset.frag01.FragmentBackActivity" />
         <activity android:name=".fragmentset.frag04.RxSymbolActivity" />
-        <activity android:name=".activity.TestViewPagerActivity" /> <!-- Since JCore2.0.0 Required SDK核心功能 -->
-        <!-- 可配置android:process参数将Service放在其他进程中；android:enabled属性不能是false -->
-        <!-- 这个是自定义Service，要继承极光JCommonService，可以在更多手机平台上使得推送通道保持的更稳定 -->
-        <service
-            android:name=".serviceset.JiGuangService"
-            android:enabled="true"
-            android:exported="false"
-            android:process=":pushcore">
-            <intent-filter>
-                <action android:name="cn.jiguang.user.service.action" />
-            </intent-filter>
-        </service> <!-- Required since 3.0.7 -->
-        <!-- 新的 tag/alias 接口结果返回需要开发者配置一个自定的广播 -->
-        <!-- 3.3.0开始所有事件将通过该类回调 -->
-        <!-- 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
+        <activity android:name=".activity.TestViewPagerActivity" />
+        <meta-data
+            android:name="android.webkit.WebView.EnableSafeBrowsing"
+            android:value="false" />
         <receiver
             android:name=".receiver.JiGuangReceiver"
             android:enabled="true"
@@ -84,7 +65,27 @@
 
                 <category android:name="com.example.totallearn" />
             </intent-filter>
-        </receiver>
+        </receiver> <!-- Since JCore2.0.0 Required SDK核心功能 -->
+        <!-- 可配置android:process参数将Service放在其他进程中；android:enabled属性不能是false -->
+        <!-- 这个是自定义Service，要继承极光JCommonService，可以在更多手机平台上使得推送通道保持的更稳定 -->
+        <service android:name=".serviceset.TestService" /> <!-- Required since 3.0.7 -->
+        <!-- 新的 tag/alias 接口结果返回需要开发者配置一个自定的广播 -->
+        <!-- 3.3.0开始所有事件将通过该类回调 -->
+        <!-- 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
+        <service
+            android:name=".serviceset.JiGuangService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
+        </service>
     </application>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

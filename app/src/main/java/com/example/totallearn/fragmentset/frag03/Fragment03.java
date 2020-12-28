@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.totallearn.R;
 import com.example.totallearn.TestActivity;
-import com.example.totallearn.fanshe.FanSheTest;
+import com.example.totallearn.activity.MainActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -111,7 +111,8 @@ public class Fragment03 extends Fragment {
                 break;
 
             case R.id.f3_b2:
-                FanSheTest fst = new FanSheTest();
+//                FanSheTest fst = new FanSheTest();
+                startActivity(new Intent(getActivity(), MainActivity.class));
                 break;
 
             case R.id.f3_tv3:

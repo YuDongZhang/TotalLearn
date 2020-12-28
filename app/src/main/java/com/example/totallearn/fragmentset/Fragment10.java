@@ -4,14 +4,17 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.totallearn.R;
 
@@ -36,6 +39,14 @@ public class Fragment10 extends Fragment {
     Unbinder unbinder;
 
     List<String> titles = new ArrayList<>();
+
+    @BindView(R.id.tv)
+    TextView tv;
+    @BindView(R.id.appBarLayout)
+    AppBarLayout appBarLayout;
+
+    @BindView(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout swipeRefreshLayout;
     private ArrayList<Fragment> fragments = new ArrayList<>();
 
     @Override
@@ -65,15 +76,15 @@ public class Fragment10 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-            fragments.add(new FragmentTab_01());
-            fragments.add(new FragmentTab_02());
-            fragments.add(new FragmentTab_03());
-           titles.add("测试1");
-           titles.add("测试2");
-           titles.add("测试3");
+        fragments.add(new FragmentTab_01());
+        fragments.add(new FragmentTab_02());
+        fragments.add(new FragmentTab_03());
+        titles.add("测试1");
+        titles.add("测试2");
+        titles.add("测试3");
 
 
-        viewPager.setAdapter(new FragmentStatePagerAdapter(getActivity().getSupportFragmentManager()) {
+        viewPager.setAdapter(new FragmentStatePagerAdapter(getChildFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
                 return fragments.get(position);
@@ -98,6 +109,24 @@ public class Fragment10 extends Fragment {
 
         tabLayout.setupWithViewPager(viewPager);
 
+        swipeRefreshLayout.setProgressViewOffset(true,-20,100);
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
+                if (i>=0){
+                    swipeRefreshLayout.setEnabled(true);
+                }else {
+                    swipeRefreshLayout.setEnabled(false);
+                }
+            }
+        });
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
     }
 
