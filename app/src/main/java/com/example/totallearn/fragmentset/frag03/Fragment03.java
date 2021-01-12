@@ -112,7 +112,8 @@ public class Fragment03 extends Fragment {
 
             case R.id.f3_b2:
 //                FanSheTest fst = new FanSheTest();
-                startActivity(new Intent(getActivity(), MainActivity.class));
+//                startActivity(new Intent(getActivity(), MainActivity.class));
+
                 break;
 
             case R.id.f3_tv3:

@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.totallearn">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -12,10 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".activity.MainActivity"></activity>
-
+        <activity android:name=".fragmentset.frag03.CalendarActivity"></activity>
+        <activity android:name=".activity.MainActivity" />
         <activity android:name=".fragmentset.frag03.ACTActivity" />
-
         <activity android:name=".fragmentset.frag03.MaterialDesignActivity" />
         <activity android:name=".fragmentset.frag04.retrofit.RetrofitLearnActivity" />
         <activity android:name=".fragmentset.frag07.StaticActivity" />
@@ -29,9 +33,7 @@
         </activity>
         <activity android:name=".TestActivity" />
         <activity android:name=".mvp_set.demo1.LoginActivity" />
-
         <activity android:name=".fragmentset.frag04.OkhttpActivity" />
-
         <activity android:name=".recyclerviewlearn.RCpicture.RecyclerActivity" />
         <activity android:name=".recyclerviewlearn.RClayoutmanager.RcLMActivity" />
         <activity android:name=".PdfActivity" />
@@ -53,9 +55,11 @@
         <activity android:name=".fragmentset.frag01.FragmentBackActivity" />
         <activity android:name=".fragmentset.frag04.RxSymbolActivity" />
         <activity android:name=".activity.TestViewPagerActivity" />
+
         <meta-data
             android:name="android.webkit.WebView.EnableSafeBrowsing"
             android:value="false" />
+
         <receiver
             android:name=".receiver.JiGuangReceiver"
             android:enabled="true"
@@ -82,10 +86,5 @@
             </intent-filter>
         </service>
     </application>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

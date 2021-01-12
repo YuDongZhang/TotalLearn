@@ -115,6 +115,7 @@ dependencies {
     implementation 'com.umeng.umsdk:asms:1.1.3' // asms包依赖(必选)
     implementation 'com.umeng.umsdk:crash:0.0.4' // native crash包依赖(必选)
 
+    implementation 'com.haibin:calendarview:3.6.8'
 //    implementation 'com.youth.banner:banner:2.0.0'
 
 

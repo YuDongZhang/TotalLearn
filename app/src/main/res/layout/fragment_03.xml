@@ -34,20 +34,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView3"
-                android:layout_marginStart="34dp"
                 android:layout_toEndOf="@+id/vertical_Seekbar"
-                android:text="启动的测试Activity" />
+                android:text="1.启动的测试Activity" />
 
-            <Button
-                android:id="@+id/f3_b2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/f3_b1"
-                android:layout_below="@+id/f3_b1"
-                android:text="Button" />
+
 
         </LinearLayout>
-
+        <Button
+            android:id="@+id/f3_b2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/f3_b1"
+            android:layout_below="@+id/f3_b1"
+            android:text="2.Button" />
 
         <LinearLayout
             android:layout_width="match_parent"
