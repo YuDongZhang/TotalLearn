@@ -3,10 +3,9 @@ package com.example.totallearn.fragmentset.frag03;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
+import com.google.android.material.snackbar.Snackbar;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.totallearn.R;

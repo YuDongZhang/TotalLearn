@@ -1,6 +1,6 @@
 package com.example.totallearn;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -9,9 +9,6 @@ import android.widget.TextView;
 import com.example.totallearn.zhujie.customzhujie.getViewTo;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Type;
-import java.util.LinkedHashSet;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;

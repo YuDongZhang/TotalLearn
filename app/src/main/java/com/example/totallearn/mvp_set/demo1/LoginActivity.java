@@ -1,18 +1,13 @@
 package com.example.totallearn.mvp_set.demo1;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.totallearn.R;
-import com.example.totallearn.mvp_set.demo1.utills.HttpTask;
-import com.example.totallearn.mvp_set.demo1.utills.HttpUtils;
 import com.example.totallearn.mvp_set.mvp1.login.LoginPresenter;
 import com.example.totallearn.mvp_set.mvp1.login.LoginView;
-
-import java.util.HashMap;
-import java.util.Map;
 
 //中介者模式 -> 同事
 public class LoginActivity extends AppCompatActivity implements LoginView{

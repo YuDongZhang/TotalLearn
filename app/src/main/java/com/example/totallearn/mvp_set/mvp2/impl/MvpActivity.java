@@ -3,7 +3,7 @@ package com.example.totallearn.mvp_set.mvp2.impl;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.example.totallearn.mvp_set.mvp2.MvpPresenter;
 import com.example.totallearn.mvp_set.mvp2.MvpView;

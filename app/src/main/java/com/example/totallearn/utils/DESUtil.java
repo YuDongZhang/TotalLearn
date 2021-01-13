@@ -2,7 +2,7 @@ package com.example.totallearn.utils;
 
 
 import android.os.Build;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 
 import java.security.SecureRandom;
 import java.util.Base64;

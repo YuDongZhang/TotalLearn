@@ -1,6 +1,6 @@
 package com.example.totallearn.mvvm_set;
 
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableField;
 
 /**
  * Created by Shinelon on 2019/11/25.

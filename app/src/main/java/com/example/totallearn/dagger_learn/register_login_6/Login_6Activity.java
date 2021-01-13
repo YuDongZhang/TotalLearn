@@ -1,12 +1,10 @@
 package com.example.totallearn.dagger_learn.register_login_6;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.totallearn.MyApplication;
 import com.example.totallearn.R;
-
-import javax.inject.Inject;
 
 public class Login_6Activity extends AppCompatActivity {
 

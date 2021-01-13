@@ -1,6 +1,6 @@
 package com.example.totallearn.fragmentset.frag04.retrofit;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.blankj.utilcode.util.LogUtils;

@@ -2,7 +2,7 @@ package com.example.totallearn.fragmentset.frag07;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.totallearn.R;
 

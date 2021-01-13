@@ -1,6 +1,6 @@
 package com.example.totallearn.dagger_learn.register_login_7;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.totallearn.MyApplication;

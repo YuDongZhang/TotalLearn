@@ -1,7 +1,7 @@
 package com.example.totallearn.mvp_set.mvp2;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 

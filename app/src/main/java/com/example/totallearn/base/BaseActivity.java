@@ -3,12 +3,11 @@ package com.example.totallearn.base;
 import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 
 import com.blankj.utilcode.util.LogUtils;
-import com.example.totallearn.fragmentset.frag01.TestDialogFragment;
 
 import java.util.Timer;
 import java.util.TimerTask;
