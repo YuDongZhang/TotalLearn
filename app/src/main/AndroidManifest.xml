@@ -18,7 +18,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
         <activity android:name=".fragmentset.frag03.CalendarActivity"></activity>
-        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.MainSecondActivity" />
         <activity android:name=".fragmentset.frag03.ACTActivity" />
         <activity android:name=".fragmentset.frag03.MaterialDesignActivity" />
         <activity android:name=".fragmentset.frag04.retrofit.RetrofitLearnActivity" />

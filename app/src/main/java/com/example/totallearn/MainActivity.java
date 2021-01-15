@@ -4,11 +4,13 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.FragmentTransaction;
 import android.view.View;
+
+import androidx.fragment.app.FragmentTransaction;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.totallearn.base.BaseActivity;
+import com.example.totallearn.fragmentset.Fragment08;
 import com.example.totallearn.fragmentset.Fragment09;
 import com.example.totallearn.fragmentset.Fragment10;
 import com.example.totallearn.fragmentset.Fragment11;
@@ -19,7 +21,6 @@ import com.example.totallearn.fragmentset.frag04.Fragment04;
 import com.example.totallearn.fragmentset.frag05.Fragment05;
 import com.example.totallearn.fragmentset.frag06.Fragment06;
 import com.example.totallearn.fragmentset.frag07.Fragment07;
-import com.example.totallearn.fragmentset.Fragment08;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import butterknife.ButterKnife;
@@ -51,6 +52,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
         //test();
 
         showFragment(5);//预加载第一页
@@ -83,7 +85,8 @@ public class MainActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4, R.id.bt_5, R.id.bt_6, R.id.bt_7, R.id.bt_8, R.id.bt_9,R.id.bt_10,R.id.bt_11})
+   /* @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4, R.id.bt_5, R.id.bt_6, R.id.bt_7, R.id.bt_8,
+            R.id.bt_9,R.id.bt_10,R.id.bt_11})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt_1:
@@ -120,7 +123,7 @@ public class MainActivity extends BaseActivity {
                 showFragment(11);
                 break;
         }
-    }
+    }*/
 
 
     public void showFragment(int index) {
@@ -259,4 +262,31 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4, R.id.bt_5, R.id.bt_6, R.id.bt_7, R.id.bt_8, R.id.bt_9, R.id.bt_10, R.id.bt_11})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.bt_1:
+                break;
+            case R.id.bt_2:
+                break;
+            case R.id.bt_3:
+                break;
+            case R.id.bt_4:
+                break;
+            case R.id.bt_5:
+                break;
+            case R.id.bt_6:
+                break;
+            case R.id.bt_7:
+                break;
+            case R.id.bt_8:
+                break;
+            case R.id.bt_9:
+                break;
+            case R.id.bt_10:
+                break;
+            case R.id.bt_11:
+                break;
+        }
+    }
 }
