@@ -23,12 +23,14 @@ import android.widget.ProgressBar;
 import com.blankj.utilcode.util.LogUtils;
 import com.example.totallearn.PdfActivity;
 import com.example.totallearn.R;
+import com.example.totallearn.activity.AnotherBarActivity;
 import com.example.totallearn.activity.TestViewPagerActivity;
 import com.example.totallearn.base.BaseFragment;
 import com.example.totallearn.frame_set.retrofit_set.RetrofitActivity;
 import com.example.totallearn.mvvm_set.MvvMActivity;
 import com.example.totallearn.ndkdemo.NDKTools;
 import com.example.totallearn.serviceset.TestService;
+import com.example.totallearn.utils.DialogUtil;
 import com.example.totallearn.utils.MyLogUtil;
 
 import java.util.regex.Matcher;
@@ -119,7 +121,7 @@ public class Fragment01 extends BaseFragment {
     }
 
     @OnClick({R.id.f1_bt1, R.id.f1_bt2, R.id.f1_bt3, R.id.f1_bt4, R.id.f1_bt5, R.id.f1_tv6, R.id.f1_tv7,
-            R.id.f1_tv8, R.id.f1_tv9, R.id.f1_tv10, R.id.f1_tv11, R.id.f1_tv12, R.id.f1_tv13})
+            R.id.f1_tv8, R.id.f1_tv9, R.id.f1_tv10, R.id.f1_tv11, R.id.f1_tv12, R.id.f1_tv13,R.id.f1_tv15,R.id.f1_tv17})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f1_bt1:
@@ -185,6 +187,15 @@ public class Fragment01 extends BaseFragment {
 
             case R.id.f1_tv14:
                 showProgressBar();
+                break;
+
+            case R.id.f1_tv15:
+                DialogUtil.ProgressBarCircleDialog(getActivity());
+                break;
+
+            case R.id.f1_tv17:
+                intent = new Intent(getActivity(), AnotherBarActivity.class);
+                startActivity(intent);
                 break;
 
         }

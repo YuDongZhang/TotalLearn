@@ -11,6 +11,6 @@
     <color name="SkyBlue">#87CEEB</color>
     <color name="red">#FF0000</color>
     <color name="LightSalmon">#FFA07A</color>
-    
 
+    <color name="transparent">#00000000</color>
 </resources>

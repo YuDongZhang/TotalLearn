@@ -55,7 +55,7 @@ public class MainActivity extends BaseActivity {
 
         //test();
 
-        showFragment(5);//预加载第一页
+        showFragment(1);//预加载第一页
 
         requestPermissions();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -85,7 +85,7 @@ public class MainActivity extends BaseActivity {
     }
 
 
-   /* @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4, R.id.bt_5, R.id.bt_6, R.id.bt_7, R.id.bt_8,
+    @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4, R.id.bt_5, R.id.bt_6, R.id.bt_7, R.id.bt_8,
             R.id.bt_9,R.id.bt_10,R.id.bt_11})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -123,7 +123,7 @@ public class MainActivity extends BaseActivity {
                 showFragment(11);
                 break;
         }
-    }*/
+    }
 
 
     public void showFragment(int index) {
@@ -262,31 +262,4 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4, R.id.bt_5, R.id.bt_6, R.id.bt_7, R.id.bt_8, R.id.bt_9, R.id.bt_10, R.id.bt_11})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.bt_1:
-                break;
-            case R.id.bt_2:
-                break;
-            case R.id.bt_3:
-                break;
-            case R.id.bt_4:
-                break;
-            case R.id.bt_5:
-                break;
-            case R.id.bt_6:
-                break;
-            case R.id.bt_7:
-                break;
-            case R.id.bt_8:
-                break;
-            case R.id.bt_9:
-                break;
-            case R.id.bt_10:
-                break;
-            case R.id.bt_11:
-                break;
-        }
-    }
 }

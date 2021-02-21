@@ -14,7 +14,6 @@ android {
         ndk {
             moduleName "ndkdemotest-jni"
             abiFilters "armeabi-v7a", "x86", 'arm64-v8a'//极光也要求添加这些东西
-
         }
 
         manifestPlaceholders = [
@@ -22,6 +21,12 @@ android {
                 JPUSH_APPKEY : "734f68d11623e72c47661479", //JPush 上注册的包名对应的 Appkey.
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
 
@@ -30,7 +35,6 @@ android {
             minifyEnabled true //启动代码混淆的开关
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
 
         sourceSets.main {
             jni.srcDirs = []
@@ -54,7 +58,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0-alpha02'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
@@ -120,6 +124,9 @@ dependencies {
 
     implementation 'com.haibin:calendarview:3.6.8'
 //    implementation 'com.youth.banner:banner:2.0.0'
+
+    // 图表框架
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
 
 }

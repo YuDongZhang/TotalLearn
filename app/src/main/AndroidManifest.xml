@@ -55,6 +55,7 @@
         <activity android:name=".fragmentset.frag01.FragmentBackActivity" />
         <activity android:name=".fragmentset.frag04.RxSymbolActivity" />
         <activity android:name=".activity.TestViewPagerActivity" />
+        <activity android:name=".activity.AnotherBarActivity"/>
 
         <meta-data
             android:name="android.webkit.WebView.EnableSafeBrowsing"

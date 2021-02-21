@@ -10,4 +10,21 @@
 
     </style>
 
+    <style name="dialog" parent="android:Widget.ProgressBar.Small">
+        <item name="android:windowIsFloating">true</item>
+        <!-- 设置未浮动窗口 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 设置无边框 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 设置无标题 -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <!-- 设置完全透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!--  背景的明暗度    -->
+        <item name="android:backgroundDimAmount">0.0</item>
+        <!-- 是否模糊 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+    </style>
+
 </resources>
