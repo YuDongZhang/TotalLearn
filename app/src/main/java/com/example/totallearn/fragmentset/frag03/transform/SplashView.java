@@ -93,19 +93,19 @@ public class SplashView extends View {
 
     //1.旋转
     private class RotateState extends SplashState {
-
+        //角度进行旋转重新调用 ondraw 方法
         private RotateState() {
-//            mValueAnimator = ValueAnimator.ofFloat(0, (float) (Math.PI * 2));//旋转一周
-//            mValueAnimator.setRepeatCount(2);
-//            mValueAnimator.setDuration(mRotateDuration);
-//            mValueAnimator.setInterpolator(new LinearInterpolator());
-//            mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-//                @Override
-//                public void onAnimationUpdate(ValueAnimator animation) {
-//                    mCurrentRotateAngle = (float) animation.getAnimatedValue();
-//                    invalidate();
-//                }
-//            });
+            mValueAnimator = ValueAnimator.ofFloat(0, (float) (Math.PI * 2));//旋转一周
+            mValueAnimator.setRepeatCount(2);
+            mValueAnimator.setDuration(mRotateDuration);
+            mValueAnimator.setInterpolator(new LinearInterpolator());
+            mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {//监听动画执行的过程
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    mCurrentRotateAngle = (float) animation.getAnimatedValue();//当前旋转的角度
+                    invalidate();//会使 onDraw()重新执行
+                }
+            });
 //            mValueAnimator.addListener(new AnimatorListenerAdapter() {
 //                @Override
 //                public void onAnimationEnd(Animator animation) {
@@ -113,7 +113,7 @@ public class SplashView extends View {
 //                    mState = new MerginState();
 //                }
 //            });
-//            mValueAnimator.start();
+            mValueAnimator.start();
         }
 
         @Override
@@ -131,7 +131,7 @@ public class SplashView extends View {
             // x = r * cos(a) + centX;
             // y = r * sin(a) + centY;
             //这里是先可以画上固定的各个点的坐标
-            float angle = i * rotateAngle;
+            float angle = i * rotateAngle + mCurrentRotateAngle;//加上当前旋转的角度
             float cx = (float) (Math.cos(angle)*mRotateRadius + mCenterX);
             float cy = (float) (Math.sin(angle)*mRotateRadius + mCenterY);
             mPaint.setColor(mCircleColors[i]);
