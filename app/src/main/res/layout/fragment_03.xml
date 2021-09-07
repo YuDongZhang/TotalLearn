@@ -114,6 +114,13 @@
             android:gravity="center"
             android:text="9.网易canvas位置形状变换" />
 
+        <TextView
+            android:id="@+id/f3_tv10"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="10.网易canvas粒子运动实例" />
+
 
     </LinearLayout>
 
