@@ -85,6 +85,18 @@
             android:layout_height="40dp"
             android:gravity="center"
             android:text="5.网易paint高级绘制" />
+        <TextView
+            android:id="@+id/f3_tv6"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="6.网易paint图层混合" />
+        <TextView
+            android:id="@+id/f3_tv7"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="7.网易paint谷歌官方图层混合" />
 
 
 

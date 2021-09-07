@@ -18,6 +18,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
         <activity android:name=".fragmentset.frag03.paint.PaintActivity"></activity>
+        <activity android:name=".fragmentset.frag03.paint.XfermodeActivity"></activity>
+        <activity android:name=".fragmentset.frag03.paint.XfermodesActivity"/>
         <activity android:name=".fragmentset.frag03.RecyclerTitleActivity" />
         <activity android:name=".fragmentset.frag03.CalendarActivity" />
         <activity android:name=".activity.MainSecondActivity" />
