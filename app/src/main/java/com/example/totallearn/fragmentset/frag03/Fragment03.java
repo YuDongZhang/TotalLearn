@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.example.totallearn.R;
 import com.example.totallearn.TestActivity;
+import com.example.totallearn.fragmentset.frag03.paint.PaintActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
