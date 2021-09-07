@@ -3,9 +3,11 @@ package com.example.totallearn.fragmentset.frag03;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -94,7 +96,7 @@ public class Fragment03 extends Fragment {
     }
 
 
-    @OnClick({R.id.f3_b1, R.id.f3_b2, R.id.f3_tv3,R.id.f3_tv4})
+    @OnClick({R.id.f3_b1, R.id.f3_b2, R.id.f3_tv3, R.id.f3_tv4, R.id.f3_tv5})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f3_b1:
@@ -114,6 +116,10 @@ public class Fragment03 extends Fragment {
                 break;
             case R.id.f3_tv4:
 
+                break;
+            case R.id.f3_tv5:
+                intent = new Intent(getActivity(), PaintActivity.class);
+                startActivity(intent);
                 break;
         }
     }
