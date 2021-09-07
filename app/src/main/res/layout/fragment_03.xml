@@ -121,6 +121,13 @@
             android:gravity="center"
             android:text="10.网易canvas粒子运动实例" />
 
+        <TextView
+            android:id="@+id/f3_tv11"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="11.网易canvas旋转小球" />
+
 
     </LinearLayout>
 
