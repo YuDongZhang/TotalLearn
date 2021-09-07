@@ -50,13 +50,6 @@ public class Fragment03 extends Fragment {
         return view;
     }
 
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        Log.d(TAG, "onActivityCreated");
-    }
-
     @Override
     public void onResume() {
         super.onResume();
@@ -101,7 +94,7 @@ public class Fragment03 extends Fragment {
     }
 
 
-    @OnClick({R.id.f3_b1, R.id.f3_b2, R.id.f3_tv3})
+    @OnClick({R.id.f3_b1, R.id.f3_b2, R.id.f3_tv3,R.id.f3_tv4})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f3_b1:
@@ -118,6 +111,9 @@ public class Fragment03 extends Fragment {
             case R.id.f3_tv3:
                 intent = new Intent(getActivity(), MaterialDesignActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.f3_tv4:
+
                 break;
         }
     }

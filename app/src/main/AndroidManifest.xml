@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".fragmentset.frag03.CalendarActivity"></activity>
+        <activity android:name=".fragmentset.frag03.RecyclerTitleActivity"></activity>
+        <activity android:name=".fragmentset.frag03.CalendarActivity" />
         <activity android:name=".activity.MainSecondActivity" />
         <activity android:name=".fragmentset.frag03.ACTActivity" />
         <activity android:name=".fragmentset.frag03.MaterialDesignActivity" />
@@ -55,7 +56,7 @@
         <activity android:name=".fragmentset.frag01.FragmentBackActivity" />
         <activity android:name=".fragmentset.frag04.RxSymbolActivity" />
         <activity android:name=".activity.TestViewPagerActivity" />
-        <activity android:name=".activity.AnotherBarActivity"/>
+        <activity android:name=".activity.AnotherBarActivity" />
 
         <meta-data
             android:name="android.webkit.WebView.EnableSafeBrowsing"

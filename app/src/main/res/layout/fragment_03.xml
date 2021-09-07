@@ -14,8 +14,8 @@
         android:id="@+id/vertical_Seekbar"
         android:layout_width="60dp"
         android:layout_height="450dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView3" />
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentStart="true" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,9 +25,9 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/f3_b1"
@@ -38,14 +38,14 @@
                 android:text="1.启动的测试Activity" />
 
 
-
         </LinearLayout>
+
         <Button
             android:id="@+id/f3_b2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/f3_b1"
             android:layout_below="@+id/f3_b1"
+            android:layout_alignStart="@+id/f3_b1"
             android:text="2.Button" />
 
         <LinearLayout
@@ -67,10 +67,20 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/f3_tv4"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="4.自定义recyclerview" />
+        </LinearLayout>
 
 
     </LinearLayout>
-
 
 
 </RelativeLayout>
