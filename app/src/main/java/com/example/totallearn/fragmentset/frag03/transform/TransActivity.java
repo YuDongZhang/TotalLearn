@@ -10,6 +10,6 @@ public class TransActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new TransformView(this));
+        setContentView(new SaveRestoreView(this));
     }
 }

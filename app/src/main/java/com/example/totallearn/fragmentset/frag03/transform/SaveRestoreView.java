@@ -82,10 +82,11 @@ public class SaveRestoreView extends View {
         matrix.setTranslate(100,100);
         canvas.setMatrix(matrix);
         canvas.drawRect(0,0,700,700, mPaint); //由于平移操作，导致绘制的矩形超出了图层的大小，所以绘制不完全
-        canvas.restoreToCount(layerId);
+        canvas.restoreToCount(layerId);//返回到具体的状态
 
         mPaint.setColor(Color.RED);
         canvas.drawRect(0,0,100,100, mPaint);
+        //这里保存状态用的是任务栈
 
     }
 }
