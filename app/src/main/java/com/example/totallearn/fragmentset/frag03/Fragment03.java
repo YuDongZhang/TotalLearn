@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 
 import com.example.totallearn.R;
 import com.example.totallearn.TestActivity;
+import com.example.totallearn.fragmentset.frag03.colorfilter.LightingColorFilterActivity;
 import com.example.totallearn.fragmentset.frag03.paint.PaintActivity;
 import com.example.totallearn.fragmentset.frag03.paint.XfermodeActivity;
 import com.example.totallearn.fragmentset.frag03.paint.XfermodesActivity;
@@ -100,7 +101,7 @@ public class Fragment03 extends Fragment {
     }
 
 
-    @OnClick({R.id.f3_b1, R.id.f3_b2, R.id.f3_tv3, R.id.f3_tv4, R.id.f3_tv5,R.id.f3_tv6,R.id.f3_tv7})
+    @OnClick({R.id.f3_b1, R.id.f3_b2, R.id.f3_tv3, R.id.f3_tv4, R.id.f3_tv5, R.id.f3_tv6, R.id.f3_tv7,R.id.f3_tv8})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f3_b1:
@@ -130,8 +131,12 @@ public class Fragment03 extends Fragment {
                 intent = new Intent(getActivity(), XfermodeActivity.class);
                 startActivity(intent);
                 break;
-                case R.id.f3_tv7:
+            case R.id.f3_tv7:
                 intent = new Intent(getActivity(), XfermodesActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.f3_tv8:
+                intent = new Intent(getActivity(), LightingColorFilterActivity.class);
                 startActivity(intent);
                 break;
 
