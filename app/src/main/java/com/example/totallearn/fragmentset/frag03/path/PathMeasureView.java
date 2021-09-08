@@ -46,49 +46,49 @@ public class PathMeasureView extends View {
         canvas.translate(getWidth() / 2, getHeight() / 2);
 
 
-        Path path = new Path();
-        path.lineTo(0, 200);
-        path.lineTo(200, 200);
-        path.lineTo(200, 0);
+//        Path path = new Path();
+//        path.lineTo(0, 200);
+//        path.lineTo(200, 200);
+//        path.lineTo(200, 0);
 //
         /**
          * pathMeasure需要关联一个创建好的path, forceClosed会影响Path的测量结果,查看打印的结果
          */
-        PathMeasure pathMeasure = new PathMeasure();
-        pathMeasure.setPath(path, true);
-        Log.e("TAG", "onDraw:forceClosed=true " + pathMeasure.getLength());
+//        PathMeasure pathMeasure = new PathMeasure();
+//        pathMeasure.setPath(path, true);
+//        Log.e("TAG", "onDraw:forceClosed=true " + pathMeasure.getLength());
+//
+//        PathMeasure pathMeasure2 = new PathMeasure();
+//        pathMeasure2.setPath(path, false);
+//        Log.e("TAG", "onDraw:forceClosed=false " + pathMeasure2.getLength());
+//
+//        PathMeasure pathMeasure1 = new PathMeasure(path, false);
+//        Log.e("TAG", "onDraw:PathMeasure(path, false) "+ pathMeasure1.getLength());
 
-        PathMeasure pathMeasure2 = new PathMeasure();
-        pathMeasure2.setPath(path, false);
-        Log.e("TAG", "onDraw:forceClosed=false " + pathMeasure2.getLength());
-
-        PathMeasure pathMeasure1 = new PathMeasure(path, false);
-        Log.e("TAG", "onDraw:PathMeasure(path, false) "+ pathMeasure1.getLength());
-
 //
-        path.lineTo(200, -200);
-//
-        Log.e("TAG", "onDraw:PathMeasure(path, false) "+ pathMeasure1.getLength());
-        //如果Path进行了调整，需要重新调用setPath方法进行关联
-        pathMeasure1.setPath(path, false);
-//
-        Log.e("TAG", "onDraw:PathMeasure(path, false) "+ pathMeasure1.getLength());
-        canvas.drawPath(path, mPaint);
-
-//        Path path = new Path();
-//        path.addRect(-200,-200, 200,200, Path.Direction.CW);
-//
-//        Path dst = new Path();
-//        dst.lineTo(-300,-300);//添加一条直线
-//
-//        PathMeasure pathMeasure = new PathMeasure(path, false);
-//        //截取一部分存入dst中，并且使用moveTo保持截取得到的Path第一个点位置不变。
-//        pathMeasure.getSegment(200, 1000, dst, true);
-//
-//
-//
+//        path.lineTo(200, -200);
+////
+//        Log.e("TAG", "onDraw:PathMeasure(path, false) "+ pathMeasure1.getLength());
+//        //如果Path进行了调整，需要重新调用setPath方法进行关联
+//        pathMeasure1.setPath(path, false);
+////
+//        Log.e("TAG", "onDraw:PathMeasure(path, false) "+ pathMeasure1.getLength());
 //        canvas.drawPath(path, mPaint);
-//        canvas.drawPath(dst, mLinePaint);
+
+
+        Path path = new Path();
+        path.addRect(-200,-200, 200,200, Path.Direction.CW);
+
+        Path dst = new Path();
+        dst.lineTo(-300,-300);//添加一条直线
+
+        PathMeasure pathMeasure = new PathMeasure(path, false);
+        //截取一部分存入dst中，并且使用moveTo保持截取得到的Path第一个点位置不变。
+        pathMeasure.getSegment(200, 1000, dst, true);//true和false不同
+        canvas.drawPath(path, mPaint);
+        canvas.drawPath(dst, mLinePaint);//绘制截取到的路径
+
+
 
 //        Path path = new Path();
 //        path.addRect(-100,-100,100,100, Path.Direction.CW);//添加一个矩形
