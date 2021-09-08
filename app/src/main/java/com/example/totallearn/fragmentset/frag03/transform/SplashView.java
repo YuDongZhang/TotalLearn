@@ -106,13 +106,15 @@ public class SplashView extends View {
                     invalidate();//会使 onDraw()重新执行
                 }
             });
-//            mValueAnimator.addListener(new AnimatorListenerAdapter() {
-//                @Override
-//                public void onAnimationEnd(Animator animation) {
-//                    super.onAnimationEnd(animation);
-//                    mState = new MerginState();
-//                }
-//            });
+
+            //监听动画执行的状态
+            mValueAnimator.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    super.onAnimationEnd(animation);
+                    mState = new MerginState();//状态的切换
+                }
+            });
             mValueAnimator.start();
         }
 
@@ -132,8 +134,8 @@ public class SplashView extends View {
             // y = r * sin(a) + centY;
             //这里是先可以画上固定的各个点的坐标
             float angle = i * rotateAngle + mCurrentRotateAngle;//加上当前旋转的角度
-            float cx = (float) (Math.cos(angle)*mRotateRadius + mCenterX);
-            float cy = (float) (Math.sin(angle)*mRotateRadius + mCenterY);
+            float cx = (float) (Math.cos(angle)*mCurrentRotateRadius + mCenterX);
+            float cy = (float) (Math.sin(angle)*mCurrentRotateRadius + mCenterY);
             mPaint.setColor(mCircleColors[i]);
             canvas.drawCircle(cx, cy, mCircleRadius, mPaint);
         }
@@ -155,10 +157,10 @@ public class SplashView extends View {
     private class MerginState extends SplashState {
 
         private MerginState() {
-            mValueAnimator = ValueAnimator.ofFloat(mCircleRadius, mRotateRadius);
+            mValueAnimator = ValueAnimator.ofFloat(mCircleRadius, mRotateRadius);//开始之后执行到一个大圆
 //            mValueAnimator.setRepeatCount(2);
             mValueAnimator.setDuration(mRotateDuration);
-            mValueAnimator.setInterpolator(new OvershootInterpolator(10f));
+            mValueAnimator.setInterpolator(new OvershootInterpolator(10f));//插值器
             mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
@@ -166,14 +168,14 @@ public class SplashView extends View {
                     invalidate();
                 }
             });
-            mValueAnimator.addListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    super.onAnimationEnd(animation);
-                    mState = new ExpandState();
-                }
-            });
-            mValueAnimator.reverse();
+//            mValueAnimator.addListener(new AnimatorListenerAdapter() {
+//                @Override
+//                public void onAnimationEnd(Animator animation) {
+//                    super.onAnimationEnd(animation);
+//                    mState = new ExpandState();
+//                }
+//            });
+            mValueAnimator.reverse();//这个反向操作
         }
 
         @Override
