@@ -182,6 +182,7 @@ public class DragBubbleView extends View {
         }
     }
 
+    //这里需要进行一些初始化
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
@@ -244,6 +245,7 @@ public class DragBubbleView extends View {
         if (mBubbleState != BUBBLE_STATE_DISMISS){
             //绘制一个气泡加消息数据
             canvas.drawCircle(mBubMovableCenter.x, mBubMovableCenter.y, mBubMovableRadius, mBubblePaint);
+            //绘制文本
             mTextPaint.getTextBounds(mTextStr, 0, mTextStr.length(), mTextRect);
             canvas.drawText(mTextStr, mBubMovableCenter.x-mTextRect.width() / 2, mBubMovableCenter.y + mTextRect.height()/2, mTextPaint);
         }
@@ -332,7 +334,7 @@ public class DragBubbleView extends View {
     }
 
     private void startBubbleRestAnim() {
-        ValueAnimator anim = ValueAnimator.ofObject(new PointFEvaluator(),
+        ValueAnimator anim = ValueAnimator.ofObject(new PointFEvaluator(),//位置移动的估值器
                 new PointF(mBubMovableCenter.x, mBubMovableCenter.y),
                 new PointF(mBubFixedCenter.x, mBubFixedCenter.y));
         anim.setDuration(200);
