@@ -1,4 +1,4 @@
-package com.example.totallearn.fragmentset;
+package com.example.totallearn.fragmentset.frag08;
 
 import android.content.Context;
 import android.os.Bundle;
