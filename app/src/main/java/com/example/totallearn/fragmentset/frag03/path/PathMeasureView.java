@@ -76,29 +76,31 @@ public class PathMeasureView extends View {
 //        canvas.drawPath(path, mPaint);
 
 
-        Path path = new Path();
-        path.addRect(-200,-200, 200,200, Path.Direction.CW);
-
-        Path dst = new Path();
-        dst.lineTo(-300,-300);//添加一条直线
-
-        PathMeasure pathMeasure = new PathMeasure(path, false);
-        //截取一部分存入dst中，并且使用moveTo保持截取得到的Path第一个点位置不变。
-        pathMeasure.getSegment(200, 1000, dst, true);//true和false不同
-        canvas.drawPath(path, mPaint);
-        canvas.drawPath(dst, mLinePaint);//绘制截取到的路径
-
-
-
 //        Path path = new Path();
-//        path.addRect(-100,-100,100,100, Path.Direction.CW);//添加一个矩形
-//        path.addOval(-200,-200,200,200, Path.Direction.CW);//添加一个椭圆
-//        canvas.drawPath(path, mPaint);
+//        path.addRect(-200,-200, 200,200, Path.Direction.CW);
+//
+//        Path dst = new Path();
+//        dst.lineTo(-300,-300);//添加一条直线
+//
 //        PathMeasure pathMeasure = new PathMeasure(path, false);
-//        Log.e("TAG", "onDraw:forceClosed=false "+ pathMeasure.getLength());
-//        //跳转到下一条曲线
-//        pathMeasure.nextContour();
-//        Log.e("TAG", "onDraw:forceClosed=false "+ pathMeasure.getLength());
+//        //截取一部分存入dst中，并且使用moveTo保持截取得到的Path第一个点位置不变。
+//        pathMeasure.getSegment(200, 1000, dst, true);//true和false不同
+//        canvas.drawPath(path, mPaint);
+//        canvas.drawPath(dst, mLinePaint);//绘制截取到的路径
+
+
+
+        Path path = new Path();
+        path.addRect(-100,-100,100,100, Path.Direction.CW);//添加一个矩形
+        path.addOval(-200,-200,200,200, Path.Direction.CW);//添加一个椭圆
+        canvas.drawPath(path, mPaint);
+        PathMeasure pathMeasure = new PathMeasure(path, false);
+        Log.e("TAG", "onDraw:forceClosed=false "+ pathMeasure.getLength());
+        //跳转到下一条曲线 , 测量整个path的长度
+        pathMeasure.nextContour();
+        Log.e("TAG", "onDraw:forceClosed=false "+ pathMeasure.getLength());
+
+
 
 //        mPath.reset();
 //        mPath.addCircle(0,0,200, Path.Direction.CW);
