@@ -90,42 +90,42 @@ public class PathMeasureView extends View {
 
 
 
-        Path path = new Path();
-        path.addRect(-100,-100,100,100, Path.Direction.CW);//添加一个矩形
-        path.addOval(-200,-200,200,200, Path.Direction.CW);//添加一个椭圆
-        canvas.drawPath(path, mPaint);
-        PathMeasure pathMeasure = new PathMeasure(path, false);
-        Log.e("TAG", "onDraw:forceClosed=false "+ pathMeasure.getLength());
-        //跳转到下一条曲线 , 测量整个path的长度
-        pathMeasure.nextContour();
-        Log.e("TAG", "onDraw:forceClosed=false "+ pathMeasure.getLength());
+//        Path path = new Path();
+//        path.addRect(-100,-100,100,100, Path.Direction.CW);//添加一个矩形
+//        path.addOval(-200,-200,200,200, Path.Direction.CW);//添加一个椭圆
+//        canvas.drawPath(path, mPaint);
+//        PathMeasure pathMeasure = new PathMeasure(path, false);
+//        Log.e("TAG", "onDraw:forceClosed=false "+ pathMeasure.getLength());
+//        //跳转到下一条曲线 , 测量整个path的长度
+//        pathMeasure.nextContour();
+//        Log.e("TAG", "onDraw:forceClosed=false "+ pathMeasure.getLength());
 
 
 
-//        mPath.reset();
-//        mPath.addCircle(0,0,200, Path.Direction.CW);
-//        canvas.drawPath(mPath, mPaint);
+        mPath.reset();
+        mPath.addCircle(0,0,200, Path.Direction.CW);
+        canvas.drawPath(mPath, mPaint);
 //
-//        mFloat += 0.01;
-//        if (mFloat >= 1){
-//            mFloat = 0;
-//        }
+        mFloat += 0.01;
+        if (mFloat >= 1){
+            mFloat = 0;
+        }
 
-//        PathMeasure pathMeasure = new PathMeasure(mPath, false);
-//        pathMeasure.getPosTan(pathMeasure.getLength() * mFloat,pos,tan);
-//        Log.e("TAG", "onDraw: pos[0]="+pos[0]+";pos[1]="+pos[1]);
-//        Log.e("TAG", "onDraw: tan[0]="+tan[0]+";tan[1]="+tan[1]);
+        PathMeasure pathMeasure = new PathMeasure(mPath, false);
+        pathMeasure.getPosTan(pathMeasure.getLength() * mFloat,pos,tan);
+        Log.e("TAG", "onDraw: pos[0]="+pos[0]+";pos[1]="+pos[1]);
+        Log.e("TAG", "onDraw: tan[0]="+tan[0]+";tan[1]="+tan[1]);
 //
 //        //计算出当前的切线与x轴夹角的度数
-//        double degrees = Math.atan2(tan[1], tan[0]) * 180.0 / Math.PI;
-//        Log.e("TAG", "onDraw: degrees="+degrees);
+        double degrees = Math.atan2(tan[1], tan[0]) * 180.0 / Math.PI;
+        Log.e("TAG", "onDraw: degrees="+degrees);
 //
-//        mMatrix.reset();
-//        //进行角度旋转
-//        mMatrix.postRotate((float) degrees, mBitmap.getWidth() / 2, mBitmap.getHeight() / 2);
-//        //将图片的绘制点中心与当前点重合
-//        mMatrix.postTranslate(pos[0] - mBitmap.getWidth() / 2, pos[1]-mBitmap.getHeight() / 2);
-//        canvas.drawBitmap(mBitmap,mMatrix, mPaint);
+        mMatrix.reset();
+        //进行角度旋转
+        mMatrix.postRotate((float) degrees, mBitmap.getWidth() / 2, mBitmap.getHeight() / 2);
+        //将图片的绘制点中心与当前点重合
+        mMatrix.postTranslate(pos[0] - mBitmap.getWidth() / 2, pos[1]-mBitmap.getHeight() / 2);
+        canvas.drawBitmap(mBitmap,mMatrix, mPaint);
 
 //        PathMeasure pathMeasure = new PathMeasure(mPath, false);
 //        //将pos信息和tan信息保存在mMatrix中
@@ -134,8 +134,8 @@ public class PathMeasureView extends View {
 //        mMatrix.preTranslate(-mBitmap.getWidth() / 2, -mBitmap.getHeight() / 2);
 //
 //        canvas.drawBitmap(mBitmap,mMatrix, mPaint);
-//
-//        invalidate();
+
+        invalidate();
     }
 
     private Matrix mMatrix = new Matrix();
