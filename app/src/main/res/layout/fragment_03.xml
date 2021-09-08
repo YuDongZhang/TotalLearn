@@ -12,7 +12,7 @@
 
     <com.example.totallearn.customview.VerticalSeekBar
         android:id="@+id/vertical_Seekbar"
-        android:layout_width="60dp"
+        android:layout_width="10dp"
         android:layout_height="450dp"
         android:layout_below="@+id/textView3"
         android:layout_alignParentStart="true" />
@@ -43,7 +43,7 @@
         <Button
             android:id="@+id/f3_b2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_below="@+id/f3_b1"
             android:layout_alignStart="@+id/f3_b1"
             android:text="2.Button" />
@@ -77,14 +77,17 @@
                 android:layout_height="40dp"
                 android:gravity="center"
                 android:text="4.自定义recyclerview" />
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/f3_tv5"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="5.网易paint高级绘制" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/f3_tv5"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:text="5.网易paint高级绘制" />
+
 
         <TextView
             android:id="@+id/f3_tv6"
@@ -127,6 +130,13 @@
             android:layout_height="40dp"
             android:gravity="center"
             android:text="11.网易canvas旋转小球" />
+
+        <TextView
+            android:id="@+id/f3_tv12"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="12.网易path" />
 
 
     </LinearLayout>

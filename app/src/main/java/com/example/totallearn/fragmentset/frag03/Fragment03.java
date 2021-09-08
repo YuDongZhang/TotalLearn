@@ -20,6 +20,7 @@ import com.example.totallearn.fragmentset.frag03.colorfilter.LightingColorFilter
 import com.example.totallearn.fragmentset.frag03.paint.PaintActivity;
 import com.example.totallearn.fragmentset.frag03.paint.XfermodeActivity;
 import com.example.totallearn.fragmentset.frag03.paint.XfermodesActivity;
+import com.example.totallearn.fragmentset.frag03.path.PathActivity;
 import com.example.totallearn.fragmentset.frag03.transform.SplashActivity;
 import com.example.totallearn.fragmentset.frag03.transform.SplitViewActivity;
 import com.example.totallearn.fragmentset.frag03.transform.TransActivity;
@@ -105,7 +106,7 @@ public class Fragment03 extends Fragment {
 
 
     @OnClick({R.id.f3_b1, R.id.f3_b2, R.id.f3_tv3, R.id.f3_tv4, R.id.f3_tv5, R.id.f3_tv6, R.id.f3_tv7,
-            R.id.f3_tv8,R.id.f3_tv9,R.id.f3_tv10,R.id.f3_tv11})
+            R.id.f3_tv8,R.id.f3_tv9,R.id.f3_tv10,R.id.f3_tv11,R.id.f3_tv12})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f3_b1:
@@ -156,6 +157,11 @@ public class Fragment03 extends Fragment {
 
            case R.id.f3_tv11:
                 intent = new Intent(getActivity(), SplashActivity.class);
+                startActivity(intent);
+                break;
+
+           case R.id.f3_tv12:
+                intent = new Intent(getActivity(), PathActivity.class);
                 startActivity(intent);
                 break;
 

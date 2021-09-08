@@ -61,4 +61,12 @@
         <attr name="donutProgressStyle" format="reference"/>
         <attr name="arcProgressStyle" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="DragBubbleView">
+        <attr name="bubble_radius" format="dimension"/>
+        <attr name="bubble_color" format="color"/>
+        <attr name="bubble_text" format="string"/>
+        <attr name="bubble_textSize" format="dimension"/>
+        <attr name="bubble_textColor" format="color"/>
+    </declare-styleable>
 </resources>
