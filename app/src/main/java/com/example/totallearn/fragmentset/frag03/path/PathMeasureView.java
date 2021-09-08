@@ -33,7 +33,7 @@ public class PathMeasureView extends View {
         //缩小图片
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 4;
-        mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.arrow,options);
+        mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.arrow, options);
     }
 
     @Override
@@ -45,32 +45,35 @@ public class PathMeasureView extends View {
 
         canvas.translate(getWidth() / 2, getHeight() / 2);
 
-//        Path path = new Path();
-//        path.lineTo(0,200);
-//        path.lineTo(200,200);
-//        path.lineTo(200,0);
+
+        Path path = new Path();
+        path.lineTo(0, 200);
+        path.lineTo(200, 200);
+        path.lineTo(200, 0);
 //
-//        /**
-//         * pathMeasure需要关联一个创建好的path, forceClosed会影响Path的测量结果
-//         */
-//        PathMeasure pathMeasure = new PathMeasure();
-//        pathMeasure.setPath(path, true);
-//        Log.e("TAG", "onDraw:forceClosed=true "+ pathMeasure.getLength());
+        /**
+         * pathMeasure需要关联一个创建好的path, forceClosed会影响Path的测量结果,查看打印的结果
+         */
+        PathMeasure pathMeasure = new PathMeasure();
+        pathMeasure.setPath(path, true);
+        Log.e("TAG", "onDraw:forceClosed=true " + pathMeasure.getLength());
+
+        PathMeasure pathMeasure2 = new PathMeasure();
+        pathMeasure2.setPath(path, false);
+        Log.e("TAG", "onDraw:forceClosed=false " + pathMeasure2.getLength());
+
+        PathMeasure pathMeasure1 = new PathMeasure(path, false);
+        Log.e("TAG", "onDraw:PathMeasure(path, false) "+ pathMeasure1.getLength());
+
 //
-//        PathMeasure pathMeasure2 = new PathMeasure();
-//        pathMeasure2.setPath(path, false);
-//        Log.e("TAG", "onDraw:forceClosed=false "+ pathMeasure2.getLength());
+        path.lineTo(200, -200);
 //
-//        PathMeasure pathMeasure1 = new PathMeasure(path, false);
-//        Log.e("TAG", "onDraw:PathMeasure(path, false) "+ pathMeasure1.getLength());
+        Log.e("TAG", "onDraw:PathMeasure(path, false) "+ pathMeasure1.getLength());
+        //如果Path进行了调整，需要重新调用setPath方法进行关联
+        pathMeasure1.setPath(path, false);
 //
-//        path.lineTo(200, -200);
-//
-//        Log.e("TAG", "onDraw:PathMeasure(path, false) "+ pathMeasure1.getLength());
-//        //如果Path进行了调整，需要重新调用setPath方法进行关联
-//        pathMeasure1.setPath(path, false);
-//
-//        Log.e("TAG", "onDraw:PathMeasure(path, false) "+ pathMeasure1.getLength());
+        Log.e("TAG", "onDraw:PathMeasure(path, false) "+ pathMeasure1.getLength());
+        canvas.drawPath(path, mPaint);
 
 //        Path path = new Path();
 //        path.addRect(-200,-200, 200,200, Path.Direction.CW);
