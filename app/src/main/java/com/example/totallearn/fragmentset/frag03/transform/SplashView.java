@@ -142,15 +142,15 @@ public class SplashView extends View {
     }
 
     private void drawBackground(Canvas canvas) {
-//        if (mCurrentHoleRadius > 0) {
-//            //绘制空心圆
-//            float strokeWidth = mDistance - mCurrentHoleRadius;
-//            float radius = strokeWidth / 2 + mCurrentHoleRadius;
-//            mHolePaint.setStrokeWidth(strokeWidth);
-//            canvas.drawCircle(mCenterX, mCenterY, radius, mHolePaint);
-//        } else {
+        if (mCurrentHoleRadius > 0) {//表示进入到第三种状态
+            //绘制空心圆
+            float strokeWidth = mDistance - mCurrentHoleRadius;
+            float radius = strokeWidth / 2 + mCurrentHoleRadius;
+            mHolePaint.setStrokeWidth(strokeWidth);
+            canvas.drawCircle(mCenterX, mCenterY, radius, mHolePaint);
+        } else {
             canvas.drawColor(mBackgroundColor);
-//        }
+        }
     }
 
     //2.扩散聚合
@@ -168,13 +168,13 @@ public class SplashView extends View {
                     invalidate();
                 }
             });
-//            mValueAnimator.addListener(new AnimatorListenerAdapter() {
-//                @Override
-//                public void onAnimationEnd(Animator animation) {
-//                    super.onAnimationEnd(animation);
-//                    mState = new ExpandState();
-//                }
-//            });
+            mValueAnimator.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    super.onAnimationEnd(animation);
+                    mState = new ExpandState();
+                }
+            });
             mValueAnimator.reverse();//这个反向操作
         }
 
