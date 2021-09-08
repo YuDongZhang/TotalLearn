@@ -15,6 +15,7 @@ public class PathActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //        setContentView(new PathView(this));
 //        setContentView(new BezierView(this));//多阶巴塞尔曲线
-        setContentView(R.layout.activity_path);//多阶巴塞尔曲线
+//        setContentView(R.layout.activity_path);//多阶巴塞尔曲线
+        setContentView(new PathMeasureView(this));
     }
 }
