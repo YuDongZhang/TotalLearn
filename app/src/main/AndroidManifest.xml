@@ -25,6 +25,7 @@
         <activity android:name=".fragmentset.frag03.transform.SplitViewActivity"/>
         <activity android:name=".fragmentset.frag03.transform.SplashActivity"/>
         <activity android:name=".fragmentset.frag03.path.PathActivity"/>
+        <activity android:name=".fragmentset.frag09.ScreenAdapterActivity"/>
 
         <activity android:name=".fragmentset.frag03.RecyclerTitleActivity" />
         <activity android:name=".fragmentset.frag03.CalendarActivity" />

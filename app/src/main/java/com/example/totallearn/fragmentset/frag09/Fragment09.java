@@ -1,6 +1,7 @@
 package com.example.totallearn.fragmentset.frag09;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -62,6 +63,8 @@ public class Fragment09 extends Fragment {
             public void onItemClick(int pos) {
                 switch (pos) {
                     case 0:
+                        Intent intent = new Intent(getActivity(), ScreenAdapterActivity.class);
+                        startActivity(intent);
                         break;
                 }
             }
