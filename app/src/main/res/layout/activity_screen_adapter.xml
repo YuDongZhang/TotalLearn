@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.totallearn.fragmentset.frag09.ScreenAdapterLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:orientation="vertical">
 
-    <TextView
-        android:background="@color/colorPrimary"
-        android:layout_width="540px"
-        android:layout_height="540px"/>
+    <com.example.totallearn.fragmentset.frag09.ScreenAdapterLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="540px"
+            android:layout_height="50px"
+            android:background="@color/colorPrimary"
+            android:text="像素缩放布局" />
+    </com.example.totallearn.fragmentset.frag09.ScreenAdapterLayout>
+
+    <com.example.totallearn.fragmentset.frag09.PercentLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/green"
+            android:text="百分百布局"
+            app:heightPercent="0.05"
+            app:widthPercent="0.5" />
+
+    </com.example.totallearn.fragmentset.frag09.PercentLayout>
 
 
-</com.example.totallearn.fragmentset.frag09.ScreenAdapterLayout>
+</LinearLayout>
