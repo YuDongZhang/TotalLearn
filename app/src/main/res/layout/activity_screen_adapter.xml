@@ -30,5 +30,11 @@
 
     </com.example.totallearn.fragmentset.frag09.PercentLayout>
 
+    <TextView
+        android:background="@color/yellow"
+        android:text="改变像素密度的适配"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"/>
+
 
 </LinearLayout>
