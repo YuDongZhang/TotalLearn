@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
 import androidx.fragment.app.FragmentTransaction;
 
@@ -54,6 +55,11 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         //test();
+        //状态栏变成透明的
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+//
+
 
         showFragment(1);//预加载第一页
 
