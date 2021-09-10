@@ -32,7 +32,8 @@ public class Fragment09 extends Fragment {
 
     public static String[] data = {
             "0.自定义像素适配",
-            "1.MaterialDesign,自定义的recycler"
+            "1.MaterialDesign,自定义的recycler",
+            "2.淘宝的 vlayout"
 
     };
 
@@ -70,6 +71,10 @@ public class Fragment09 extends Fragment {
 
                     case 1:
                         intent = new Intent(getActivity(), CustomRecyclerActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        intent = new Intent(getActivity(), VLayoutActivity.class);
                         startActivity(intent);
                         break;
 
