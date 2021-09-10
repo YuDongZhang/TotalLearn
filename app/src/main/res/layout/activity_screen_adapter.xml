@@ -36,6 +36,13 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"/>
 
+    <com.example.totallearn.fragmentset.frag09.MapView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.example.totallearn.fragmentset.frag09.MapView>
+
+
 
     <!--<ImageView-->
     <!--android:layout_width="match_parent"-->
