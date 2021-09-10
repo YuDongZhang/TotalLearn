@@ -7,9 +7,10 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:listDivider">@drawable/md_divider</item>
-        <item name="android:statusBarColor">#ff0000</item>
-<!--  状态栏透明      <item name="android:windowTranslucentStatus">true</item>-->
-<!--  虚拟导航栏透明      <item name="android:windowTranslucentNavigation">true</item>-->
+<!-- 状态栏颜色            <item name="android:statusBarColor">#ff0000</item>-->
+<!-- 状态栏颜色,透明色      <item name="android:statusBarColor">@android:color/transparent</item>-->
+<!-- 状态栏透明            <item name="android:windowTranslucentStatus">true</item>-->
+<!-- 虚拟导航栏透明        <item name="android:windowTranslucentNavigation">true</item>-->
 
     </style>
 
