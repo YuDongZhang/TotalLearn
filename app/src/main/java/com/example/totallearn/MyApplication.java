@@ -1,7 +1,13 @@
 package com.example.totallearn;
 
+import android.app.Activity;
 import android.app.Application;
+import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.Utils;
 import com.example.totallearn.dagger_learn.register_login_6.AppComponent;
 import com.example.totallearn.dagger_learn.register_login_7.FComponent;
@@ -55,6 +61,43 @@ public class MyApplication extends Application {
 
 
         initOkgo();
+        //谷歌工程师做了 aop 的思想
+        registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
+            @Override
+            public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
+                LogUtils.d("打开的"+activity.getComponentName().getClassName());
+            }
+
+            @Override
+            public void onActivityStarted(@NonNull Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityResumed(@NonNull Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityPaused(@NonNull Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityStopped(@NonNull Activity activity) {
+
+            }
+
+            @Override
+            public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState) {
+
+            }
+
+            @Override
+            public void onActivityDestroyed(@NonNull Activity activity) {
+
+            }
+        });
     }
 
     private void initOkgo() {
