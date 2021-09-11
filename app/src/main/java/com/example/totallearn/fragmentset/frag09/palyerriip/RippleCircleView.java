@@ -5,6 +5,9 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 
+/**
+ * 一个水波纹
+ */
 public class RippleCircleView extends View {
 
     private RippleAnimationView rippleAnimationView;

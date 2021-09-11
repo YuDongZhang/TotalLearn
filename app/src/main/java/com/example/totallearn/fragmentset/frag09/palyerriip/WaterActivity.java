@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.totallearn.R;
 import com.example.totallearn.fragmentset.frag09.palyerriip.ui.UIUtils;
+import com.example.totallearn.fragmentset.frag09.palyerriip.ui.ViewCalculateUtil;
 
 
 public class WaterActivity extends AppCompatActivity {
@@ -21,19 +22,19 @@ public class WaterActivity extends AppCompatActivity {
         UIUtils.getInstance(this);
         setContentView(R.layout.activity_water_1);
 
-//        imageView = (ImageView) findViewById(R.id.ImageView);
-//        ViewCalculateUtil.setViewLayoutParam(imageView, 300,300,0,0,0,0);
-//        rippleAnimationView = (RippleAnimationView) findViewById(R.id.layout_RippleAnimation);
-//
-//        imageView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (rippleAnimationView.isAnimationRunning()) {
-//                    rippleAnimationView.stopRippleAnimation();
-//                } else {
-//                    rippleAnimationView.startRippleAnimation();
-//                }
-//            }
-//        });
+        imageView = (ImageView) findViewById(R.id.ImageView);
+        ViewCalculateUtil.setViewLayoutParam(imageView, 300,300,0,0,0,0);
+        rippleAnimationView = (RippleAnimationView) findViewById(R.id.layout_RippleAnimation);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (rippleAnimationView.isAnimationRunning()) {
+                    rippleAnimationView.stopRippleAnimation();
+                } else {
+                    rippleAnimationView.startRippleAnimation();
+                }
+            }
+        });
     }
 }

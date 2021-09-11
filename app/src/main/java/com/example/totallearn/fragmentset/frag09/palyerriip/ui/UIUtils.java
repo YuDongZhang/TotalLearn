@@ -16,7 +16,7 @@ public class UIUtils {
     public static float displayMetricsHeight;
 
     public static float stateBarHeight;
-    ;
+
     private static UIUtils instance;
 
     public static UIUtils getInstance(Context context) {

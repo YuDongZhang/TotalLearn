@@ -19,6 +19,10 @@ import com.example.totallearn.fragmentset.frag09.palyerriip.ui.UIUtils;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * 每个水波纹就是一个view
+ */
+
 public class RippleAnimationView extends RelativeLayout {
     public Paint paint;
 
@@ -26,7 +30,7 @@ public class RippleAnimationView extends RelativeLayout {
     int radius;
     private int strokWidth;
     private ArrayList<RippleCircleView> viewList = new ArrayList<>();
-    private AnimatorSet animatorSet;
+    private AnimatorSet animatorSet;//属性动画的集合
     private boolean animationRunning = false;
 
     public RippleAnimationView(Context context) {
@@ -48,6 +52,7 @@ public class RippleAnimationView extends RelativeLayout {
         return strokWidth;
     }
 
+
     private void init(Context context, AttributeSet attrs) {
         paint = new Paint();
         paint.setAntiAlias(true);//抗锯齿
@@ -68,7 +73,7 @@ public class RippleAnimationView extends RelativeLayout {
         rippleParams.addRule(CENTER_IN_PARENT, TRUE);
         float maxScale = 10;//UIUtils.getInstance().displayMetricsWidth / (float) ( (UIUtils.getInstance().getWidth(radius + strokWidth)));
 //        延迟时间
-        int rippleDuration = 3500;
+        int rippleDuration = 3500;//波纹的间隔时间
         int singleDelay = rippleDuration / 4;//间隔时间 （上一个波纹  和下一个波纹的）
         ArrayList<Animator> animatorList = new ArrayList<>();
 //        实例化一个波纹    =view
@@ -77,14 +82,14 @@ public class RippleAnimationView extends RelativeLayout {
             RippleCircleView rippleCircleView = new RippleCircleView(this);
             addView(rippleCircleView, rippleParams);
             viewList.add(rippleCircleView);
-//            x
+//            x,轴方向
             final ObjectAnimator scaleXAnimator = ObjectAnimator.ofFloat(rippleCircleView, "ScaleX", 1.0f, maxScale);
             scaleXAnimator.setRepeatCount(ObjectAnimator.INFINITE);//无限重复
             scaleXAnimator.setRepeatMode(ObjectAnimator.RESTART);
-            scaleXAnimator.setStartDelay(i * singleDelay);
+            scaleXAnimator.setStartDelay(i * singleDelay);//设置延迟时间
             scaleXAnimator.setDuration(rippleDuration);
             animatorList.add(scaleXAnimator);
-//            y
+//            y轴方向
             final ObjectAnimator scaleYAnimator = ObjectAnimator.ofFloat(rippleCircleView, "ScaleY", 1.0f, maxScale);
 
             scaleYAnimator.setRepeatCount(ObjectAnimator.INFINITE);//无限重复
@@ -124,7 +129,7 @@ public class RippleAnimationView extends RelativeLayout {
             }
         });
         animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
-        animatorSet.playTogether(animatorList);
+        animatorSet.playTogether(animatorList);//动画list 添加到 结合
 
 
     }
@@ -132,7 +137,7 @@ public class RippleAnimationView extends RelativeLayout {
 //启动动画   //停止动画
 
     public void startRippleAnimation() {
-        if (!animationRunning) {
+        if (!animationRunning) {//如果没有运行, 这里是防止多次启动
             for (RippleCircleView rippleView : viewList) {
                 rippleView.setVisibility(VISIBLE);
             }
