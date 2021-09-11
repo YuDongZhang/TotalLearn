@@ -19,7 +19,7 @@ public class ClickBehaviorAspect {
     // 1、应用中用到了哪些注解，放到当前的切入点进行处理（找到需要处理的切入点）比如 :ClickBehavior注解是个切入点 , 切入到了 AspectMainActivity 的方法上 , 也就是有四个接入点
     // execution，以方法执行时作为切点，触发Aspect类
     // * *(..)) 可以处理ClickBehavior这个类所有的方法
-    @Pointcut("execution(@com.netease.aop.login.annotation.ClickBehavior * *(..))")
+    @Pointcut("execution(@com.example.totallearn.fragmentset.frag09.login.annotation.ClickBehavior * *(..))")
     public void methodPointCut() {
     }
 

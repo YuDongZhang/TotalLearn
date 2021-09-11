@@ -23,7 +23,7 @@ public class AspectMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_aop);
     }
 
-    // 登录点击事件（用户行为统计）
+    // 登录点击事件（用户行为统计）//经过测试确实成功打印前后的方法
     @ClickBehavior("登录")
     public void login(View view) {
         Log.e(TAG, "模拟接口请求……验证通过，登录成功！");

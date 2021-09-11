@@ -31,6 +31,9 @@
         <activity android:name=".fragmentset.frag09.CustomRecyclerActivity"/>
         <activity android:name=".fragmentset.frag09.VLayoutActivity"/>
         <activity android:name=".fragmentset.frag09.palyerriip.WaterActivity"/>
+        <activity android:name=".fragmentset.frag09.login.AspectMainActivity"/>
+        <activity android:name=".fragmentset.frag09.login.LoginActivity"/>
+        <activity android:name=".fragmentset.frag09.login.OtherActivity"/>
 
 
         <activity android:name=".fragmentset.frag03.RecyclerTitleActivity" />
