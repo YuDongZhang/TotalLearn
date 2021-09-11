@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totallearn.R;
 import com.example.totallearn.fragmentset.adapter.Frag09Adapter;
+import com.example.totallearn.fragmentset.frag09.palyerriip.WaterActivity;
 
 import java.util.ArrayList;
 
@@ -33,7 +34,8 @@ public class Fragment09 extends Fragment {
     public static String[] data = {
             "0.自定义像素适配",
             "1.MaterialDesign,自定义的recycler",
-            "2.淘宝的 vlayout"
+            "2.淘宝的 vlayout",
+            "3.网易水波纹的效果实现"
 
     };
 
@@ -75,6 +77,11 @@ public class Fragment09 extends Fragment {
                         break;
                     case 2:
                         intent = new Intent(getActivity(), VLayoutActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case 3:
+                        intent = new Intent(getActivity(), WaterActivity.class);
                         startActivity(intent);
                         break;
 
