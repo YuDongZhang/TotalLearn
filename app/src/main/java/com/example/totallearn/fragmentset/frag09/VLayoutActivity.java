@@ -56,7 +56,7 @@ public class VLayoutActivity extends AppCompatActivity {
         mRecyclerView.setRecycledViewPool(viewPool);
         viewPool.setMaxRecycledViews(0, 10);
         BaseDelegeteAdapter bannerAdapter = new BaseDelegeteAdapter(this
-                , new LinearLayoutHelper(), R.layout.vlayout_banner, 1){
+                , new LinearLayoutHelper(), R.layout.vlayout_banner, 1) {
             @Override
             public void onBindViewHolder(BaseViewHolder holder, int i) {
                 ArrayList<String> arrayList = new ArrayList<>();
@@ -97,13 +97,15 @@ public class VLayoutActivity extends AppCompatActivity {
                 super.onBindViewHolder(holder, i);
             }
         };
+
+        //网格布局
         GridLayoutHelper gridLayoutHelper = new GridLayoutHelper(5);
         gridLayoutHelper.setPadding(0, 16, 0, 0);
         gridLayoutHelper.setVGap(10);
         gridLayoutHelper.setHGap(0);//// 控制子元素之间的水平间距
 
 
-        BaseDelegeteAdapter menuAdapter = new BaseDelegeteAdapter(this, gridLayoutHelper, R.layout.vlayout_menu, 10){
+        BaseDelegeteAdapter menuAdapter = new BaseDelegeteAdapter(this, gridLayoutHelper, R.layout.vlayout_menu, 10) {
             @Override
             public void onBindViewHolder(@NonNull BaseViewHolder holder, final int position) {
                 holder.setText(R.id.tv_menu_title_home, ITEM_NAMES[position] + "");
@@ -116,9 +118,9 @@ public class VLayoutActivity extends AppCompatActivity {
                 });
             }
         };
-
+        //跑马灯
         BaseDelegeteAdapter newsAdapter = new BaseDelegeteAdapter(this, new LinearLayoutHelper(),
-                R.layout.vlayout_news, 1){
+                R.layout.vlayout_news, 1) {
             @Override
             public void onBindViewHolder(@NonNull BaseViewHolder holder, int i) {
                 MarqueeView marqueeView1 = holder.getView(R.id.marqueeView1);
@@ -168,7 +170,7 @@ public class VLayoutActivity extends AppCompatActivity {
             };
             GridLayoutHelper gridHelper = new GridLayoutHelper(2);
             BaseDelegeteAdapter gridAdapter = new BaseDelegeteAdapter(this, gridHelper,
-                    R.layout.vlayout_grid, 4){
+                    R.layout.vlayout_grid, 4) {
 
                 @Override
                 public void onBindViewHolder(@NonNull BaseViewHolder holder, final int position) {
@@ -188,9 +190,10 @@ public class VLayoutActivity extends AppCompatActivity {
             delegateAdapter.addAdapter(gridAdapter);
         }
 
-        mRecyclerView.setAdapter(delegateAdapter);
+        mRecyclerView.setAdapter(delegateAdapter);//设置总管的 adapter
     }
 
+    //以前老的 banner 实现的方式
 //    class BannerAdapter   extends DelegateAdapter.Adapter<BaseViewHolder>{
 //
 //
