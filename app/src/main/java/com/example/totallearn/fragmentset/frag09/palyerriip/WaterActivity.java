@@ -20,21 +20,21 @@ public class WaterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         UIUtils.getInstance(this);
-        setContentView(R.layout.activity_water_1);
+        setContentView(R.layout.activity_water);
 
-        imageView = (ImageView) findViewById(R.id.ImageView);
-        ViewCalculateUtil.setViewLayoutParam(imageView, 300,300,0,0,0,0);
-        rippleAnimationView = (RippleAnimationView) findViewById(R.id.layout_RippleAnimation);
-
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (rippleAnimationView.isAnimationRunning()) {
-                    rippleAnimationView.stopRippleAnimation();
-                } else {
-                    rippleAnimationView.startRippleAnimation();
-                }
-            }
-        });
+//        imageView = (ImageView) findViewById(R.id.ImageView);
+//        ViewCalculateUtil.setViewLayoutParam(imageView, 300,300,0,0,0,0);
+//        rippleAnimationView = (RippleAnimationView) findViewById(R.id.layout_RippleAnimation);
+//
+//        imageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (rippleAnimationView.isAnimationRunning()) {
+//                    rippleAnimationView.stopRippleAnimation();
+//                } else {
+//                    rippleAnimationView.startRippleAnimation();
+//                }
+//            }
+//        });
     }
 }
