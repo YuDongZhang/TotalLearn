@@ -12,7 +12,7 @@ public abstract class BaseView<P extends BasePresenter, CONTRACT> extends Activi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // 弱引用
-        p = getPresenter();
+        p = getPresenter();//抽象方法类来赋值,子类来实现
         // 绑定
         p.bindView(this);
     }

@@ -11,5 +11,6 @@ public abstract class BaseModel<P extends BasePresenter, CONTRACT> {
         this.p = p;
     }
 
+    //用到的契约
     public abstract CONTRACT getContract();
 }

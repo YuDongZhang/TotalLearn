@@ -44,7 +44,7 @@ public class MvpLoginActivity extends BaseView<LoginPresenter, LoginContract.Vie
 
     @Override
     public LoginContract.View getContract() {
-        return new LoginContract.View<UserInfo>() {
+        return new LoginContract.View<UserInfo>() {//这是一个面向接口的过程
             @Override
             public void handlerResult(UserInfo userInfo) {
                 if (userInfo != null) {
