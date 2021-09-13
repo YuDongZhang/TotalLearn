@@ -35,6 +35,8 @@
         <activity android:name=".fragmentset.frag09.login.LoginActivity"/>
         <activity android:name=".fragmentset.frag09.login.OtherActivity"/>
 
+        <activity android:name="com.example.totallearn.mvp_set.mvpwangyi.WYmvpActivity"/>
+
 
         <activity android:name=".fragmentset.frag03.RecyclerTitleActivity" />
         <activity android:name=".fragmentset.frag03.CalendarActivity" />

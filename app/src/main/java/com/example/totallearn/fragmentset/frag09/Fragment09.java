@@ -18,6 +18,7 @@ import com.example.totallearn.R;
 import com.example.totallearn.fragmentset.adapter.Frag09Adapter;
 import com.example.totallearn.fragmentset.frag09.login.AspectMainActivity;
 import com.example.totallearn.fragmentset.frag09.palyerriip.WaterActivity;
+import com.example.totallearn.mvp_set.mvpwangyi.WYmvpActivity;
 
 import java.util.ArrayList;
 
@@ -37,7 +38,8 @@ public class Fragment09 extends Fragment {
             "1.MaterialDesign,自定义的recycler",
             "2.淘宝的 vlayout",
             "3.网易水波纹的效果实现",
-            "4.1.1.4 集中式登录架构设计"
+            "4.aspect集中式登录架构设计",
+            "5.1.2.2 MVP思想精髓与解耦"
 
     };
 
@@ -89,6 +91,11 @@ public class Fragment09 extends Fragment {
 
                     case 4:
                         intent = new Intent(getActivity(), AspectMainActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case 5:
+                        intent = new Intent(getActivity(), WYmvpActivity.class);
                         startActivity(intent);
                         break;
 
