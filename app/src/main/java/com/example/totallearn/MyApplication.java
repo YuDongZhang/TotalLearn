@@ -16,6 +16,8 @@ import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
@@ -25,7 +27,11 @@ import okhttp3.OkHttpClient;
 
 /**
  * 3. 在MyApplication实例化AppComponent：
+ *
  */
+
+  //http://greenrobot.org/eventbus/documentation/subscriber-index/
+
 public class MyApplication extends Application {
 
     private AppComponent mAppComponent;
@@ -98,6 +104,8 @@ public class MyApplication extends Application {
 
             }
         });
+
+        EventBus.builder().addIndex(new MyEventBusIndex()).installDefaultEventBus();
     }
 
     private void initOkgo() {

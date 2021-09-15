@@ -1,6 +1,8 @@
 package com.example.totallearn.activity;
 
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.OrientationHelper;
@@ -9,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.totallearn.R;
 import com.example.totallearn.recyclerviewlearn.RClayoutmanager.MDGridRvDividerDecoration;
 import com.example.totallearn.recyclerviewlearn.RClayoutmanager.RVAdapter;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 
@@ -21,14 +26,39 @@ public class MainSecondActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         ButterKnife.bind(this);
+        EventBus.getDefault().register(this);
 
         initViews();
+    }
+
+    @Subscribe
+    public void event(String string) {
+        Log.e("TAG", "event: " + string);
+    }
+
+    //
+    @Subscribe(priority = 10, sticky = true)
+    public void event2(String string) {
+        Log.e("TAG", "event:2 " + string);
+    }
+
+    //粘性事件界面未初始化 , 或者延时都可以收到
+    @Subscribe( sticky = true)
+    public void event3(String string) {
+        Log.e("TAG", "event:3 " + string);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this);
+        }
     }
 
     private void initViews() {
@@ -43,7 +73,7 @@ public class MainSecondActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(new RVAdapter(mDataList));
     }
 
-    private void addList(ArrayList<String> arrayList){
+    private void addList(ArrayList<String> arrayList) {
         arrayList.add("0");
         arrayList.add("1");
         arrayList.add("2");

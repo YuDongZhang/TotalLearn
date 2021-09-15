@@ -1,17 +1,23 @@
 package com.example.totallearn;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.totallearn.zhujie.customzhujie.getViewTo;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.lang.reflect.Field;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -34,18 +40,19 @@ public class TestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        Log.d(TAG,"onCreate");
+        ButterKnife.bind(this);
+        Log.d(TAG, "onCreate");
 
 
-       testThread();
+        testThread();
         //通过注解生成view
         //getAllAnnotationView();
-       // initData();
+        // initData();
     }
 
 
-    public void testThread(){
-        new Thread(){
+    public void testThread() {
+        new Thread() {
             @Override
             public void run() {
                 try {
@@ -86,55 +93,67 @@ public class TestActivity extends AppCompatActivity {
     }
 
 
-
     /**
      * 解析注解 , 获取控件
-     *
+     * <p>
      * 运行时的注解 , 通过反射来解析注入到数据中去
-     *
+     * <p>
      * 我们将注解描述在Activity的成员变量mTv和mBtn中，在App运行时，通过反射将findViewbyId得到的控件，注入到mTv和mBtn中。
-     *
+     * <p>
      * 是不是很熟悉，有点ButterKnife的味道？当然，ButterKnife比这个高级多，毕竟反射多了影响效率，不过我们明白了，
      * 可以通过注解来注入和创建对象，这样可以在一定程度节省代码量。
      */
-    private void getAllAnnotationView(){
+    private void getAllAnnotationView() {
         //获得成员变量
         Field[] fields = this.getClass().getDeclaredFields();
 
-        for (Field field : fields){
-            try{
+        for (Field field : fields) {
+            try {
                 //判断注解
-                if(field.getAnnotations() != null){
+                if (field.getAnnotations() != null) {
                     //确定注解的类型
-                    if(field.isAnnotationPresent(getViewTo.class)){
+                    if (field.isAnnotationPresent(getViewTo.class)) {
                         //允许修改反射属性
                         field.setAccessible(true);
                         getViewTo getView = field.getAnnotation(getViewTo.class);
                         //findviewbyId 将注解的id ,找到 view 注入到成员变量中
-                        field.set(this,findViewById(getView.value()));
+                        field.set(this, findViewById(getView.value()));
                     }
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
 
             }
         }
     }
 
     /**
-     *  编译时注解  : 简单总结,就是要编译处理器 , 还有编译处理器要扫描class
-     *
-     *运行时注解RUNTIME如上2.1所示，大多数时候实在运行时使用反射来实现所需效果，这很大程度上影响效率，如果BufferKnife
+     * 编译时注解  : 简单总结,就是要编译处理器 , 还有编译处理器要扫描class
+     * <p>
+     * 运行时注解RUNTIME如上2.1所示，大多数时候实在运行时使用反射来实现所需效果，这很大程度上影响效率，如果BufferKnife
      * 的每个View注入不可能如何实现。实际上，ButterKnife使用的是编译时注解CLASS，如下图X2.2，是ButterKnife的@BindView注解，
      * 它是一个编译时注解，在编译时生成对应java代码，实现注入。
-     *
+     * <p>
      * 说到编译时注解，就不得不说注解处理器*** AbstractProcessor，如果你有注意，一般第三方注解相关的类库，如bufferKnike、ARouter，
      * 都有一个Compiler命名的Module，如下图X2.3*，这里面一般都是注解处理器，用于编译时处理对应的注解。
      * 注解处理器（Annotation Processor）是javac的一个工具，它用来在编译时扫描和处理注解（Annotation）。你可以对自定义注解，并注册
      * 相应的注解处理器，用于处理你的注解逻辑。
-
      */
     @BindView(R.id.test_tv1)
-     TextView testTv1;
+    TextView testTv1;
+
+    @OnClick({R.id.test_b1, R.id.test_b2, R.id.test_tv1})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.test_b1:
+                EventBus.getDefault().post("hahah");
+                break;
+            case R.id.test_b2:
+                EventBus.getDefault().postSticky("hualala");
+                break;
+            case R.id.test_tv1:
+                break;
+        }
+    }
 
     /**
      * 如下所示，实现一个自定义注解处理器，至少重写四个方法，并且注册你的自定义Processor，详细可参考下方代码CustomProcessor。
@@ -297,9 +316,6 @@ public class TestActivity extends AppCompatActivity {
 
 
      */
-
-
-
 
 
 }

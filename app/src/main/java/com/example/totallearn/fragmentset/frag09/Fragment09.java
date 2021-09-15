@@ -15,11 +15,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totallearn.R;
+import com.example.totallearn.TestActivity;
 import com.example.totallearn.fragmentset.adapter.Frag09Adapter;
 import com.example.totallearn.fragmentset.frag09.login.AspectMainActivity;
 import com.example.totallearn.fragmentset.frag09.palyerriip.WaterActivity;
 import com.example.totallearn.mvp_set.mvpwangyi.WYmvpActivity;
 import com.example.totallearn.mvp_set.mvpwangyi_2.MvpLoginActivity;
+import com.example.totallearn.mvvm_set.MvvMActivity;
 
 import java.util.ArrayList;
 
@@ -41,7 +43,9 @@ public class Fragment09 extends Fragment {
             "3.网易水波纹的效果实现",
             "4.aspect集中式登录架构设计",
             "5.1.2.2 MVP思想精髓与解耦",
-            "6.1.2.3 MVP思想实现项目基础框架搭建"
+            "6.1.2.3 MVP思想实现项目基础框架搭建",
+            "7.mvvm基础",
+            "8.eventbus测试,正确使用"
 
     };
 
@@ -103,6 +107,15 @@ public class Fragment09 extends Fragment {
 
                     case 6:
                         intent = new Intent(getActivity(), MvpLoginActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 7:
+                        intent = new Intent(getActivity(), MvvMActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case 8:
+                        intent = new Intent(getActivity(), TestActivity.class);
                         startActivity(intent);
                         break;
 
