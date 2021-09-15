@@ -1,1 +1,4 @@
+include ':eventbus'
+include ':eventbus_compiler'
+include ':eventbus_annotation'
 include ':app'

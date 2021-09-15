@@ -36,7 +36,7 @@ android {
         // 给注解处理器传参
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ eventBusIndex : 'com.example.totallearn.MyEventBusIndex' ]
+                arguments = [eventBusIndex: 'com.example.totallearn.MyEventBusIndex']
             }
         }
 
@@ -86,6 +86,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 
 //    implementation project(':library')
+    implementation project(':eventbus')
+    implementation project(':eventbus_annotation')
+    annotationProcessor project(':eventbus_compiler')
+
 
     //butterknife
     implementation 'com.jakewharton:butterknife:10.0.0'

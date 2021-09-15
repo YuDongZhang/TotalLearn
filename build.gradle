@@ -2,6 +2,9 @@
 
 buildscript {
 
+    ext {
+        kotlin_version = '1.4.21'
+    }
     repositories {
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         maven { url 'https://maven.aliyun.com/repository/google' }
@@ -22,6 +25,7 @@ buildscript {
         // 或者：As-3.2.1 + gradle4.6-all （正常使用，无警告）
         classpath 'org.aspectj:aspectjtools:1.8.9'
         classpath 'org.aspectj:aspectjweaver:1.8.9'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
