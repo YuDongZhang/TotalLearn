@@ -17,28 +17,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
+        <activity android:name=".activity.MultiFunctionActivity"></activity>
+        <activity android:name=".activity.ManyTestActivity" />
         <activity android:name=".fragmentset.frag03.paint.PaintActivity" />
         <activity android:name=".fragmentset.frag03.paint.XfermodeActivity" />
-        <activity android:name=".fragmentset.frag03.paint.XfermodesActivity"/>
-        <activity android:name=".fragmentset.frag03.colorfilter.LightingColorFilterActivity"/>
-        <activity android:name=".fragmentset.frag03.transform.TransActivity"/>
-        <activity android:name=".fragmentset.frag03.transform.SplitViewActivity"/>
-        <activity android:name=".fragmentset.frag03.transform.SplashActivity"/>
-        <activity android:name=".fragmentset.frag03.path.PathActivity"/>
-
-
-        <activity android:name=".fragmentset.frag09.ScreenAdapterActivity"/>
-        <activity android:name=".fragmentset.frag09.CustomRecyclerActivity"/>
-        <activity android:name=".fragmentset.frag09.VLayoutActivity"/>
-        <activity android:name=".fragmentset.frag09.palyerriip.WaterActivity"/>
-        <activity android:name=".fragmentset.frag09.login.AspectMainActivity"/>
-        <activity android:name=".fragmentset.frag09.login.LoginActivity"/>
-        <activity android:name=".fragmentset.frag09.login.OtherActivity"/>
-
-        <activity android:name="com.example.totallearn.mvp_set.mvpwangyi.WYmvpActivity"/>
-        <activity android:name="com.example.totallearn.mvp_set.mvpwangyi_2.MvpLoginActivity"/>
-
-
+        <activity android:name=".fragmentset.frag03.paint.XfermodesActivity" />
+        <activity android:name=".fragmentset.frag03.colorfilter.LightingColorFilterActivity" />
+        <activity android:name=".fragmentset.frag03.transform.TransActivity" />
+        <activity android:name=".fragmentset.frag03.transform.SplitViewActivity" />
+        <activity android:name=".fragmentset.frag03.transform.SplashActivity" />
+        <activity android:name=".fragmentset.frag03.path.PathActivity" />
+        <activity android:name=".fragmentset.frag09.ScreenAdapterActivity" />
+        <activity android:name=".fragmentset.frag09.CustomRecyclerActivity" />
+        <activity android:name=".fragmentset.frag09.VLayoutActivity" />
+        <activity android:name=".fragmentset.frag09.palyerriip.WaterActivity" />
+        <activity android:name=".fragmentset.frag09.login.AspectMainActivity" />
+        <activity android:name=".fragmentset.frag09.login.LoginActivity" />
+        <activity android:name=".fragmentset.frag09.login.OtherActivity" />
+        <activity android:name=".mvp_set.mvpwangyi.WYmvpActivity" />
+        <activity android:name=".mvp_set.mvpwangyi_2.MvpLoginActivity" />
         <activity android:name=".fragmentset.frag03.RecyclerTitleActivity" />
         <activity android:name=".fragmentset.frag03.CalendarActivity" />
         <activity android:name=".activity.MainSecondActivity" />
