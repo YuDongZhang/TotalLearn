@@ -1,5 +1,7 @@
 package com.example.totallearn.fragmentset.frag01;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -12,8 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.ToastUtils;
+import com.example.totallearn.MainActivity;
 import com.example.totallearn.R;
 import com.example.totallearn.base.BaseActivity;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -26,6 +31,7 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.functions.Consumer;
 import top.zibin.luban.CompressionPredicate;
 import top.zibin.luban.Luban;
 import top.zibin.luban.OnCompressListener;
@@ -57,7 +63,8 @@ public class ImgCompressActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_img_compress);
         ButterKnife.bind(this);
-        imgDaXiao();//获取大小
+
+       imgDaXiao();
     }
 
     @OnClick({R.id.tv1, R.id.tv2, R.id.tv3, R.id.tv4, R.id.tv5, R.id.tv6, R.id.tv7, R.id.tv8, R.id.img1})
@@ -87,14 +94,16 @@ public class ImgCompressActivity extends BaseActivity {
         }
     }
 
-    //获取图片大小
+
     private void imgDaXiao() {
-        bit = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory().getAbsolutePath()
-                + "/DCIM/Camera/IMG_20181115_100832.jpg");//看能否拿到路径
+                bit = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory()
+                        + "/11.jpg");//看能否拿到路径
 
-
-        LogUtils.d(TAG, "压缩图片大小" + (bit.getByteCount() / 1024 / 1024) + "M 宽度:" + bit.getWidth() + " 高度:" + bit.getHeight());
+//         LogUtils.d("路径->"+Environment.getExternalStorageDirectory().getAbsolutePath());
+//        LogUtils.d(TAG, "压缩图片大小" + (bit.getByteCount() / 1024 / 1024) + "M 宽度:" + bit.getWidth() + " 高度:" + bit.getHeight());
     }
+
+
 
     //质量压缩  对于bitmap大小并不会改变    图片的大小是没有变的，因为质量压缩不会减少图片的像素，它是在保持像素的前提下改变图片的位深及透明度等，
     // 来达到压缩图片的目的，这也是为什么该方法叫质量压缩方法。那么，图片的长，宽，像素都不变，那么bitmap所占内存大小是不会变的。

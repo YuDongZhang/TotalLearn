@@ -123,7 +123,9 @@ public class MainActivity extends BaseActivity {
     @SuppressLint("CheckResult")
     private void requestPermissions() {
         RxPermissions rxPermissions = new RxPermissions(MainActivity.this);
-        rxPermissions.request(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        rxPermissions.request(Manifest.permission.CAMERA,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE)
                 .subscribe(new Consumer<Boolean>() { //observer 也可以,代码多一点
                     @Override
                     public void accept(Boolean aBoolean) throws Exception {
