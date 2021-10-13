@@ -45,7 +45,8 @@ public class Fragment09 extends Fragment {
             "5.1.2.2 MVP思想精髓与解耦",
             "6.1.2.3 MVP思想实现项目基础框架搭建",
             "7.mvvm基础",
-            "8.eventbus测试,正确使用"
+            "8.eventbus测试,正确使用",
+            "9.长图的加载"
 
     };
 
@@ -115,6 +116,11 @@ public class Fragment09 extends Fragment {
                         break;
 
                     case 8:
+                        intent = new Intent(getActivity(), TestActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case 9:
                         intent = new Intent(getActivity(), TestActivity.class);
                         startActivity(intent);
                         break;

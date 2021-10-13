@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".activity.MultiFunctionActivity"></activity>
+        <activity android:name=".fragmentset.frag09.BigImgActivity"></activity>
+        <activity android:name=".activity.MultiFunctionActivity" />
         <activity android:name=".activity.ManyTestActivity" />
         <activity android:name=".fragmentset.frag03.paint.PaintActivity" />
         <activity android:name=".fragmentset.frag03.paint.XfermodeActivity" />
