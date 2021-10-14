@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.example.totallearn.R;
 import com.example.totallearn.base.BaseActivity;
 
@@ -56,29 +57,32 @@ public class OkhttpActivity extends BaseActivity {
     private void okhttpGet() {
         //第一步获取okHttpClient对象
         OkHttpClient client = new OkHttpClient.Builder().build();
+
         //第二步构建Request对象
         Request request = new Request.Builder()
-                .url("https://www.baidu.com")
+                .url("https://m.baidu.com")
                 .get()
                 .build();
+
         //第三步构建Call对象
         final Call call = client.newCall(request);
 
         //第四步:异步get请求
-        /*call.enqueue(new Callback() {//记住这两个方法在子线程
+        call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 LogUtils.i("onFailure", e.getMessage());
+                ToastUtils.showShort("请求失败");
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                //得到的子线程
+                ToastUtils.showShort("请求成功");
                 String result = response.body().string();
-               // LogUtils.i("result", result);
+                // LogUtils.i("result", result);
                 LogUtils.xml(result);
             }
-        });*/
+        });
 
         //第四步 同步请求  要在子线程
         new Thread(new Runnable() {
@@ -101,26 +105,34 @@ public class OkhttpActivity extends BaseActivity {
         //第一步创建OKHttpClient
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
+
         //第二步创建RequestBody（Form表达）
         RequestBody body = new FormBody.Builder()
                 .add("lectureFlow", "eea5f95d0d524b73859fb629750d52eb")
                 .build();
+
         //第三步创建Rquest
         Request request = new Request.Builder()
                 .url("http://192.168.2.96:9090/pdapp/res/gydxj/admin/getLecture")
                 .post(body)
                 .build();
+
         //第四步创建call回调对象
         final Call call = client.newCall(request);
+
+        // call.cancel(); 取消
+
         //第五步发起请求
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 LogUtils.i("onFailure", e.getMessage());
+                ToastUtils.showShort("请求失败");
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                ToastUtils.showShort("请求成功");
                 String result = response.body().string();
                 LogUtils.d("result", result);
             }

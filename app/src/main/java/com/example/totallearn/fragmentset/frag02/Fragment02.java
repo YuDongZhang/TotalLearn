@@ -3,18 +3,24 @@ package com.example.totallearn.fragmentset.frag02;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.example.totallearn.R;
 import com.example.totallearn.bean.UserEntity;
 import com.example.totallearn.dagger_learn.mvp_login.LoginDaggerActivity;
+import com.example.totallearn.fragmentset.adapter.Frag09Adapter;
 import com.example.totallearn.new_view_test.DrawerNavigationActivity;
 import com.example.totallearn.new_view_test.DrawerTestActivity;
 import com.example.totallearn.time_test.TimeActivity;
@@ -53,6 +59,15 @@ public class Fragment02 extends Fragment {
     Unbinder unbinder;
     private Retrofit retrofit;
 
+    public String[] data = {
+            "0.抽屉布局",
+            "1.抽屉导航布局",
+            "2.dagger 登录",
+            "3.倒计时布局",
+            "4.测试 retrofit",
+            "5.测试 okgo",
+    };
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -71,15 +86,44 @@ public class Fragment02 extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
         View view = inflater.inflate(R.layout.fragment_02, container, false);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        Frag09Adapter adapter = new Frag09Adapter(data);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(adapter);
         unbinder = ButterKnife.bind(this, view);
+        adapter.setOnItemClickListener(new Frag09Adapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int pos) {
+                switch (pos) {
+                    case 0:
+                        Intent intent = new Intent(getActivity(), DrawerTestActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        intent = new Intent(getActivity(), DrawerNavigationActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        intent = new Intent(getActivity(), LoginDaggerActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 3:
+                        intent = new Intent(getActivity(), TimeActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 4:
+                        testRetrofit();
+                        break;
+                    case 5:
+                        testOkgo();
+                        break;
+                }
+            }
+        });
         return view;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        Log.d(TAG, "onActivityCreated");
-    }
 
     @Override
     public void onResume() {
@@ -126,51 +170,22 @@ public class Fragment02 extends Fragment {
     }
 
 
-    @OnClick({R.id.f2_b1, R.id.f2_b2, R.id.f2_b3, R.id.f2_b4, R.id.f2_b5, R.id.f2_b6})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.f2_b1:
-                Intent intent = new Intent(getActivity(), DrawerTestActivity.class);
-                startActivity(intent);
-                break;
+    private void testRetrofit() {
+        final Map<String, String> paramsMap = new HashMap<>();
+        paramsMap.put("userPasswd", "@teh666");
+        paramsMap.put("userCode", "130923199212011021");
+        Call<UserEntity> call = retrofit.create(TestApi.class).getPostData2(paramsMap);
+        call.enqueue(new retrofit2.Callback<UserEntity>() {
+            @Override
+            public void onResponse(Call<UserEntity> call, retrofit2.Response<UserEntity> response) {
+                LogUtils.d("成功" + response.message());
+            }
 
-            case R.id.f2_b2:
-                intent = new Intent(getActivity(), DrawerNavigationActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.f2_b3:
-                intent = new Intent(getActivity(), LoginDaggerActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.f2_b4:
-                intent = new Intent(getActivity(), TimeActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.f2_b5:
-                final Map<String, String> paramsMap = new HashMap<>();
-                paramsMap.put("userPasswd", "@teh666");
-                paramsMap.put("userCode", "130923199212011021");
-                Call<UserEntity> call = retrofit.create(TestApi.class).getPostData2(paramsMap);
-                call.enqueue(new retrofit2.Callback<UserEntity>() {
-                    @Override
-                    public void onResponse(Call<UserEntity> call, retrofit2.Response<UserEntity> response) {
-                        LogUtils.d("成功" + response.message());
-                    }
-
-                    @Override
-                    public void onFailure(Call<UserEntity> call, Throwable t) {
-                        LogUtils.d("失败");
-                    }
-                });
-                break;
-
-            case R.id.f2_b6:
-                testOkgo();
-                break;
-        }
+            @Override
+            public void onFailure(Call<UserEntity> call, Throwable t) {
+                LogUtils.d("失败");
+            }
+        });
     }
 
 
@@ -231,12 +246,12 @@ public class Fragment02 extends Fragment {
         MyLogUtil.d(TAG, "点击了");
         OkGo.<File>get("http://192.168.2.235:8080/pdapp/res/gzdh/student/downFile?fileFlow=ee565c6033c34a2d8259f6c582c980b0").tag(this)
                 //也可以不指定名字 在 filecallback中不传值 , 也可以拿到名字, 把路径返回出去就可以了
-                .execute(new FileCallback("/storage/emulated/0/download/","abc.xls") {
+                .execute(new FileCallback("/storage/emulated/0/download/", "abc.xls") {
                     @Override
                     public void onSuccess(Response<File> response) {
-                           MyLogUtil.d(TAG,response.body().getAbsolutePath());
-                           MyLogUtil.d(TAG,response.body().getName());
-                           MyLogUtil.d(TAG,response.body().getPath());
+                        MyLogUtil.d(TAG, response.body().getAbsolutePath());
+                        MyLogUtil.d(TAG, response.body().getName());
+                        MyLogUtil.d(TAG, response.body().getPath());
                     }
                 });
     }

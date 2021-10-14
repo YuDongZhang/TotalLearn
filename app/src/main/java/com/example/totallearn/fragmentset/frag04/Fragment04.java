@@ -3,9 +3,13 @@ package com.example.totallearn.fragmentset.frag04;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +17,7 @@ import android.view.ViewGroup;
 
 import com.example.totallearn.MainActivity;
 import com.example.totallearn.R;
+import com.example.totallearn.fragmentset.adapter.Frag09Adapter;
 import com.example.totallearn.fragmentset.frag04.retrofit.RetrofitLearnActivity;
 import com.example.totallearn.frame_set.retrofit_set.RetrofitActivity;
 
@@ -55,21 +60,56 @@ public class Fragment04 extends Fragment {
         Log.d(TAG, "onCreate");
     }
 
+
+    public String[] data = {
+            "0.okhttp详解",
+            "1.RxJava 实例",
+            "2.RxJava 操作符",
+            "3.Retrofit 下载测试",
+            "4.线程池"
+    };
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
         View view = inflater.inflate(R.layout.fragment_04, container, false);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        Frag09Adapter adapter = new Frag09Adapter(data);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(adapter);
         unbinder = ButterKnife.bind(this, view);
+        adapter.setOnItemClickListener(new Frag09Adapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int pos) {
+                switch (pos) {
+                    case 0:
+                        Intent intent = new Intent(mMainActivity, OkhttpActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        intent = new Intent(mMainActivity, RxjavaActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        intent = new Intent(mMainActivity, RetrofitActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 3:
+                        intent = new Intent(mMainActivity, RetrofitLearnActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 4:
+                        myTheardPool();
+                        break;
+                }
+
+            }
+        });
         return view;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        Log.d(TAG, "onActivityCreated");
-    }
 
     public void myTheardPool() {
         for (int i = 0; i < 30; i++) {
@@ -134,37 +174,6 @@ public class Fragment04 extends Fragment {
     }
 
 
-    @OnClick({R.id.f4_tv1, R.id.f4_tv2, R.id.f4_tv3, R.id.f4_tv4, R.id.f4_tv5, R.id.f4_tv6})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.f4_tv1:
-                Intent intent = new Intent(mMainActivity, OkhttpActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.f4_tv2:
-                intent = new Intent(mMainActivity, RxjavaActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.f4_tv3:
-                intent = new Intent(mMainActivity, RetrofitActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.f4_tv4:
-                break;
-
-            case R.id.f4_tv5://retrofit 下载
-                intent = new Intent(mMainActivity, RetrofitLearnActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.f4_tv6:
-                myTheardPool();
-                break;
-        }
-    }
 }
 /**
  * 1.execute一个线程之后，如果线程池中的线程数未达到核心线程数，则会立马启用一个核心线程去执行。
