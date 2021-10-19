@@ -2,9 +2,13 @@ package com.example.totallearn.fragmentset.frag08;
 
 import android.content.Context;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,16 +19,25 @@ import com.example.totallearn.R;
 import com.example.totallearn.designmode.abstractfactorymode.FarmTest;
 import com.example.totallearn.designmode.adaptermode.ClassAdapterTest;
 import com.example.totallearn.designmode.behaviortype.iteratormode.example1.IteratorPattern;
+import com.example.totallearn.designmode.behaviortype.responsibilitychainmode.ChainOfResponsibilityPattern;
 import com.example.totallearn.designmode.bridgemode.BridgeTest;
 import com.example.totallearn.designmode.prototypemode.PrototypeTest;
+import com.example.totallearn.fragmentset.adapter.Frag09Adapter;
 
 /**
  * Created by pateo on 18-12-27.
  */
 
-public class Fragment08 extends Fragment implements View.OnClickListener {
+public class Fragment08 extends Fragment {
 
     public static final String TAG = Fragment08.class.getSimpleName();
+
+    private String[] data = {
+            "0.构建模式",
+            "1.责任链模式",
+            "2.工厂模式"
+
+    };
 
     @Override
     public void onAttach(Context context) {
@@ -42,63 +55,35 @@ public class Fragment08 extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        Log.d(TAG, "onCreateView");
-        View view = inflater.inflate(R.layout.fragment_08, container, false);
-        Button f8b1 = view.findViewById(R.id.f8_b1);
-        Button f8b2 = view.findViewById(R.id.f8_b2);
-        Button f8b3 = view.findViewById(R.id.f8_b3);
-        Button f8b4 = view.findViewById(R.id.f8_b4);
-
-
-        Button f8b10 = view.findViewById(R.id.f8_b10);
-
-        f8b1.setOnClickListener(this);
-        f8b2.setOnClickListener(this);
-        f8b3.setOnClickListener(this);
-        f8b4.setOnClickListener(this);
-
-        f8b10.setOnClickListener(this);
+        View view = inflater.inflate(R.layout.fragment_09, container, false);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        Frag09Adapter adapter = new Frag09Adapter(data);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(new Frag09Adapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int pos) {
+                switch (pos) {
+                    case 0:
+                        break;
+                    case 1:
+                        ChainOfResponsibilityPattern responsibilityPattern = new ChainOfResponsibilityPattern();
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                }
+            }
+        });
         return view;
     }
 
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.f8_b1:
-                FarmTest ft = new FarmTest();
-                break;
-            case R.id.f8_b2:
-                try {
-                    PrototypeTest pt = new PrototypeTest();
-                } catch (CloneNotSupportedException e) {
-                    e.printStackTrace();
-                }
-                break;
-
-            case R.id.f8_b3:
-                ClassAdapterTest ct = new ClassAdapterTest();
-                break;
-            case R.id.f8_b4:
-              //  DecoratorTest dt = new DecoratorTest();
-
-                IteratorPattern ip = new IteratorPattern();
-
-                break;
-
-            case R.id.f8_b10:
-                BridgeTest bridgeTest = new BridgeTest();
-                break;
-
-        }
-
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        Log.d(TAG, "onActivityCreated");
-    }
 
     @Override
     public void onResume() {
