@@ -66,7 +66,8 @@ public class Fragment04 extends Fragment {
             "1.RxJava 实例",
             "2.RxJava 操作符",
             "3.Retrofit 下载测试",
-            "4.线程池"
+            "4.线程池",
+            "5.网易rxjava学习"
     };
 
     @Nullable
@@ -102,6 +103,10 @@ public class Fragment04 extends Fragment {
                         break;
                     case 4:
                         myTheardPool();
+                        break;
+                    case 5:
+                        intent = new Intent(mMainActivity, RxActivity.class);
+                        startActivity(intent);
                         break;
                 }
 

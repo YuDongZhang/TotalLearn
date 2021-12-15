@@ -3,15 +3,19 @@ package com.example.totallearn.fragmentset.frag04;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
+import android.widget.LinearLayout;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totallearn.R;
 import com.example.totallearn.base.BaseActivity;
+import com.example.totallearn.fragmentset.adapter.Frag09Adapter;
 import com.example.totallearn.fragmentset.frag04.f4entity.JokeEntity;
 import com.google.gson.Gson;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -28,40 +32,37 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-/**
+/*
  * https://www.jianshu.com/p/0cd258eecf60
- * <p>
+
  * 通过 setOnClickListener() 方法，Button 持有 OnClickListener 的引用（这一过程没有在图上画出）；当用户点击时，
  * Button 自动调用 OnClickListener 的 onClick() 方法。另外，如果把这张图中的概念抽象出来（Button -> 被观察者、OnClickListener ->
  * 观察者、setOnClickListener() -> 订阅，onClick() -> 事件），就由专用的观察者模式（例如只用于监听控件点击）转变成了通用的观察者模式。
- * <p>
+
  * 有人可能会注意到， subscribe() 这个方法有点怪：它看起来是『observalbe 订阅了 observer / subscriber』而不是『observer / subscriber
  * 订阅了 observalbe』，这看起来就像『杂志订阅了读者』一样颠倒了对象关系。这让人读起来有点别扭，不过如果把 API 设计成
  * observer.subscribe(observable) / subscriber.subscribe(observable) ，虽然更加符合思维逻辑，但对流式 API 的设计就造成影响了，
  * 比较起来明显是得不偿失的。
- * <p>
- * <p>
- * <p>
+
  * observeable subscribe() observer 不支持背压
- * <p>
+
  * flowable  subscribe() subscriber 支持背压(告诉上游降低发送速度)  响应式编程是一种基于异步数据流概念的编程模式。
  * 数据流就像一条河：它可以被观测，被过滤，被操作，或者为新的消费者与另外一条流合并为一条新的流。
- * <p>
+
  * subcribeon 指定上游的 , observeron 指定下游的
- * <p>
+
  * 常用的操作符有 : map , flatmap , concat , zip , interval
  * map对于对象的变换,一对一
  * flatmap依次请求 , 一对多变换 . flatMap 操作符可以将一个发射数据的 Observable 变换为多个 Observables
  * 然后将它们发射的数据合并后放到一个单独的 Observable，利用这个特性，我们很轻松地达到了我们的需求。
- * <p>
- * <p>
+
  * concat 缓存
  * zip 合并
  * interval 心跳循环
- * <p>
+
  * Func1 和 Action 的区别在于， Func1 包装的是有返回值的方法。另外，和 ActionX 一样， FuncX 也有多个，
  * 用于不同参数个数的方法。FuncX 和 ActionX 的区别在 FuncX 包装的是有返回值的方法。
- * <p>
+
  * rxjava 如何实现线程变换的
  * subscribeon() 看到这句 source.subscribe(parent)，是不是觉得似曾相识呢？
  * SubscribeTask 实现了是Runnable接口，在其run方法中，定义了一个需要在线程中执行的任务。按照类的继承关系，
@@ -74,30 +75,44 @@ import okhttp3.ResponseBody;
 
 public class RxjavaActivity extends BaseActivity {
 
+    @BindView(R.id.recyclerView)
+    RecyclerView recyclerView;
+
+    private String[] data = {
+            "0. 测试方法一",
+            "1. 测试方法二",
+            "2. 测试方法三",
+            "3. 测试方法四"
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rxjava);
         ButterKnife.bind(this);
-    }
+        Frag09Adapter adapter = new Frag09Adapter(data);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(new Frag09Adapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int pos) {
+                switch (pos) {
+                    case 0:
+                        testCreate();
+                        break;
+                    case 1:
+                        testCreate_2();
+                        break;
+                    case 2:
+                        test3();
+                        break;
+                    case 3:
+                        test4();
+                        break;
+                }
+            }
+        });
 
-
-    @OnClick({R.id.tv1, R.id.tv2, R.id.tv3, R.id.tv4})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.tv1:
-                testCreate();
-                break;
-            case R.id.tv2:
-                testCreate_2();
-                break;
-            case R.id.tv3:
-                test3();
-                break;
-            case R.id.tv4:
-                test4();
-                break;
-        }
     }
 
 
@@ -123,7 +138,7 @@ public class RxjavaActivity extends BaseActivity {
 
             // 第二步：初始化Observer
             private int i;
-            private Disposable mDisposable;//Disposable    用于解除订阅
+            private Disposable mDisposable; //Disposable    用于解除订阅
 
             @Override
             public void onSubscribe(Disposable d) {
