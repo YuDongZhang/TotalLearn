@@ -80,6 +80,18 @@
         <activity android:name=".activity.TestViewPagerActivity" />
         <activity android:name=".activity.AnotherBarActivity" />
 
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity2"/>
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity3"/>
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity4"/>
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity5"/>
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity6"/>
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity7"/>
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity8"/>
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity9"/>
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity10"/>
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity11"/>
+        <activity android:name=".fragmentset.frag04.rxjavaexample.retrofit_okhttp_rxjava.TestActivity"/>
+
         <meta-data
             android:name="android.webkit.WebView.EnableSafeBrowsing"
             android:value="false" />

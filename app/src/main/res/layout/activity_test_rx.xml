@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/bt_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="执行"
+        />
+
+    <Button
+        android:id="@+id/bt_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="执行2"
+        />
+
+    <Button
+        android:id="@+id/bt_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="执行3"
+        />
+
+    <Button
+        android:id="@+id/bt_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="执行4"
+        />
+
+    <Button
+        android:id="@+id/bt_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="执行5"
+        />
+
+    <Button
+        android:id="@+id/bt_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="执行6"
+        />
+
+    <Button
+        android:id="@+id/bt_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="执行7"
+        />
+
+
+
+    <TextView
+        android:id="@+id/tv_register_ui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_login_ui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

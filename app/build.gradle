@@ -90,7 +90,6 @@ dependencies {
 //    implementation project(':eventbus_annotation')
 //    annotationProcessor project(':eventbus_compiler')
 
-
     //butterknife
     implementation 'com.jakewharton:butterknife:10.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
@@ -166,6 +165,10 @@ dependencies {
     // 依赖第三方库：EventBus
     implementation 'org.greenrobot:eventbus:3.1.1'
     annotationProcessor 'org.greenrobot:eventbus-annotation-processor:3.1.1'
+
+    //fastjson
+    //fastjson解析
+    api 'com.alibaba:fastjson:1.2.59'
 
 
 }
