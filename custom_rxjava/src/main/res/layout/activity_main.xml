@@ -9,6 +9,26 @@
     android:orientation="vertical">
 
     <Button
+        android:text="testCreate"
+        android:onClick="testCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="testJust"
+        android:onClick="testJust"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="testMap"
+        android:onClick="testMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Test"

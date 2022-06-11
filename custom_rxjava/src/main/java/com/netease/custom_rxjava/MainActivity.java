@@ -36,9 +36,20 @@ public class MainActivity extends AppCompatActivity {
         // Thread.currentThread().getName() == main
 
 
+        // --------------------------------------------------------------------------
+
+
+        // --------------------------------------------------------------------------
+
+
+    }
+
+
+    public void testCreate(View view) {
         // TODO create 操作符
-        /*// 上游
-        Observable.create(new ObservableOnSubscribe<Integer>() {
+        // 上游
+        Observable.create(
+                new ObservableOnSubscribe<Integer>() {
             @Override
             public void subscribe(Observer<? super Integer> observableEmitter) { // 使用到了，就产生了读写模式
                 Log.d(TAG, "subscribe: 上游开始发射...");
@@ -48,76 +59,76 @@ public class MainActivity extends AppCompatActivity {
                 observableEmitter.onComplete();
             }
         })
-        // Observable<Integer>.subscribe
-        .subscribe(new com.netease.custom_rxjava.Observer<Integer>() { // 下游
-            // 接口的实现方法
-            @Override
-            public void onSubscribe() {
-                // todo 1
-                Log.d(TAG, "已经订阅成功，即将开始发射 onSubscribe: ");
-            }
+                // Observable<Integer>.subscribe
+                .subscribe(new Observer<Integer>() { // 下游
+                    // 接口的实现方法
+                    @Override
+                    public void onSubscribe() {
+                        // todo 1
+                        Log.d(TAG, "已经订阅成功，即将开始发射 onSubscribe: ");
+                    }
 
-            // 接口的实现方法
-            @Override
-            public void onNext(Integer item) {
-                // todo 3
-                Log.d(TAG, "下游接收事件 onNext: " + item);
-            }
+                    // 接口的实现方法
+                    @Override
+                    public void onNext(Integer item) {
+                        // todo 3
+                        Log.d(TAG, "下游接收事件 onNext: " + item);
+                    }
 
-            // 接口的实现方法
-            @Override
-            public void onError(Throwable e) {
+                    // 接口的实现方法
+                    @Override
+                    public void onError(Throwable e) {
 
-            }
+                    }
 
-            // 接口的实现方法
-            @Override
-            public void onComplete() {
-                // todo 4 最后一步
-                Log.d(TAG, "onComplete: 下游接收事件完成√√√√√√√√√√√√√√");
-            }
-        });*/
-
-
-
-        // --------------------------------------------------------------------------
+                    // 接口的实现方法
+                    @Override
+                    public void onComplete() {
+                        // todo 4 最后一步
+                        Log.d(TAG, "onComplete: 下游接收事件完成√√√√√√√√√√√√√√");
+                    }
+                });
 
 
+    }
+
+
+    public void testJust(View view) {
         // TODO just 操作符
         // 上游
-        /*Observable.just("A", "B", "C", "D", "E", "F", "G") // todo 内部执行了第二步
-        // 订阅
-        .subscribe(new Observer<String>() {
-            @Override
-            public void onSubscribe() {
-                // todo 1
-                Log.d(TAG, "已经订阅成功，即将开始发射 onSubscribe: ");
-            }
+        Observable.just("A", "B", "C", "D", "E", "F", "G") // todo 内部执行了第二步
+                // 订阅
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe() {
+                        // todo 1
+                        Log.d(TAG, "已经订阅成功，即将开始发射 onSubscribe: ");
+                    }
 
-            @Override
-            public void onNext(String item) {
-                // todo 3
-                Log.d(TAG, "下游接收事件 onNext: " + item);
-            }
+                    @Override
+                    public void onNext(String item) {
+                        // todo 3
+                        Log.d(TAG, "下游接收事件 onNext: " + item);
+                    }
 
-            @Override
-            public void onError(Throwable e) {
+                    @Override
+                    public void onError(Throwable e) {
 
-            }
+                    }
 
-            @Override
-            public void onComplete() {
-                // todo 4
-                Log.d(TAG, "onComplete: ");
-            }
-        });*/
+                    @Override
+                    public void onComplete() {
+                        // todo 4
+                        Log.d(TAG, "onComplete: ");
+                    }
+                });
+
+    }
 
 
-        // --------------------------------------------------------------------------
-
-
+    public void testMap(View view) {
         // TODO map变换操作符 RxJava的核心
-        /*// 上游
+        // 上游
         Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override // todo 6
             public void subscribe(Observer<? super Integer> observableEmitter) { // 使用到了，就产生了读写模式
@@ -132,62 +143,61 @@ public class MainActivity extends AppCompatActivity {
             }
         })
 
-        .map(new Function<Integer, String>() {
-            @Override
-            public String apply(Integer integer) {
-                Log.d(TAG, "第1个变换 apply: " + integer);
-                return "【" + integer + "】";
-            }
-        })
+                .map(new Function<Integer, String>() {
+                    @Override
+                    public String apply(Integer integer) {
+                        Log.d(TAG, "第1个变换 apply: " + integer);
+                        return "【" + integer + "】";
+                    }
+                })
 
-        .map(new Function<String, StringBuffer>() {
-            @Override
-            public StringBuffer apply(String s) {
-                Log.d(TAG, "第2个变换 apply: " + s);
-                return new StringBuffer().append(s).append("-----------------------");
-            }
-        })
+                .map(new Function<String, StringBuffer>() {
+                    @Override
+                    public StringBuffer apply(String s) {
+                        Log.d(TAG, "第2个变换 apply: " + s);
+                        return new StringBuffer().append(s).append("-----------------------");
+                    }
+                })
 
-        .map(new Function<StringBuffer, StringBuffer>() {
-            @Override
-            public StringBuffer apply(StringBuffer stringBuffer) {
-                return new StringBuffer(stringBuffer).append("√√√√√√√√√√√√√√√√√√√√√√√");
-            }
-        })
+                .map(new Function<StringBuffer, StringBuffer>() {
+                    @Override
+                    public StringBuffer apply(StringBuffer stringBuffer) {
+                        return new StringBuffer(stringBuffer).append("√√√√√√√√√√√√√√√√√√√√√√√");
+                    }
+                })
 
-        // todo 1
-        // ObservableMap<T, R> observableMap = new ObservableMap(source, function);
-        // new Observable(observableMap).subscribe
-        .subscribe(new com.netease.custom_rxjava.Observer<StringBuffer>() { // 下游
-             // 接口的实现方法
-             @Override
-             public void onSubscribe() {
-                 // todo 1
-                 Log.d(TAG, "已经订阅成功，即将开始发射 onSubscribe: ");
-             }
+                // todo 1
+                // ObservableMap<T, R> observableMap = new ObservableMap(source, function);
+                // new Observable(observableMap).subscribe
+                .subscribe(new com.netease.custom_rxjava.Observer<StringBuffer>() { // 下游
+                    // 接口的实现方法
+                    @Override
+                    public void onSubscribe() {
+                        // todo 1
+                        Log.d(TAG, "已经订阅成功，即将开始发射 onSubscribe: ");
+                    }
 
-             // todo 8
-             // 接口的实现方法
-             @Override
-             public void onNext(StringBuffer item) {
-                 // todo 3
-                 Log.d(TAG, "下游接收事件 onNext: " + item); // 【9】-----------------------
-             }
+                    // todo 8
+                    // 接口的实现方法
+                    @Override
+                    public void onNext(StringBuffer item) {
+                        // todo 3
+                        Log.d(TAG, "下游接收事件 onNext: " + item); // 【9】-----------------------
+                    }
 
-             // 接口的实现方法
-             @Override
-             public void onError(Throwable e) {
+                    // 接口的实现方法
+                    @Override
+                    public void onError(Throwable e) {
 
-             }
+                    }
 
-             // 接口的实现方法
-             @Override
-             public void onComplete() {
-                 // todo 4 最后一步
-                 Log.d(TAG, "onComplete: 下游接收事件完成√√√√√√√√√√√√√√");
-             }
-        });*/
-
+                    // 接口的实现方法
+                    @Override
+                    public void onComplete() {
+                        // todo 4 最后一步
+                        Log.d(TAG, "onComplete: 下游接收事件完成√√√√√√√√√√√√√√");
+                    }
+                });
     }
 
     // TODO // 给同学们新增加的
@@ -209,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e(TAG, "onError: e:" + e.getMessage() );
+                        Log.e(TAG, "onError: e:" + e.getMessage());
                     }
 
                     @Override
@@ -240,7 +250,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e(TAG, "onError: e:" + e.getMessage() );
+                        Log.e(TAG, "onError: e:" + e.getMessage());
                     }
 
                     @Override
@@ -249,7 +259,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
-
 
 
     // todo 打印 上游 下游 线程
@@ -262,51 +271,51 @@ public class MainActivity extends AppCompatActivity {
                 observableEmitter.onNext(1);
             }
         })
-        .map(new Function<Integer, String>() {
-            @Override
-            public String apply(Integer integer) {
-                Log.d(TAG, "map 1  --- " + Thread.currentThread().getName());
-                return integer + ">>>";
-            }
-        })
-        .map(new Function<String, String>() {
-            @Override
-            public String apply(String s) {
-                Log.d(TAG, "map 2  --- " + Thread.currentThread().getName());
-                return s + "???";
-            }
-        })
+                .map(new Function<Integer, String>() {
+                    @Override
+                    public String apply(Integer integer) {
+                        Log.d(TAG, "map 1  --- " + Thread.currentThread().getName());
+                        return integer + ">>>";
+                    }
+                })
+                .map(new Function<String, String>() {
+                    @Override
+                    public String apply(String s) {
+                        Log.d(TAG, "map 2  --- " + Thread.currentThread().getName());
+                        return s + "???";
+                    }
+                })
 
-        // 给上游分配异步线程
-        .observables_On()
+                // 给上游分配异步线程
+                .observables_On()
 
-        // 给下游分配Android主线程
-        // new Observable<T>(下游分配异步线程 == ObservableOnIO).xxx
-        .observers_AndroidMain_On()
+                // 给下游分配Android主线程
+                // new Observable<T>(下游分配异步线程 == ObservableOnIO).xxx
+                .observers_AndroidMain_On()
 
-        // main线程.订阅
-        // new Observable<T>(下游分配Android主线程 == ObserverAndroidMain_On).订阅
-        .subscribe(new Observer<String>() {
-            @Override
-            public void onSubscribe() {
+                // main线程.订阅
+                // new Observable<T>(下游分配Android主线程 == ObserverAndroidMain_On).订阅
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe() {
 
-            }
+                    }
 
-            @Override
-            public void onNext(String item) {
-                Log.d(TAG, "下游 onNext: --- " + Thread.currentThread().getName());
-            }
+                    @Override
+                    public void onNext(String item) {
+                        Log.d(TAG, "下游 onNext: --- " + Thread.currentThread().getName());
+                    }
 
-            @Override
-            public void onError(Throwable e) {
+                    @Override
+                    public void onError(Throwable e) {
 
-            }
+                    }
 
-            @Override
-            public void onComplete() {
+                    @Override
+                    public void onComplete() {
 
-            }
-        });
+                    }
+                });
     }
 
 
@@ -422,7 +431,7 @@ public class MainActivity extends AppCompatActivity {
 
     static class Test<T> {
 
-        public static void add(Boolean b){
+        public static void add(Boolean b) {
 
         }
 
