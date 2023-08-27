@@ -1,5 +1,10 @@
 package com.example.totallearn;
 
-public class TestGig {
+import android.util.Log;
 
+public class TestGig {
+   public void test(){
+      Log.i("TAG", "test: ");
+
+   }
 }
