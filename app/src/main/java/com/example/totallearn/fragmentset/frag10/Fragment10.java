@@ -1,9 +1,13 @@
-package com.example.totallearn.fragmentset;
+package com.example.totallearn.fragmentset.frag10;
 
 import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.totallearn.fragmentset.FragmentTab_01;
+import com.example.totallearn.fragmentset.FragmentTab_02;
+import com.example.totallearn.fragmentset.FragmentTab_03;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 import androidx.fragment.app.Fragment;
