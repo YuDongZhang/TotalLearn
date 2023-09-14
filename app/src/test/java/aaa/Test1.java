@@ -1,6 +1,4 @@
-package com.example.totallearn;
-
-import com.blankj.utilcode.util.StringUtils;
+package aaa;
 
 import org.junit.Test;
 

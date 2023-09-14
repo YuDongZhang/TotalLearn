@@ -1,4 +1,4 @@
-package com.example.totallearn;
+package aaa;
 
 // 饱汉
 // UnThreadSafe
