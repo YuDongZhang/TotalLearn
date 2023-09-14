@@ -20,7 +20,7 @@
         tools:ignore="AllowBackup">
         <activity android:name=".fragmentset.frag04.RxActivity"></activity>
         <activity android:name=".fragmentset.frag09.BigImgActivity" />
-        <activity android:name=".activity.MultiFunctionActivity" />
+        <activity android:name=".testRoom.MultiFunctionActivity" />
         <activity android:name=".activity.ManyTestActivity" />
         <activity android:name=".fragmentset.frag03.paint.PaintActivity" />
         <activity android:name=".fragmentset.frag03.paint.XfermodeActivity" />
