@@ -52,7 +52,7 @@ public class ScrollAdapter extends RecyclerView.Adapter<ScrollAdapter.VH>{
         public  TextView title;
         public VH(View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.tv_item_desc);
+            title = itemView.findViewById(R.id.textView);
         }
     }
 }

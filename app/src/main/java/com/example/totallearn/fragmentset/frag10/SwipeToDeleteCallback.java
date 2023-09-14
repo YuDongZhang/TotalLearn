@@ -1,15 +1,18 @@
 package com.example.totallearn.fragmentset.frag10;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.view.View;
-
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
+import android.graphics.Canvas;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.nfc.Tag;
+import android.view.View;
+
+import com.blankj.utilcode.util.LogUtils;
+import com.example.totallearn.R;
 
 public abstract class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
 
@@ -18,8 +21,8 @@ public abstract class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallba
 
     public SwipeToDeleteCallback(Context context) {
         super(0, ItemTouchHelper.LEFT);
-        deleteIcon = ContextCompat.getDrawable(context, android.R.drawable.ic_menu_delete);
-        background = new ColorDrawable(Color.RED);
+        deleteIcon = ContextCompat.getDrawable(context, R.drawable.ic_launcher_background); // 自定义删除图标
+        background = new ColorDrawable(ContextCompat.getColor(context, R.color.blue)); // 自定义删除背景颜色
     }
 
     @Override
@@ -37,31 +40,35 @@ public abstract class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallba
     public void onChildDraw(Canvas canvas, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
         super.onChildDraw(canvas, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
 
+
         View itemView = viewHolder.itemView;
-        int backgroundCornerOffset = 20; // 背景的圆角偏移量
+//        View viewById = viewHolder.itemView.findViewById(R.id.tv_delete);
 
-        // 绘制删除按钮的背景
-        int iconMargin = (itemView.getHeight() - deleteIcon.getIntrinsicHeight()) / 2;
-        int iconTop = itemView.getTop() + (itemView.getHeight() - deleteIcon.getIntrinsicHeight()) / 2;
-        int iconBottom = iconTop + deleteIcon.getIntrinsicHeight();
+        if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
+            // 计算删除按钮的宽度
+            int deleteButtonWidth = itemView.findViewById(R.id.tv_delete).getWidth();
+            // 计算 Item 的右边界
+            int itemRight = itemView.getRight();
 
-        if (dX > 0) { // 向右滑动
-            int iconLeft = itemView.getLeft() + iconMargin;
-            int iconRight = itemView.getLeft() + iconMargin + deleteIcon.getIntrinsicWidth();
-            deleteIcon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
+            // 如果 dX 大于等于删除按钮的宽度，说明删除按钮完全显示，将 dX 限制为删除按钮的宽度
+            if (dX >= deleteButtonWidth) {
+                dX = deleteButtonWidth;
+            }
 
-            background.setBounds(itemView.getLeft(), itemView.getTop(), itemView.getLeft() + (int) dX + backgroundCornerOffset, itemView.getBottom());
-        } else { // 向左滑动
-            int iconLeft = itemView.getRight() - iconMargin - deleteIcon.getIntrinsicWidth();
-            int iconRight = itemView.getRight() - iconMargin;
-            deleteIcon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
+            // 设置删除按钮布局的位置
+            itemView.layout(0, itemView.getTop(), itemRight + (int) dX, itemView.getBottom());
 
-            background.setBounds(itemView.getRight() + (int) dX - backgroundCornerOffset, itemView.getTop(), itemView.getRight(), itemView.getBottom());
+            // 获取删除按钮的布局
+            View deleteButton = itemView.findViewById(R.id.tv_delete);
+
+            // 设置删除按钮的位置，让它跟在 Item 后面
+            deleteButton.layout(itemRight, itemView.getTop(), itemRight + deleteButtonWidth, itemView.getBottom());
         }
-
-        background.draw(canvas);
-        deleteIcon.draw(canvas);
     }
+
+
+
+
 
     public abstract void onSwipe(int position);
 }

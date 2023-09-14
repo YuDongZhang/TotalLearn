@@ -2,25 +2,22 @@ package com.example.totallearn.fragmentset;
 
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.OrientationHelper;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.totallearn.R;
-import com.example.totallearn.fragmentset.frag10.MyAdapter;
-import com.example.totallearn.fragmentset.frag10.SwipeToDeleteCallback;
-import com.example.totallearn.recyclerviewlearn.RClayoutmanager.MDGridRvDividerDecoration;
-import com.example.totallearn.recyclerviewlearn.RClayoutmanager.RVAdapter;
-import com.example.totallearn.recyclerviewlearn.ScrollAdapter;
+import com.example.totallearn.fragmentset.frag10.SwipeItemTouchCallback;
+import com.example.totallearn.fragmentset.frag10.RecyclerAdapter;
 
 import java.util.ArrayList;
 
@@ -75,33 +72,23 @@ public class FragmentTab_01 extends Fragment {
     private void initViews() {
         ArrayList<String> mDataList = new ArrayList<>();
         addList(mDataList);
-        //  mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        // 竖直方向的网格样式，每行四个Item
-//        GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2, OrientationHelper.VERTICAL, false);
 
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-//        mRecyclerView.addItemDecoration(new MDGridRvDividerDecoration(getActivity()));
+        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(mDataList);
+        mRecyclerView.setAdapter(recyclerAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
-//        mRecyclerView.setAdapter(new ScrollAdapter(mDataList));
-
-        MyAdapter adapter = new MyAdapter(mDataList);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setAdapter(adapter);
-
-        SwipeToDeleteCallback swipeToDeleteCallback = new SwipeToDeleteCallback(requireContext()) {
-            @Override
-            public void onSwipe(int position) {
-                adapter.removeItem(position);
-            }
-        };
-
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(swipeToDeleteCallback);
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeItemTouchCallback(recyclerAdapter,
+                dpToPx(getActivity(), 60)));
         itemTouchHelper.attachToRecyclerView(mRecyclerView);
     }
 
-    private void addList(ArrayList<String> arrayList){
-        for (int i = 0; i <20 ; i++) {
-            arrayList.add(""+i);
+    public static int dpToPx(Context context, float value) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, context.getResources().getDisplayMetrics());
+    }
+
+    private void addList(ArrayList<String> arrayList) {
+        for (int i = 0; i < 20; i++) {
+            arrayList.add("" + i);
         }
     }
 
