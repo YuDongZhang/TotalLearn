@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.totallearn.R;
-import com.example.totallearn.base.BaseActivity;
+import com.example.totallearn.activity.base.BaseActivity;
 import com.example.totallearn.new_view_test.DrawerTestActivity;
 
 import butterknife.BindView;

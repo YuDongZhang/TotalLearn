@@ -1,9 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".testRoom.MultiFunctionActivity">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".testRoom.MultiFunctionActivity">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/createDateBase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:padding="10dp"
+            android:text="创建数据库"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/addData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@color/blue"
+            android:padding="10dp"
+            android:text="添加数据"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/createDateBase"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/queryData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@color/blue"
+            android:padding="10dp"
+            android:text="查询数据"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/addData"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/updateData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="8dp"
+            android:background="@color/blue"
+            android:padding="10dp"
+            android:text="修改数据"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/createDateBase"
+            app:layout_constraintTop_toBottomOf="@+id/createDateBase" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/deleteData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="108dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/blue"
+            android:padding="10dp"
+            android:text="删除数据"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/updateData"
+            app:layout_constraintTop_toBottomOf="@+id/createDateBase" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

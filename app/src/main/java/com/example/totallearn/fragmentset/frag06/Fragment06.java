@@ -1,11 +1,14 @@
 package com.example.totallearn.fragmentset.frag06;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +16,7 @@ import android.view.ViewGroup;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.example.totallearn.R;
+import com.example.totallearn.testRoom.MultiFunctionActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -99,10 +103,19 @@ public class Fragment06 extends Fragment {
     }
 
 
-    @OnClick(R.id.f6_t1)
-    public void onViewClicked() {
-        LogUtils.d("f6测试点击了");
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        fragmentManager.popBackStack();
+    @OnClick({R.id.f6_t1, R.id.room})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.f6_t1:
+                LogUtils.d("f6测试点击了");
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.popBackStack();
+                break;
+            case R.id.room:
+                Intent intent = new Intent(getActivity(), MultiFunctionActivity.class);
+                startActivity(intent);
+                break;
+        }
+
     }
 }

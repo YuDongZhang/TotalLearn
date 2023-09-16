@@ -3,7 +3,7 @@ package com.example.totallearn.fragmentset.frag04;
 import android.os.Bundle;
 
 import com.example.totallearn.R;
-import com.example.totallearn.base.BaseActivity;
+import com.example.totallearn.activity.base.BaseActivity;
 
 public class RxSymbolActivity extends BaseActivity {
 

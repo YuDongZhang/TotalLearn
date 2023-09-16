@@ -4,11 +4,9 @@ package com.example.totallearn.activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.WindowManager;
-import android.widget.SeekBar;
-import android.widget.TextView;
 
 import com.example.totallearn.R;
-import com.example.totallearn.base.BaseActivity;
+import com.example.totallearn.activity.base.BaseActivity;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.XAxis.XAxisPosition;
@@ -18,7 +16,6 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;

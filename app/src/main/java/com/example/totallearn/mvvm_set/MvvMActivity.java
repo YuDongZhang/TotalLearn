@@ -1,11 +1,11 @@
 package com.example.totallearn.mvvm_set;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
 import com.example.totallearn.R;
-import com.example.totallearn.base.BaseActivity;
+import com.example.totallearn.activity.base.BaseActivity;
 import com.example.totallearn.databinding.ActivityMvvMBinding;
 
 public class MvvMActivity extends BaseActivity {

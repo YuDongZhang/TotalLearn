@@ -15,7 +15,7 @@ import android.view.WindowManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.example.totallearn.base.BaseActivity;
+import com.example.totallearn.activity.base.BaseActivity;
 import com.example.totallearn.fragmentset.frag08.Fragment08;
 import com.example.totallearn.fragmentset.frag09.Fragment09;
 import com.example.totallearn.fragmentset.frag10.Fragment10;

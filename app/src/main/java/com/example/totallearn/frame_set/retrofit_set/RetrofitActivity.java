@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.util.JsonUtils;
 import com.example.totallearn.R;
-import com.example.totallearn.base.BaseActivity;
+import com.example.totallearn.activity.base.BaseActivity;
 import com.example.totallearn.fragmentset.frag04.f4entity.JokeEntity;
 
 import java.io.UnsupportedEncodingException;

@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.example.totallearn.R;
-import com.example.totallearn.base.BaseActivity;
+import com.example.totallearn.activity.base.BaseActivity;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

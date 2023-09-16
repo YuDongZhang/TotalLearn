@@ -3,13 +3,12 @@ package com.example.totallearn.fragmentset.frag04;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.LinearLayout;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totallearn.R;
-import com.example.totallearn.base.BaseActivity;
+import com.example.totallearn.activity.base.BaseActivity;
 import com.example.totallearn.fragmentset.adapter.Frag09Adapter;
 import com.example.totallearn.fragmentset.frag04.f4entity.JokeEntity;
 import com.google.gson.Gson;

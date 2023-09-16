@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.totallearn.R;
-import com.example.totallearn.base.BaseActivity;
+import com.example.totallearn.activity.base.BaseActivity;
 import com.example.totallearn.fragmentset.frag03.Fragment03;
 import com.example.totallearn.fragmentset.frag01.Fragment01;
 import com.example.totallearn.fragmentset.frag02.Fragment02;

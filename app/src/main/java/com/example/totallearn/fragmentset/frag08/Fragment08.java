@@ -13,15 +13,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.example.totallearn.R;
-import com.example.totallearn.designmode.abstractfactorymode.FarmTest;
-import com.example.totallearn.designmode.adaptermode.ClassAdapterTest;
-import com.example.totallearn.designmode.behaviortype.iteratormode.example1.IteratorPattern;
-import com.example.totallearn.designmode.behaviortype.responsibilitychainmode.ChainOfResponsibilityPattern;
-import com.example.totallearn.designmode.bridgemode.BridgeTest;
-import com.example.totallearn.designmode.prototypemode.PrototypeTest;
+
 import com.example.totallearn.fragmentset.adapter.Frag09Adapter;
 
 /**
@@ -68,7 +62,7 @@ public class Fragment08 extends Fragment {
                     case 0:
                         break;
                     case 1:
-                        ChainOfResponsibilityPattern responsibilityPattern = new ChainOfResponsibilityPattern();
+
                         break;
                     case 2:
                         break;

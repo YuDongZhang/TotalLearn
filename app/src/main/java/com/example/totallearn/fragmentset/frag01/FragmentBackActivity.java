@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.example.totallearn.R;
-import com.example.totallearn.base.BaseActivity;
+import com.example.totallearn.activity.base.BaseActivity;
 import com.example.totallearn.fragmentset.frag05.Fragment05;
 import com.example.totallearn.fragmentset.frag06.Fragment06;
 

@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <TextView
-        android:text="Fragment06"
-        android:textSize="35sp"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        android:text="Fragment06"
+        android:textSize="35sp" />
 
     <TextView
-        android:text="66测试"
         android:id="@+id/f6_t1"
-        android:textSize="20sp"
-        android:padding="5dp"
-        android:layout_marginTop="60dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="66测试"
+        android:textSize="20sp" />
 
-</RelativeLayout>
+    <TextView
+        android:background="@color/colorAccent"
+        android:id="@+id/room"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="room数据库"
+        android:textSize="20sp" />
+
+</LinearLayout>

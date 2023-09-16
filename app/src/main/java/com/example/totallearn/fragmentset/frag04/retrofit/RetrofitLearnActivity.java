@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 
 import com.example.totallearn.R;
-import com.example.totallearn.base.BaseActivity;
+import com.example.totallearn.activity.base.BaseActivity;
 import com.example.totallearn.utils.MyLogUtil;
 
 import java.io.File;

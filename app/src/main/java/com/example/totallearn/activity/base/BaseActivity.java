@@ -1,4 +1,4 @@
-package com.example.totallearn.base;
+package com.example.totallearn.activity.base;
 
 import android.content.DialogInterface;
 import android.os.Handler;

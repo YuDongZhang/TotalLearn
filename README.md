@@ -6,7 +6,7 @@ build:gradle:7.1.0   [gradle-wrapper.properties] 7.2.0    jdk11   targetSdk 29  
 build:gradle:7.1.0   [gradle-wrapper.properties] 7.4      jdk11   targetSdk 29     正常
 build:gradle:7.2.0   [gradle-wrapper.properties] 7.4      jdk11   targetSdk 30     正常
 
-
+1. 要把布局转换为 databing 
 
 
 

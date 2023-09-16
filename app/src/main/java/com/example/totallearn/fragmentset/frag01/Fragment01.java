@@ -25,7 +25,7 @@ import com.example.totallearn.PdfActivity;
 import com.example.totallearn.R;
 import com.example.totallearn.activity.AnotherBarActivity;
 import com.example.totallearn.activity.TestViewPagerActivity;
-import com.example.totallearn.base.BaseFragment;
+import com.example.totallearn.activity.base.BaseFragment;
 import com.example.totallearn.frame_set.retrofit_set.RetrofitActivity;
 import com.example.totallearn.mvvm_set.MvvMActivity;
 import com.example.totallearn.ndkdemo.NDKTools;

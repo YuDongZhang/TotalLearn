@@ -6,10 +6,9 @@ import android.view.View;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.totallearn.R;
-import com.example.totallearn.base.BaseActivity;
+import com.example.totallearn.activity.base.BaseActivity;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
