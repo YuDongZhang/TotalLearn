@@ -5,6 +5,10 @@
         <variable
             name="user"
             type="com.example.totallearn.mvvm_set.UserBean"/>
+
+        <variable
+            name="viewModel"
+            type="com.example.totallearn.mvvm_set.CounterViewModel" />
     </data>
 
     <LinearLayout
@@ -18,6 +22,18 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="@{user.sex}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.count)}"
+            android:textSize="24sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Increment"
+            android:onClick="@{() -> viewModel.increment()}" />
     </LinearLayout>
 
 </layout>

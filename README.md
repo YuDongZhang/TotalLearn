@@ -10,6 +10,10 @@ build:gradle:7.2.0   [gradle-wrapper.properties] 7.4      jdk11   targetSdk 30  
 
 
 
+2. 数据库系列查看 testRoom 
+
+
+
 
 
 

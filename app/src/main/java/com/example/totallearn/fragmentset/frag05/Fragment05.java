@@ -7,14 +7,23 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.example.totallearn.R;
+import com.example.totallearn.databinding.Fragment05Binding;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by pateo on 18-12-27.
@@ -23,7 +32,10 @@ import java.io.IOException;
 public class Fragment05 extends Fragment {
 
     public static final String TAG = Fragment05.class.getSimpleName();
-    private MediaPlayer mMediaPlayer;
+
+    private CounterViewModel viewModel;
+    private Fragment05Binding binding;
+    private List<String> list;
 
     @Override
     public void onAttach(Context context) {
@@ -35,49 +47,68 @@ public class Fragment05 extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG,"onCreate");
-        playMusic();
+        list = new ArrayList<>();
+        list.add("1,测试1");
+        list.add("2,测试1");
     }
-
-    //播放音乐
-    private void playMusic() {
-        try {
-            mMediaPlayer = new MediaPlayer();
-            mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-            mMediaPlayer.setDataSource("网址");
-            //准备同步多媒体播放器
-           // mMediaPlayer.prepare();
-            //准备异步的播放器
-            mMediaPlayer.prepareAsync();
-            //监听
-            mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mediaPlayer) {
-                    //多媒体对象准备完成的时候调用
-                    mMediaPlayer.start();
-                }
-            });
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG,"onCreateView");
-        View view = inflater.inflate(R.layout.fragment_05,container,false);
-        return view;
+        binding = Fragment05Binding.inflate(inflater,container,false);
+        return binding.getRoot();
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        Log.d(TAG,"onActivityCreated");
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        viewModel = new ViewModelProvider(this).get(CounterViewModel.class);
+
+        viewModel.getCountLiveData().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer count) {
+                binding.textViewCount.setText(String.valueOf(count));
+            }
+        });
+
+        binding.buttonIncrement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewModel.incrementCount();
+            }
+        });
+
+
+        binding.recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        FiveRvAdapter adapter = new FiveRvAdapter(list);
+        binding.recycler.setAdapter(adapter);
+        adapter.setOnItemClickListener(new FiveRvAdapter.OnItemClickListener() {
+            @Override
+            public void onClick(String item, int position) {
+                LogUtils.d(item+position);
+            }
+        });
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public void onResume() {

@@ -5,9 +5,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -121,7 +123,8 @@ public class Fragment01 extends BaseFragment {
     }
 
     @OnClick({R.id.f1_bt1, R.id.f1_bt2, R.id.f1_bt3, R.id.f1_bt4, R.id.f1_bt5, R.id.f1_tv6, R.id.f1_tv7,
-            R.id.f1_tv8, R.id.f1_tv9, R.id.f1_tv10, R.id.f1_tv11, R.id.f1_tv12, R.id.f1_tv13,R.id.f1_tv15,R.id.f1_tv17})
+            R.id.f1_tv8, R.id.f1_tv9, R.id.f1_tv10, R.id.f1_tv11, R.id.f1_tv12, R.id.f1_tv13, R.id.f1_tv15,
+            R.id.f1_tv17})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f1_bt1:
@@ -167,11 +170,8 @@ public class Fragment01 extends BaseFragment {
                 break;
 
             case R.id.f1_tv11://11.dialogFragment
-                TestDialogFragment testDialogFragment = new TestDialogFragment();
-                testDialogFragment.show(getFragmentManager(), "cao");
 
-               /* intent = new Intent(getActivity(), FragmentBackActivity.class);
-                startActivity(intent);*/
+
                 break;
 
             case R.id.f1_tv12:
@@ -190,9 +190,14 @@ public class Fragment01 extends BaseFragment {
                 break;
 
             case R.id.f1_tv15:
-                DialogUtil.ProgressBarCircleDialog(getActivity());
+                TestDialogFragment testDialogFragment = new TestDialogFragment();
+                testDialogFragment.show(getActivity().getSupportFragmentManager(), "cao");
                 break;
 
+            case R.id.f1_tv16:
+                DialogUtil.ProgressBarCircleDialog(getActivity());
+                break;
+            //柱状图
             case R.id.f1_tv17:
                 intent = new Intent(getActivity(), AnotherBarActivity.class);
                 startActivity(intent);

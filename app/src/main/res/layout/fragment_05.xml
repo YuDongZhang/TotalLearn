@@ -1,22 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.totallearn.fragmentset.frag05.CounterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
             android:layout_height="50dp"
             android:text="Fragment05"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
+
+        <TextView
+            android:textSize="25sp"
+            android:id="@+id/textViewCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.countLiveData)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            tools:text="测试" />
+
+        <Button
+            android:id="@+id/buttonIncrement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击添加"
+            app:layout_constraintStart_toEndOf="@+id/textViewCount"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonIncrement" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
