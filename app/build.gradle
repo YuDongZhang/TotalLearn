@@ -122,7 +122,7 @@ dependencies {
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
 
     //dagger2
-    implementation 'com.google.dagger:dagger:2.19'
+    implementation 'com.google.dagger:dagger:2.28.3'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.13'
 
     //okgo
@@ -175,9 +175,18 @@ dependencies {
 
     implementation 'androidx.recyclerview:recyclerview-selection:1.1.0'
 
+    //room 数据库
     implementation 'androidx.room:room-runtime:2.2.5'
 //    implementation "androidx.room:room-compiler:2.2.5"
     annotationProcessor "androidx.room:room-compiler:2.2.5"
+
+    // 添加 Hilt 依赖
+//    implementation 'com.google.dagger:hilt-android:2.38.1'
+//    annotationProcessor  'com.google.dagger:hilt-android-compiler:2.38.1'
+
+    // 如果需要使用 Hilt 的 Android KTX 扩展，也可以添加以下依赖
+//    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
+//    annotationProcessor  'androidx.hilt:hilt-compiler:1.0.0-alpha03'
 
 }
 
