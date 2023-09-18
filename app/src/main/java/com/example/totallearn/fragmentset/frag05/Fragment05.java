@@ -66,7 +66,7 @@ public class Fragment05 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         viewModel = new ViewModelProvider(this).get(CounterViewModel.class);
 
-        viewModel.getCountLiveData().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+        viewModel.getData().observe(getViewLifecycleOwner(), new Observer<Integer>() {
             @Override
             public void onChanged(Integer count) {
                 binding.textViewCount.setText(String.valueOf(count));

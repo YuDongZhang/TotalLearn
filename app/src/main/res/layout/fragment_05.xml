@@ -30,7 +30,7 @@
             android:id="@+id/textViewCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{String.valueOf(viewModel.countLiveData)}"
+            android:text="@{String.valueOf(viewModel.data)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             tools:text="测试" />
