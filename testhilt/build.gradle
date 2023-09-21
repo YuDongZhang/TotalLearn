@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'dagger.hilt.android.plugin' // 添加 Hilt 插件
 }
 
 android {
@@ -36,6 +37,15 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // 添加 Hilt 依赖
+    implementation 'com.google.dagger:hilt-android:2.38.1'
+    annotationProcessor  'com.google.dagger:hilt-android-compiler:2.38.1'
+
+    // 如果需要使用 Hilt 的 Android KTX 扩展，也可以添加以下依赖
+    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
+    annotationProcessor  'androidx.hilt:hilt-compiler:1.0.0'
+
 
 
 
