@@ -20,6 +20,10 @@ public class FiveRvAdapter extends RecyclerView.Adapter<FiveRvAdapter.ViewHolder
         this.list = list;
     }
 
+    public void setList(List<String> list) {
+        this.list = list;
+    }
+
     private OnItemClickListener mOnItemClickListener;
 
     public interface OnItemClickListener{

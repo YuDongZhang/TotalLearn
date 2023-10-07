@@ -33,6 +33,7 @@ import java.util.List;
 public class Fragment05 extends BaseMVVMFragment<Fragment05Binding,CounterViewModel> {
 
     private List<String> list;
+    MyViewModel myViewModel;
 
     @Override
     protected int getLayoutRes() {
@@ -46,6 +47,7 @@ public class Fragment05 extends BaseMVVMFragment<Fragment05Binding,CounterViewMo
 
     @Override
     protected void initView() {
+        myViewModel = new  ViewModelProvider(this).get(MyViewModel.class);
         list = new ArrayList<>();
         list.add("1,测试1");
         list.add("2,测试1");
@@ -53,6 +55,9 @@ public class Fragment05 extends BaseMVVMFragment<Fragment05Binding,CounterViewMo
             @Override
             public void onClick(View v) {
                 viewModel.incrementCount();
+                list.add("2,ljlkjlj");
+                myViewModel.setItemList(list);
+
             }
         });
 
@@ -65,6 +70,13 @@ public class Fragment05 extends BaseMVVMFragment<Fragment05Binding,CounterViewMo
             public void onClick(String item, int position) {
                 LogUtils.d(item+position);
             }
+        });
+
+
+
+        myViewModel.getItemList().observe(this, items -> {
+            adapter.setList(items);
+            adapter.notifyDataSetChanged();
         });
     }
 
