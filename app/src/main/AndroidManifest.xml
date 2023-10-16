@@ -3,11 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.totallearn">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -18,7 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".fragmentset.frag04.RxActivity"></activity>
+        <activity
+            android:name=".blue.BlueActivity"
+            android:exported="false"
+            android:label="@string/title_activity_blue"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".fragmentset.frag04.RxActivity" />
         <activity android:name=".fragmentset.frag09.BigImgActivity" />
         <activity android:name=".testRoom.MultiFunctionActivity" />
         <activity android:name=".activity.ManyTestActivity" />
@@ -79,18 +79,17 @@
         <activity android:name=".fragmentset.frag04.RxSymbolActivity" />
         <activity android:name=".activity.TestViewPagerActivity" />
         <activity android:name=".activity.AnotherBarActivity" />
-
-        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity2"/>
-        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity3"/>
-        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity4"/>
-        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity5"/>
-        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity6"/>
-        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity7"/>
-        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity8"/>
-        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity9"/>
-        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity10"/>
-        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity11"/>
-        <activity android:name=".fragmentset.frag04.rxjavaexample.retrofit_okhttp_rxjava.TestActivity"/>
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity2" />
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity3" />
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity4" />
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity5" />
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity6" />
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity7" />
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity8" />
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity9" />
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity10" />
+        <activity android:name=".fragmentset.frag04.rxjavaexample.MainActivity11" />
+        <activity android:name=".fragmentset.frag04.rxjavaexample.retrofit_okhttp_rxjava.TestActivity" />
 
         <meta-data
             android:name="android.webkit.WebView.EnableSafeBrowsing"
@@ -122,5 +121,19 @@
             </intent-filter>
         </service>
     </application>
+
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- 蓝牙权限   -->
+    <uses-permission android:name = "android.permission.BLUETOOTH"/>
+    <!--启用应用启动设备发现或者操作蓝牙设备的超级管理员-->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+
 
 </manifest>

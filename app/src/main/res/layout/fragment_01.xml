@@ -230,9 +230,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
-                    android:background="@color/LightSalmon"
+                    android:background="@color/green"
                     android:padding="5dp"
-                    android:text="18" />
+                    android:text="18.蓝牙" />
 
 
             </LinearLayout>

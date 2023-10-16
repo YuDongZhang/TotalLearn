@@ -28,6 +28,7 @@ import com.example.totallearn.R;
 import com.example.totallearn.activity.AnotherBarActivity;
 import com.example.totallearn.activity.TestViewPagerActivity;
 import com.example.totallearn.activity.base.BaseFragment;
+import com.example.totallearn.blue.BlueActivity;
 import com.example.totallearn.frame_set.retrofit_set.RetrofitActivity;
 import com.example.totallearn.mvvm_set.MvvMActivity;
 import com.example.totallearn.ndkdemo.NDKTools;
@@ -124,7 +125,7 @@ public class Fragment01 extends BaseFragment {
 
     @OnClick({R.id.f1_bt1, R.id.f1_bt2, R.id.f1_bt3, R.id.f1_bt4, R.id.f1_bt5, R.id.f1_tv6, R.id.f1_tv7,
             R.id.f1_tv8, R.id.f1_tv9, R.id.f1_tv10, R.id.f1_tv11, R.id.f1_tv12, R.id.f1_tv13, R.id.f1_tv15,
-            R.id.f1_tv17})
+            R.id.f1_tv17 ,R.id.f1_tv18})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.f1_bt1:
@@ -202,6 +203,11 @@ public class Fragment01 extends BaseFragment {
                 intent = new Intent(getActivity(), AnotherBarActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.f1_tv18:
+                intent = new Intent(getActivity(), BlueActivity.class);
+                startActivity(intent);
+                break;
+
 
         }
     }

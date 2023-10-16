@@ -70,7 +70,9 @@ android {
     dataBinding {//这个是为 mvvm 来进行准备的
         enabled = true
     }
-
+    buildFeatures {
+        viewBinding true
+    }
 
 
 }
