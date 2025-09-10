@@ -16,14 +16,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totallearn.R;
+import com.example.totallearn.databinding.FragmentTabBinding;
 import com.example.totallearn.fragmentset.frag10.SwipeItemTouchCallback;
 import com.example.totallearn.fragmentset.frag10.RecyclerAdapter;
 
 import java.util.ArrayList;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * Created by pateo on 18-12-27.
@@ -32,10 +29,7 @@ import butterknife.Unbinder;
 public class FragmentTab_01 extends Fragment {
 
     public static final String TAG = FragmentTab_01.class.getSimpleName();
-    Unbinder unbinder;
-    View view;
-    @BindView(R.id.recycler_view)
-    RecyclerView mRecyclerView;
+    private FragmentTabBinding binding;
 
     @Override
     public void onAttach(Context context) {
@@ -54,11 +48,8 @@ public class FragmentTab_01 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
-        if (view == null) {
-            view = inflater.inflate(R.layout.fragment_tab, container, false);
-        }
-        unbinder = ButterKnife.bind(this, view);
-        return view;
+        binding = FragmentTabBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
 
@@ -74,12 +65,12 @@ public class FragmentTab_01 extends Fragment {
         addList(mDataList);
 
         RecyclerAdapter recyclerAdapter = new RecyclerAdapter(mDataList);
-        mRecyclerView.setAdapter(recyclerAdapter);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        binding.recyclerView.setAdapter(recyclerAdapter);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeItemTouchCallback(recyclerAdapter,
                 dpToPx(getActivity(), 60)));
-        itemTouchHelper.attachToRecyclerView(mRecyclerView);
+        itemTouchHelper.attachToRecyclerView(binding.recyclerView);
     }
 
     public static int dpToPx(Context context, float value) {
@@ -121,7 +112,7 @@ public class FragmentTab_01 extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         Log.d(TAG, "onDestroyView");
-        unbinder.unbind();
+        binding = null;
     }
 
     @Override

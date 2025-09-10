@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,14 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.totallearn.R;
+import com.example.totallearn.databinding.FragmentTabBinding;
 import com.example.totallearn.recyclerviewlearn.RClayoutmanager.MDGridRvDividerDecoration;
 import com.example.totallearn.recyclerviewlearn.RClayoutmanager.RVAdapter;
 
 import java.util.ArrayList;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * Created by pateo on 18-12-27.
@@ -30,10 +26,7 @@ import butterknife.Unbinder;
 public class FragmentTab_03 extends Fragment {
 
     public static final String TAG = FragmentTab_03.class.getSimpleName();
-    Unbinder unbinder;
-    View view;
-    @BindView(R.id.recycler_view)
-    RecyclerView mRecyclerView;
+    private FragmentTabBinding binding;
 
     @Override
     public void onAttach(Context context) {
@@ -52,11 +45,8 @@ public class FragmentTab_03 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
-        if (view == null) {
-            view = inflater.inflate(R.layout.fragment_tab, container, false);
-        }
-        unbinder = ButterKnife.bind(this, view);
-        return view;
+        binding = FragmentTabBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
 
@@ -72,11 +62,11 @@ public class FragmentTab_03 extends Fragment {
         addList(mDataList);
         //  mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         // 竖直方向的网格样式，每行四个Item
-        GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2, OrientationHelper.VERTICAL, false);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.addItemDecoration(new MDGridRvDividerDecoration(getActivity()));
+        GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2, RecyclerView.VERTICAL, false);
+        binding.recyclerView.setLayoutManager(mLayoutManager);
+        binding.recyclerView.addItemDecoration(new MDGridRvDividerDecoration(getActivity()));
 
-        mRecyclerView.setAdapter(new RVAdapter(mDataList));
+        binding.recyclerView.setAdapter(new RVAdapter(mDataList));
     }
 
     private void addList(ArrayList<String> arrayList){
@@ -133,7 +123,7 @@ public class FragmentTab_03 extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         Log.d(TAG, "onDestroyView");
-        unbinder.unbind();
+        binding = null;
     }
 
     @Override

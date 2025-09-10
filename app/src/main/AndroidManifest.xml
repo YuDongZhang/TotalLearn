@@ -47,7 +47,9 @@
         <activity android:name=".fragmentset.frag04.retrofit.RetrofitLearnActivity" />
         <activity android:name=".fragmentset.frag07.StaticActivity" />
         <activity android:name=".SwipeScrollRecyclerActivity" />
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

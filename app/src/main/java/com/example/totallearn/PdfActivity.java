@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.LogUtils;
+import com.example.totallearn.databinding.ActivityPdfBinding;
 import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.listener.OnDrawListener;
 import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
@@ -24,9 +25,6 @@ import com.github.barteksc.pdfviewer.listener.OnPageScrollListener;
 import java.io.File;
 import java.io.IOException;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -38,8 +36,7 @@ import okio.Sink;
 
 public class PdfActivity extends AppCompatActivity {
 
-    @BindView(R.id.pdfview)
-    PDFView pdfview;
+    private ActivityPdfBinding binding;
 
     private String mPdfUrl = "http://pdf.dfcfw.com/pdf/H2_AN201807051163584888_1.pdf";
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
@@ -55,11 +52,18 @@ public class PdfActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pdf);
-        ButterKnife.bind(this);
+        binding = ActivityPdfBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         mCtx = this;
-        mPageTv = findViewById(R.id.pdfpage);
+        mPageTv = binding.pdfpage;
         checkPerMission();
+
+        binding.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onViewClicked();
+            }
+        });
     }
 
     private Handler handler = null;
@@ -159,8 +163,8 @@ public class PdfActivity extends AppCompatActivity {
     private void SeePdf(File dest) {
         try {
 
-            pdfview.setVisibility(View.VISIBLE);
-            pdfview.fromFile(dest)
+            binding.pdfview.setVisibility(View.VISIBLE);
+            binding.pdfview.fromFile(dest)
                     .defaultPage(1)  //设置默认显示第1页
                     .onPageChange(new OnPageChangeListener() {
                         @Override
@@ -196,14 +200,14 @@ public class PdfActivity extends AppCompatActivity {
                     .load();
 
 
-            pdfview.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            binding.pdfview.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
                 public void onFocusChange(View view, boolean b) {
 
                 }
             });
             //https://www.cnblogs.com/lonelyxmas/p/9855754.html
-            pdfview.setOnKeyListener(new View.OnKeyListener() {
+            binding.pdfview.setOnKeyListener(new View.OnKeyListener() {
                 @Override
                 public boolean onKey(View view, int i, KeyEvent keyEvent) {
                     switch (keyEvent.getKeyCode()){
@@ -243,9 +247,8 @@ public class PdfActivity extends AppCompatActivity {
         handler.postDelayed(hidePage, 3000);
     }
     int y = -1000;
-    @OnClick(R.id.button)
     public void onViewClicked() {
         y = y-1000;
-        pdfview.moveTo(0,y);
+        binding.pdfview.moveTo(0,y);
     }
 }

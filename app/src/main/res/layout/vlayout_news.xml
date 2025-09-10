@@ -34,7 +34,7 @@
             android:orientation="horizontal">
 
 
-            <com.sunfusheng.marqueeview.MarqueeView
+            <!--<com.sunfusheng.marqueeview.MarqueeView
                 android:id="@+id/marqueeView1"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
@@ -44,7 +44,9 @@
                 app:mvInterval="3000"
                 app:mvSingleLine="true"
                 app:mvTextColor="#666"
-                app:mvTextSize="12sp" />
+                app:mvTextSize="12sp" />-->
+
+
         </LinearLayout>
 
 
@@ -54,7 +56,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <com.sunfusheng.marqueeview.MarqueeView
+           <!-- <com.sunfusheng.marqueeview.MarqueeView
                 android:id="@+id/marqueeView2"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
@@ -64,7 +66,7 @@
                 app:mvInterval="5000"
                 app:mvSingleLine="false"
                 app:mvTextColor="#666"
-                app:mvTextSize="12sp" />
+                app:mvTextSize="12sp" />-->
         </LinearLayout>
     </LinearLayout>
 

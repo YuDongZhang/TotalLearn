@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.totallearn.databinding.ActivityTestBinding;
 import com.example.totallearn.zhujie.customzhujie.getViewTo;
 
 import org.greenrobot.eventbus.EventBus;
@@ -15,9 +16,6 @@ import org.greenrobot.eventbus.EventBus;
 import java.lang.reflect.Field;
 import java.util.concurrent.TimeUnit;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -29,6 +27,8 @@ public class TestActivity extends AppCompatActivity {
 
     public static final String TAG = TestActivity.class.getSimpleName();
 
+    private ActivityTestBinding binding;
+
     @getViewTo(R.id.bt_1)
     private Button testBt1;
 
@@ -39,8 +39,8 @@ public class TestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
-        ButterKnife.bind(this);
+        binding = ActivityTestBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         Log.d(TAG, "onCreate");
 
 
@@ -48,6 +48,19 @@ public class TestActivity extends AppCompatActivity {
         //通过注解生成view
         //getAllAnnotationView();
         // initData();
+
+        binding.testB1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventBus.getDefault().post("hahah");
+            }
+        });
+        binding.testB2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventBus.getDefault().postSticky("hualala");
+            }
+        });
     }
 
 
@@ -138,22 +151,6 @@ public class TestActivity extends AppCompatActivity {
      * 注解处理器（Annotation Processor）是javac的一个工具，它用来在编译时扫描和处理注解（Annotation）。你可以对自定义注解，并注册
      * 相应的注解处理器，用于处理你的注解逻辑。
      */
-    @BindView(R.id.test_tv1)
-    TextView testTv1;
-
-    @OnClick({R.id.test_b1, R.id.test_b2, R.id.test_tv1})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.test_b1:
-                EventBus.getDefault().post("hahah");
-                break;
-            case R.id.test_b2:
-                EventBus.getDefault().postSticky("hualala");
-                break;
-            case R.id.test_tv1:
-                break;
-        }
-    }
 
     /**
      * 如下所示，实现一个自定义注解处理器，至少重写四个方法，并且注册你的自定义Processor，详细可参考下方代码CustomProcessor。

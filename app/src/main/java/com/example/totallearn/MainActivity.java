@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.totallearn.activity.base.BaseActivity;
+import com.example.totallearn.databinding.ActivityMainBinding;
 import com.example.totallearn.fragmentset.frag08.Fragment08;
 import com.example.totallearn.fragmentset.frag09.Fragment09;
 import com.example.totallearn.fragmentset.frag10.Fragment10;
@@ -29,17 +30,16 @@ import com.example.totallearn.fragmentset.frag06.Fragment06;
 import com.example.totallearn.fragmentset.frag07.Fragment07;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.functions.Consumer;
 
 /**
  * 在个人电脑上进行同步
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     public static final String TAG = MainActivity.class.getSimpleName();
 
+    private ActivityMainBinding binding;
 
     private Fragment01 mFragment01;
     private Fragment02 mFragment02;
@@ -56,8 +56,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         //test();
         //状态栏变成透明的
@@ -65,13 +65,24 @@ public class MainActivity extends BaseActivity {
 //        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 //
         immersive();
-        setHeightAndPadding(this,findViewById(R.id.toolbar));
+        setHeightAndPadding(this, binding.toolbar);
 
         showFragment(1);//预加载第一页
 
         requestPermissions();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
+        binding.bt1.setOnClickListener(this);
+        binding.bt2.setOnClickListener(this);
+        binding.bt3.setOnClickListener(this);
+        binding.bt4.setOnClickListener(this);
+        binding.bt5.setOnClickListener(this);
+        binding.bt6.setOnClickListener(this);
+        binding.bt7.setOnClickListener(this);
+        binding.bt8.setOnClickListener(this);
+        binding.bt9.setOnClickListener(this);
+        binding.bt10.setOnClickListener(this);
+        binding.bt11.setOnClickListener(this);
     }
 
     private void immersive(){
@@ -144,44 +155,30 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
 
-
-    @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4, R.id.bt_5, R.id.bt_6, R.id.bt_7, R.id.bt_8,
-            R.id.bt_9,R.id.bt_10,R.id.bt_11})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.bt_1:
-                showFragment(1);
-                break;
-            case R.id.bt_2:
-                showFragment(2);
-                break;
-            case R.id.bt_3:
-                showFragment(3);
-                break;
-            case R.id.bt_4:
-                showFragment(4);
-                break;
-            case R.id.bt_5:
-                showFragment(5);
-                break;
-            case R.id.bt_6:
-                showFragment(6);
-                break;
-            case R.id.bt_7:
-                showFragment(7);
-                break;
-            case R.id.bt_8:
-                showFragment(8);
-                break;
-            case R.id.bt_9:
-                showFragment(9);
-                break;
-            case R.id.bt_10:
-                showFragment(10);
-                break;
-            case R.id.bt_11:
-                showFragment(11);
-                break;
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.bt_1) {
+            showFragment(1);
+        } else if (view.getId() == R.id.bt_2) {
+            showFragment(2);
+        } else if (view.getId() == R.id.bt_3) {
+            showFragment(3);
+        } else if (view.getId() == R.id.bt_4) {
+            showFragment(4);
+        } else if (view.getId() == R.id.bt_5) {
+            showFragment(5);
+        } else if (view.getId() == R.id.bt_6) {
+            showFragment(6);
+        } else if (view.getId() == R.id.bt_7) {
+            showFragment(7);
+        } else if (view.getId() == R.id.bt_8) {
+            showFragment(8);
+        } else if (view.getId() == R.id.bt_9) {
+            showFragment(9);
+        } else if (view.getId() == R.id.bt_10) {
+            showFragment(10);
+        } else if (view.getId() == R.id.bt_11) {
+            showFragment(11);
         }
     }
 

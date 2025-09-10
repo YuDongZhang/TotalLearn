@@ -29,6 +29,7 @@ import com.example.totallearn.activity.AnotherBarActivity;
 import com.example.totallearn.activity.TestViewPagerActivity;
 import com.example.totallearn.activity.base.BaseFragment;
 import com.example.totallearn.blue.BlueActivity;
+import com.example.totallearn.databinding.Fragment01Binding;
 import com.example.totallearn.frame_set.retrofit_set.RetrofitActivity;
 import com.example.totallearn.mvvm_set.MvvMActivity;
 import com.example.totallearn.ndkdemo.NDKTools;
@@ -39,26 +40,14 @@ import com.example.totallearn.utils.MyLogUtil;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
-
 /**
  * Created by pateo on 18-12-27.
  */
 
-public class Fragment01 extends BaseFragment {
+public class Fragment01 extends BaseFragment implements View.OnClickListener {
 
     public static final String TAG = Fragment01.class.getSimpleName();
-    Unbinder unbinder;
-    @BindView(R.id.item_progress)
-    ItemProgress itemProgress;
-    @BindView(R.id.f1_et19)
-    EditText f1Et19;
-
-    private Button f01bt1;
-    private Button f01bt3;
+    private Fragment01Binding binding;
 
     @Override
     public void onAttach(Context context) {
@@ -81,20 +70,35 @@ public class Fragment01 extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
-        View view = inflater.inflate(R.layout.fragment_01, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        itemProgress.setProgress(50);
-        itemProgress.setMax(100);
-        itemProgress.setDays("10");
-        f1Et19.setHint("wocao");
-        f1Et19.setHintTextColor(getResources().getColor(R.color.colorPrimary));
-        return view;
+        binding = Fragment01Binding.inflate(inflater, container, false);
+        binding.itemProgress.setProgress(50);
+        binding.itemProgress.setMax(100);
+        binding.itemProgress.setDays("10");
+        binding.f1Et19.setHint("wocao");
+        binding.f1Et19.setHintTextColor(getResources().getColor(R.color.colorPrimary));
+        return binding.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Log.d(TAG, "onActivityCreated");
+        binding.f1Bt1.setOnClickListener(this);
+        binding.f1Bt2.setOnClickListener(this);
+        binding.f1Bt3.setOnClickListener(this);
+        binding.f1Bt4.setOnClickListener(this);
+        binding.f1Bt5.setOnClickListener(this);
+        binding.f1Tv6.setOnClickListener(this);
+        binding.f1Tv7.setOnClickListener(this);
+        binding.f1Tv8.setOnClickListener(this);
+        binding.f1Tv9.setOnClickListener(this);
+        binding.f1Tv10.setOnClickListener(this);
+        binding.f1Tv11.setOnClickListener(this);
+        binding.f1Tv12.setOnClickListener(this);
+        binding.f1Tv13.setOnClickListener(this);
+        binding.f1Tv15.setOnClickListener(this);
+        binding.f1Tv17.setOnClickListener(this);
+        binding.f1Tv18.setOnClickListener(this);
     }
 
     @Override
@@ -108,7 +112,7 @@ public class Fragment01 extends BaseFragment {
     public void onDestroyView() {
         super.onDestroyView();
         Log.d(TAG, "onDestroyView");
-        unbinder.unbind();
+        binding = null;
     }
 
     @Override
@@ -123,92 +127,60 @@ public class Fragment01 extends BaseFragment {
         Log.d(TAG, "onDestroy");
     }
 
-    @OnClick({R.id.f1_bt1, R.id.f1_bt2, R.id.f1_bt3, R.id.f1_bt4, R.id.f1_bt5, R.id.f1_tv6, R.id.f1_tv7,
-            R.id.f1_tv8, R.id.f1_tv9, R.id.f1_tv10, R.id.f1_tv11, R.id.f1_tv12, R.id.f1_tv13, R.id.f1_tv15,
-            R.id.f1_tv17 ,R.id.f1_tv18})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.f1_bt1:
-                //在service 中启动服务要 getActivity
-                Intent intent = new Intent(getActivity(), TestService.class);
-                getActivity().startService(intent);
-                break;
-            case R.id.f1_bt2:
-                //在service 中启动服务要 getActivity
-                intent = new Intent(getActivity(), TestService.class);
-                getActivity().stopService(intent);
-                break;
-            case R.id.f1_bt3:
-                intent = new Intent(getActivity(), PdfActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.f1_bt4:
-                test4();
-                break;
-            case R.id.f1_bt5:
-
-                break;
-            case R.id.f1_tv6:
-                intent = new Intent(getActivity(), RetrofitActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.f1_tv7:
-                intent = new Intent(getActivity(), ImgCompressActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.f1_tv8:
-                showDialog();
-                break;
-            case R.id.f1_tv9:
-                String s = NDKTools.getStringFromNDK();
-                LogUtils.d(s);
-                break;
-            case R.id.f1_tv10:
-
-                if (0 == Double.valueOf("0.0")) {
-                    LogUtils.d("成功");
-                }
-                break;
-
-            case R.id.f1_tv11://11.dialogFragment
-
-
-                break;
-
-            case R.id.f1_tv12:
-                intent = new Intent(getActivity(), TestViewPagerActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.f1_tv13:
-                // showProgressDialog();
-                intent = new Intent(getActivity(), MvvMActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.f1_tv14:
-                showProgressBar();
-                break;
-
-            case R.id.f1_tv15:
-                TestDialogFragment testDialogFragment = new TestDialogFragment();
-                testDialogFragment.show(getActivity().getSupportFragmentManager(), "cao");
-                break;
-
-            case R.id.f1_tv16:
-                DialogUtil.ProgressBarCircleDialog(getActivity());
-                break;
+    @Override
+    public void onClick(View view) {
+        Intent intent;
+        if (view.getId() == R.id.f1_bt1) {
+            //在service 中启动服务要 getActivity
+            intent = new Intent(getActivity(), TestService.class);
+            getActivity().startService(intent);
+        } else if (view.getId() == R.id.f1_bt2) {
+            //在service 中启动服务要 getActivity
+            intent = new Intent(getActivity(), TestService.class);
+            getActivity().stopService(intent);
+        } else if (view.getId() == R.id.f1_bt3) {
+            intent = new Intent(getActivity(), PdfActivity.class);
+            startActivity(intent);
+        } else if (view.getId() == R.id.f1_bt4) {
+            test4();
+        } else if (view.getId() == R.id.f1_bt5) {
+        } else if (view.getId() == R.id.f1_tv6) {
+            intent = new Intent(getActivity(), RetrofitActivity.class);
+            startActivity(intent);
+        } else if (view.getId() == R.id.f1_tv7) {
+            intent = new Intent(getActivity(), ImgCompressActivity.class);
+            startActivity(intent);
+        } else if (view.getId() == R.id.f1_tv8) {
+            showDialog();
+        } else if (view.getId() == R.id.f1_tv9) {
+            String s = NDKTools.getStringFromNDK();
+            LogUtils.d(s);
+        } else if (view.getId() == R.id.f1_tv10) {
+            if (0 == Double.valueOf("0.0")) {
+                LogUtils.d("成功");
+            }
+        } else if (view.getId() == R.id.f1_tv11) {//11.dialogFragment
+        } else if (view.getId() == R.id.f1_tv12) {
+            intent = new Intent(getActivity(), TestViewPagerActivity.class);
+            startActivity(intent);
+        } else if (view.getId() == R.id.f1_tv13) {
+            // showProgressDialog();
+            intent = new Intent(getActivity(), MvvMActivity.class);
+            startActivity(intent);
+        } else if (view.getId() == R.id.f1_tv14) {
+            showProgressBar();
+        } else if (view.getId() == R.id.f1_tv15) {
+            TestDialogFragment testDialogFragment = new TestDialogFragment();
+            testDialogFragment.show(getActivity().getSupportFragmentManager(), "cao");
+        } else if (view.getId() == R.id.f1_tv16) {
+            DialogUtil.ProgressBarCircleDialog(getActivity());
             //柱状图
-            case R.id.f1_tv17:
-                intent = new Intent(getActivity(), AnotherBarActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.f1_tv18:
-                intent = new Intent(getActivity(), BlueActivity.class);
-                startActivity(intent);
-                break;
-
-
+        } else if (view.getId() == R.id.f1_tv17) {
+            intent = new Intent(getActivity(), AnotherBarActivity.class);
+            startActivity(intent);
+        } else if (view.getId() == R.id.f1_tv18) {
+            intent = new Intent(getActivity(), BlueActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -264,10 +236,10 @@ public class Fragment01 extends BaseFragment {
 
     private void test4() {
         MyLogUtil.i(TAG, "onclick");
-        //<img src"manager/upload/5920032-2.gif\>"\u003e前伸\u003cimg src\u003d\"manager/upload/02003.gif\"\u003e时有早接触
-        String s = "乳腺恶性淋巴瘤的声像图特征是：<img src\"manager/upload/5920032-2.gif\\>①肿块常单发，呈圆球状或分叶状②肿块常多发，" +
-                "形态不规则③肿块较大，常>10cm，少数<5cm④肿块较小，常<3cm⑤肿块边界清晰，有包膜样回声⑥肿块边界不清晰，无包膜样回声⑦内呈低回声均匀，" +
-                "后方声加强⑧内呈高回声，不均匀，后方声衰减";
+        //<img src"manager/upload/5920032-2.gif\>"\u003e前伸\u003cimg src\u003d"manager/upload/02003.gif"\u003e时有早接触
+        String s = "乳腺恶性淋巴瘤的声像图特征是：<img src\"manager/upload/5920032-2.gif\\\">①肿块常单发，呈圆球状或分叶状②肿块常多发，"
+                + "形态不规则③肿块较大，常>10cm，少数<5cm④肿块较小，常<3cm⑤肿块边界清晰，有包膜样回声⑥肿块边界不清晰，无包膜样回声⑦内呈低回声均匀，"
+                + "后方声加强⑧内呈高回声，不均匀，后方声衰减";
         s = TextUtils.htmlEncode(s);
 
         test();

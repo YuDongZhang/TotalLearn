@@ -12,40 +12,27 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
+import com.example.totallearn.databinding.ActivitySwipeScrollRecyclerBinding;
 import com.example.totallearn.utils.MyLogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class SwipeScrollRecyclerActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
-public static final String TAG = "SSRecycler";
-    @BindView(R.id.up_area)
-    RelativeLayout upArea;
-    @BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
-    @BindView(R.id.scrolllayout)
-    ScrollView scrolllayout;
-    @BindView(R.id.swipelayout)
-    SwipeRefreshLayout swipelayout;
-    @BindView(R.id.blue_area)
-    RelativeLayout blueArea;
-    @BindView(R.id.parent_area)
-    RelativeLayout parentArea;
+    public static final String TAG = "SSRecycler";
 
+    private ActivitySwipeScrollRecyclerBinding binding;
     private List<String> stringList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_swipe_scroll_recycler);
-        ButterKnife.bind(this);
+        binding = ActivitySwipeScrollRecyclerBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         addList();
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new SCRAdapter(stringList));
-        //swipelayout.setEnabled(false);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.recyclerView.setAdapter(new SCRAdapter(stringList));
+        //binding.swipelayout.setEnabled(false);
         swipeListener();
         setScrollListener();
     }
@@ -53,14 +40,14 @@ public static final String TAG = "SSRecycler";
 
 
     private void swipeListener() {
-        swipelayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        binding.swipelayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 new Handler().postDelayed(new Runnable() {
                     public void run() {
                        /* data.add(0, "刷新后新增的item");
                         adapter.notifyDataSetChanged();*/
-                        swipelayout.setRefreshing(false);
+                        binding.swipelayout.setRefreshing(false);
                     }
                 }, 2000);
             }
@@ -68,15 +55,15 @@ public static final String TAG = "SSRecycler";
     }
 
     private void setScrollListener() {
-        scrolllayout.fling(0);
-        scrolllayout.scrollTo(0,0);
-        scrolllayout.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+        binding.scrolllayout.fling(0);
+        binding.scrolllayout.scrollTo(0,0);
+        binding.scrolllayout.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View view, int i, int i1, int i2, int i3) {
                 if (view.getScrollY()!=0){
-                    swipelayout.setEnabled(false);
+                    binding.swipelayout.setEnabled(false);
                 }else if (view.getScrollY()==0){
-                    swipelayout.setEnabled(true);
+                    binding.swipelayout.setEnabled(true);
                 }
               //  MyLogUtil.d(TAG ,"1 ="+i+"   i1 = "+i1 +"  i2 = "+i2+" i3 = "+i3+"   y  "+view.getScrollY());
             }
@@ -84,7 +71,7 @@ public static final String TAG = "SSRecycler";
 
 
 
-        scrolllayout.setOnTouchListener(new View.OnTouchListener() {
+        binding.scrolllayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {

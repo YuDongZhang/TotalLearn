@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.totallearn.R;
+import com.example.totallearn.databinding.ActivityMain2Binding;
 import com.example.totallearn.recyclerviewlearn.RClayoutmanager.MDGridRvDividerDecoration;
 import com.example.totallearn.recyclerviewlearn.RClayoutmanager.RVAdapter;
 
@@ -17,20 +18,15 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class MainSecondActivity extends AppCompatActivity {
 
-    @BindView(R.id.recycler_view)
-    RecyclerView mRecyclerView;
-
+    private ActivityMain2Binding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-        ButterKnife.bind(this);
+        binding = ActivityMain2Binding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         EventBus.getDefault().register(this);
 
         initViews();
@@ -66,11 +62,11 @@ public class MainSecondActivity extends AppCompatActivity {
         addList(mDataList);
         //  mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         // 竖直方向的网格样式，每行四个Item
-        GridLayoutManager mLayoutManager = new GridLayoutManager(this, 2, OrientationHelper.VERTICAL, false);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.addItemDecoration(new MDGridRvDividerDecoration(this));
+        GridLayoutManager mLayoutManager = new GridLayoutManager(this, 2, RecyclerView.VERTICAL, false);
+        binding.recyclerView.setLayoutManager(mLayoutManager);
+        binding.recyclerView.addItemDecoration(new MDGridRvDividerDecoration(this));
 
-        mRecyclerView.setAdapter(new RVAdapter(mDataList));
+        binding.recyclerView.setAdapter(new RVAdapter(mDataList));
     }
 
     private void addList(ArrayList<String> arrayList) {

@@ -13,13 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.totallearn.R;
+import com.example.totallearn.databinding.Fragment11Binding;
 import com.example.totallearn.fragmentset.adapter.FragAdapter;
 
 import java.util.ArrayList;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * Created by pateo on 18-12-27.
@@ -28,11 +25,8 @@ import butterknife.Unbinder;
 public class Fragment11 extends Fragment {
 
     public static final String TAG = Fragment11.class.getSimpleName();
-    @BindView(R.id.tab_layout)
-    TabLayout tabLayout;
-    @BindView(R.id.viewpager)
-    ViewPager viewPager;
-    Unbinder unbinder;
+
+    private Fragment11Binding binding;
 
     private String[] titles = new String[]{"测试1","测试2","测试3"};
     private ArrayList<Fragment> fragments = new ArrayList<>();
@@ -55,9 +49,8 @@ public class Fragment11 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
-        View view = inflater.inflate(R.layout.fragment_11, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        return view;
+        binding = Fragment11Binding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
 
@@ -67,19 +60,19 @@ public class Fragment11 extends Fragment {
         fragments.add(new FragmentTab_01());
         fragments.add(new FragmentTab_02());
         fragments.add(new FragmentTab_03());
-        viewPager.setOffscreenPageLimit(2);
+        binding.viewpager.setOffscreenPageLimit(2);
         for(int i=0;i<titles.length;i++){
 
-            tabLayout.addTab(tabLayout.newTab());
+            binding.tabLayout.addTab(binding.tabLayout.newTab());
         }
 
-        tabLayout.setupWithViewPager(viewPager);
+        binding.tabLayout.setupWithViewPager(binding.viewpager);
 
         fragAdapter = new FragAdapter(getChildFragmentManager(),fragments);
-        viewPager.setAdapter(fragAdapter);
+        binding.viewpager.setAdapter(fragAdapter);
 
         for(int i=0;i<titles.length;i++){
-            tabLayout.getTabAt(i).setText(titles[i]);
+            binding.tabLayout.getTabAt(i).setText(titles[i]);
         }
     }
 
@@ -117,7 +110,7 @@ public class Fragment11 extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         Log.d(TAG, "onDestroyView");
-        unbinder.unbind();
+        binding = null;
     }
 
     @Override

@@ -7,12 +7,9 @@ import android.widget.FrameLayout;
 
 import com.example.totallearn.R;
 import com.example.totallearn.activity.base.BaseActivity;
+import com.example.totallearn.databinding.ActivityFragmentBackBinding;
 import com.example.totallearn.fragmentset.frag05.Fragment05;
 import com.example.totallearn.fragmentset.frag06.Fragment06;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /*
     这个的作用就是添加 fragment
@@ -32,41 +29,35 @@ import butterknife.OnClick;
 
 public class FragmentBackActivity extends BaseActivity {
 
-    @BindView(R.id.frame_frag)
-    FrameLayout frameFrag;
-
-
+    private ActivityFragmentBackBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment_back);
-        ButterKnife.bind(this);
+        binding = ActivityFragmentBackBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-
-        //fragmentTransaction.add(R.id)
-
-    }
-
-
-    @OnClick({R.id.af_t1, R.id.af_t2})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.af_t1:
+        binding.afT1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Fragment05 f5 = new Fragment05();
                 FragmentTransaction tf = getSupportFragmentManager().beginTransaction();
                 // tf.add(R.id.frame_frag,f5);
                 tf.replace(R.id.frame_frag,f5);
                 tf.addToBackStack(null);
                 tf.commit();
-                break;
-            case R.id.af_t2:
+            }
+        });
+
+        binding.afT2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Fragment06 f6 = new Fragment06();
-                 tf = getSupportFragmentManager().beginTransaction();
+                FragmentTransaction tf = getSupportFragmentManager().beginTransaction();
                 tf.replace(R.id.frame_frag,f6);
                 tf.addToBackStack(null);
                 tf.commit();
-                break;
-        }
+            }
+        });
     }
 }
