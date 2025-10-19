@@ -25,7 +25,7 @@ import com.example.totallearn.mvvm_set.MvvMActivity;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
+
 
 /**
  * Created by pateo on 18-12-27.
@@ -50,6 +50,7 @@ public class Fragment09 extends Fragment {
 
     };
 
+    private RecyclerView recyclerView;
 
     @Override
     public void onAttach(Context context) {
@@ -70,7 +71,7 @@ public class Fragment09 extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
         View view = inflater.inflate(R.layout.fragment_09, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView = view.findViewById(R.id.recyclerView);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         Frag09Adapter adapter = new Frag09Adapter(data);
         adapter.setOnItemClickListener(new Frag09Adapter.OnItemClickListener() {
@@ -87,8 +88,8 @@ public class Fragment09 extends Fragment {
                         startActivity(intent);
                         break;
                     case 2:
-                        intent = new Intent(getActivity(), VLayoutActivity.class);
-                        startActivity(intent);
+//                        intent = new Intent(getActivity(), VLayoutActivity.class);
+//                        startActivity(intent);
                         break;
 
                     case 3:

@@ -47,38 +47,32 @@ public class MultiFunctionActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.createDateBase:
-                createData();
-                break;
-            case R.id.addData:
-                addData();
-                break;
-            case R.id.queryData:
-                Completable.fromAction(() -> {
-                            List<User> all = mUserDatabase.userDao().getAll();
-                            LogUtils.d("all--->"+all.size());
-                        }).subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(
-                                () -> {
+        int id = v.getId();
+        if (id == R.id.createDateBase) {
+            createData();
+        } else if (id == R.id.addData) {
+            addData();
+        } else if (id == R.id.queryData) {
+            Completable.fromAction(() -> {
+                        List<User> all = mUserDatabase.userDao().getAll();
+                        LogUtils.d("all--->"+all.size());
+                    }).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(
+                            () -> {
 
-                                },
-                                throwable -> {
+                            },
+                            throwable -> {
 
-                                }
-                        );
-
-                break;
-            case R.id.updateData:
-                User userone = new User(18, "武媚娘123", 32);
-                mUserDatabase.userDao().updateUser(userone);
-                break;
-            case R.id.deleteData:
-                User user = new User();
-                user.id = 12;
-                mUserDatabase.userDao().deleteUser(user);
-                break;
+                            }
+                    );
+        } else if (id == R.id.updateData) {
+            User userone = new User(18, "武媚娘123", 32);
+            mUserDatabase.userDao().updateUser(userone);
+        } else if (id == R.id.deleteData) {
+            User user = new User();
+            user.id = 12;
+            mUserDatabase.userDao().deleteUser(user);
         }
     }
 

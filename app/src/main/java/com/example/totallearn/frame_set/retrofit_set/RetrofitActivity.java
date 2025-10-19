@@ -13,9 +13,6 @@ import com.example.totallearn.fragmentset.frag04.f4entity.JokeEntity;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -31,38 +28,34 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitActivity extends BaseActivity {
 
-    @BindView(R.id.content)
-    TextView contentTv;
+    private TextView contentTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit);
-        ButterKnife.bind(this);
+        
+        // 初始化视图
+        contentTv = findViewById(R.id.content);
+        
+        // 设置点击事件
+        findViewById(R.id.back).setOnClickListener(this::onViewClicked);
+        findViewById(R.id.r_1).setOnClickListener(this::onViewClicked);
+        findViewById(R.id.r_2).setOnClickListener(this::onViewClicked);
+        findViewById(R.id.r_3).setOnClickListener(this::onViewClicked);
+        findViewById(R.id.r_4).setOnClickListener(this::onViewClicked);
     }
 
-    @OnClick({R.id.back, R.id.r_1, R.id.r_2, R.id.r_3, R.id.r_4})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.back:
-                onBackPressed();
-                break;
-
-            case R.id.r_1:
-                retrofitGetAndPost();
-                break;
-
-            case R.id.r_2:
-                rxjavaAndRetrofit();
-                break;
-
-            case R.id.r_3:
-
-                break;
-
-            case R.id.r_4:
-
-                break;
+    private void onViewClicked(View view) {
+        int id = view.getId();
+        if (id == R.id.back) {
+            onBackPressed();
+        } else if (id == R.id.r_1) {
+            retrofitGetAndPost();
+        } else if (id == R.id.r_2) {
+            rxjavaAndRetrofit();
+        } else if (id == R.id.r_3 || id == R.id.r_4) {
+            // 空操作，保持原有逻辑
         }
     }
 

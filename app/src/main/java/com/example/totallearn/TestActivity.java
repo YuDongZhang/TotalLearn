@@ -29,10 +29,10 @@ public class TestActivity extends AppCompatActivity {
 
     private ActivityTestBinding binding;
 
-    @getViewTo(R.id.bt_1)
+
     private Button testBt1;
 
-    @getViewTo(R.id.bt_2)
+
     private Button testBt2;
 
 

@@ -25,9 +25,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
+
 
 /**
  * 需要给出相关文章的网址
@@ -36,7 +34,7 @@ import butterknife.Unbinder;
 public class Fragment04 extends Fragment {
 
     public static final String TAG = Fragment04.class.getSimpleName();
-    Unbinder unbinder;
+
 
     //线程池  多任务中避免线程重复的创建与销毁
     private ThreadPoolExecutor mthreadPoolExecutor = new ThreadPoolExecutor(
@@ -80,7 +78,7 @@ public class Fragment04 extends Fragment {
         Frag09Adapter adapter = new Frag09Adapter(data);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
-        unbinder = ButterKnife.bind(this, view);
+
         adapter.setOnItemClickListener(new Frag09Adapter.OnItemClickListener() {
             @Override
             public void onItemClick(int pos) {
@@ -163,7 +161,6 @@ public class Fragment04 extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         Log.d(TAG, "onDestroyView");
-        unbinder.unbind();
     }
 
     @Override

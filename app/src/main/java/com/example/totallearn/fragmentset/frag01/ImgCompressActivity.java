@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,9 +27,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+
 import top.zibin.luban.CompressionPredicate;
 import top.zibin.luban.Luban;
 import top.zibin.luban.OnCompressListener;
@@ -49,14 +48,13 @@ https://www.jianshu.com/p/0b4854aae105
 public class ImgCompressActivity extends BaseActivity {
 
 
-    @BindView(R.id.iv_view)
-    ImageView ivView;
-    @BindView(R.id.tv1)
-    TextView tv1;
-    @BindView(R.id.tv2)
-    TextView tv2;
-    @BindView(R.id.tv3)
-    TextView tv3;
+    private ImageView ivView;
+    private TextView tv1;
+    private TextView tv2;
+    private TextView tv3;
+    private Button btnTakePhoto;
+    private Button btnChoosePic;
+    private Button btnCompress;
     private Bitmap mBitmap;
     private Bitmap bm;
 
@@ -64,7 +62,24 @@ public class ImgCompressActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_img_compress);
-        ButterKnife.bind(this);
+        
+        // 初始化视图
+        ivView = findViewById(R.id.iv_view);
+        tv1 = findViewById(R.id.tv1);
+        tv2 = findViewById(R.id.tv2);
+        tv3 = findViewById(R.id.tv3);
+//        btnTakePhoto = findViewById(R.id.btn_take_photo);
+//        btnChoosePic = findViewById(R.id.btn_choose_pic);
+//        btnCompress = findViewById(R.id.btn_compress);
+        
+        // 设置点击事件
+        tv1.setOnClickListener(this::onViewClicked);
+        tv2.setOnClickListener(this::onViewClicked);
+        tv3.setOnClickListener(this::onViewClicked);
+        findViewById(R.id.tv4).setOnClickListener(this::onViewClicked);
+        btnTakePhoto.setOnClickListener(this::onViewClicked);
+        btnChoosePic.setOnClickListener(this::onViewClicked);
+        btnCompress.setOnClickListener(this::onViewClicked);
 
         imgDaXiao();
     }
@@ -328,24 +343,16 @@ public class ImgCompressActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.tv1, R.id.tv2, R.id.tv3, R.id.tv4})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.tv1:
-                test1();
-                break;
-
-            case R.id.tv2:
-                test2();
-                break;
-
-            case R.id.tv3:
-                test3();
-                break;
-
-            case R.id.tv4:
-                compressBitmapToFile(mBitmap, new File(Environment.getExternalStorageDirectory() + "/12.jpg"));
-                break;
+    private void onViewClicked(View view) {
+        int id = view.getId();
+        if (id == R.id.tv1) {
+            test1();
+        } else if (id == R.id.tv2) {
+            test2();
+        } else if (id == R.id.tv3) {
+            test3();
+        } else if (id == R.id.tv4) {
+            compressBitmapToFile(mBitmap, new File(Environment.getExternalStorageDirectory() + "/12.jpg"));
         }
     }
 

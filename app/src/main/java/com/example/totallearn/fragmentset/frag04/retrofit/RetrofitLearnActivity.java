@@ -13,29 +13,25 @@ import com.example.totallearn.utils.MyLogUtil;
 
 import java.io.File;
 import java.math.BigDecimal;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.disposables.Disposable;
 
 public class RetrofitLearnActivity extends BaseActivity {
 
-    @BindView(R.id.progressBar)
-    ProgressBar progressBar;
-    @BindView(R.id.et_url)
-    EditText etUrl;
+    private ProgressBar progressBar;
+    private EditText etUrl;
     private Disposable mDownloadTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrifit_learn);
-        ButterKnife.bind(this);
-
+        progressBar = findViewById(R.id.progressBar);
+        etUrl = findViewById(R.id.et_url);
+        
+        // 设置点击事件
+        findViewById(R.id.bt_down).setOnClickListener(v -> onViewClicked());
     }
 
-    @OnClick(R.id.bt_down)
     public void onViewClicked() {
         downloadFile("https://app.njpdxx.com/ios/res_yun_chaozhou_shixi/res_yun_chaozhou_shixi_android_1.0.27_release.apk");
     }

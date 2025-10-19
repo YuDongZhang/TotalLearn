@@ -12,42 +12,39 @@ import com.example.totallearn.R;
 import com.example.totallearn.activity.base.BaseActivity;
 import com.example.totallearn.new_view_test.DrawerTestActivity;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 public class MaterialDesignActivity extends BaseActivity {
 
-    @BindView(R.id.parent_ll)
-    LinearLayout parentLinearLayout;
+    private LinearLayout parentLinearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_material_design);
-        ButterKnife.bind(this);
+        parentLinearLayout = findViewById(R.id.parent_ll);
+        
+        // 设置点击事件
+        findViewById(R.id.tv1).setOnClickListener(this::onViewClicked);
+        findViewById(R.id.tv2).setOnClickListener(this::onViewClicked);
+        findViewById(R.id.tv3).setOnClickListener(this::onViewClicked);
+        findViewById(R.id.tv4).setOnClickListener(this::onViewClicked);
+        findViewById(R.id.tv5).setOnClickListener(this::onViewClicked);
+        findViewById(R.id.tv6).setOnClickListener(this::onViewClicked);
     }
 
-    @OnClick({R.id.tv1, R.id.tv2, R.id.tv3, R.id.tv4, R.id.tv5,R.id.tv6})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.tv1:
-                showSnackBar();
-                break;
-            case R.id.tv2:
-                break;
-            case R.id.tv3:
-
-                break;
-            case R.id.tv4:
-                break;
-
-            case R.id.tv5:
-               startActivity(new Intent(MaterialDesignActivity.this, DrawerTestActivity.class));
-                break;
-            case R.id.tv6:
-                startActivity(new Intent(MaterialDesignActivity.this, ACTActivity.class));
-                break;
+    private void onViewClicked(View view) {
+        int id = view.getId();
+        if (id == R.id.tv1) {
+            showSnackBar();
+        } else if (id == R.id.tv2) {
+            // do nothing
+        } else if (id == R.id.tv3) {
+            // do nothing
+        } else if (id == R.id.tv4) {
+            // do nothing
+        } else if (id == R.id.tv5) {
+            startActivity(new Intent(MaterialDesignActivity.this, DrawerTestActivity.class));
+        } else if (id == R.id.tv6) {
+            startActivity(new Intent(MaterialDesignActivity.this, ACTActivity.class));
         }
     }
 

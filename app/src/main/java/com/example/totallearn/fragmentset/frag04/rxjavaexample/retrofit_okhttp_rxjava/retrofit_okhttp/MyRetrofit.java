@@ -3,7 +3,7 @@ package com.example.totallearn.fragmentset.frag04.rxjavaexample.retrofit_okhttp_
 
 
 
-import com.example.totallearn.BuildConfig;
+//import com.example.totallearn.BuildConfig;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,11 +23,11 @@ public class MyRetrofit {
         builder.readTimeout(10, TimeUnit.SECONDS);
         builder.connectTimeout(9, TimeUnit.SECONDS);
 
-        if (BuildConfig.DEBUG) {
-            HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-            builder.addInterceptor(interceptor);
-        }
+//        if (BuildConfig.DEBUG) {
+//            HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+//            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+//            builder.addInterceptor(interceptor);
+//        }
 
         return new Retrofit.Builder().baseUrl("https://jsapp.ezhupei.com/pdapp/res/jswjw/")
                 .client(builder.build())

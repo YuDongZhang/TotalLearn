@@ -22,8 +22,8 @@ import com.example.totallearn.fragmentset.frag04.rxjavaexample.MainActivity8;
 import com.example.totallearn.fragmentset.frag04.rxjavaexample.MainActivity9;
 import com.example.totallearn.fragmentset.frag04.rxjavaexample.retrofit_okhttp_rxjava.TestActivity;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -35,8 +35,7 @@ import static com.example.totallearn.fragmentset.frag04.Fragment04.TAG;
 
 public class RxActivity extends AppCompatActivity {
 
-    @BindView(R.id.recyclerView)
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
     private String[] data = {
             "测试",
             "1. Rxjava和Rtofit结合",
@@ -59,7 +58,7 @@ public class RxActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rx);
-        ButterKnife.bind(this);
+        recyclerView = findViewById(R.id.recyclerView);
         Frag09Adapter adapter = new Frag09Adapter(data);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);

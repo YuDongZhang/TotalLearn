@@ -24,26 +24,26 @@
             android:textSize="18sp" />
 
         <TextView
-            android:layout_marginTop="10dp"
             android:id="@+id/tv2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="2.采样率压缩"
             android:textSize="18sp" />
 
-       <TextView
-            android:layout_marginTop="10dp"
+        <TextView
             android:id="@+id/tv3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="3.缩放压缩一 "
             android:textSize="18sp" />
 
-      <TextView
-            android:layout_marginTop="10dp"
+        <TextView
             android:id="@+id/tv4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="4.缩放压缩二"
             android:textSize="18sp" />
 

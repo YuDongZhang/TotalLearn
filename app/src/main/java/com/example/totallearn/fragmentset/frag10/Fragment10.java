@@ -25,9 +25,7 @@ import com.example.totallearn.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
+
 
 /**
  * Created by pateo on 18-12-27.
@@ -36,21 +34,14 @@ import butterknife.Unbinder;
 public class Fragment10 extends Fragment {
 
     public static final String TAG = Fragment10.class.getSimpleName();
-    @BindView(R.id.tab_layout)
-    TabLayout tabLayout;
-    @BindView(R.id.viewpager)
-    ViewPager viewPager;
-    Unbinder unbinder;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     List<String> titles = new ArrayList<>();
 
-    @BindView(R.id.tv)
-    TextView tv;
-    @BindView(R.id.appBarLayout)
-    AppBarLayout appBarLayout;
-
-    @BindView(R.id.swipeRefreshLayout)
-    SwipeRefreshLayout swipeRefreshLayout;
+    private TextView tv;
+    private AppBarLayout appBarLayout;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private ArrayList<Fragment> fragments = new ArrayList<>();
 
     @Override
@@ -71,7 +62,14 @@ public class Fragment10 extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
         View view = inflater.inflate(R.layout.fragment_10, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        
+        // 初始化视图
+        tabLayout = view.findViewById(R.id.tab_layout);
+        viewPager = view.findViewById(R.id.viewpager);
+        tv = view.findViewById(R.id.tv);
+        appBarLayout = view.findViewById(R.id.appBarLayout);
+        swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
+        
         return view;
     }
 
@@ -168,7 +166,7 @@ public class Fragment10 extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         Log.d(TAG, "onDestroyView");
-        unbinder.unbind();
+
     }
 
     @Override

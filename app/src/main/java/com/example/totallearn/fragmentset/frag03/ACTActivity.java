@@ -12,33 +12,34 @@ import android.widget.TextView;
 import com.example.totallearn.R;
 import com.example.totallearn.activity.base.BaseActivity;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
 
 public class ACTActivity extends BaseActivity {
 
-    @BindView(R.id.iv_book_image)
-    ImageView mIvBook;
-    @BindView(R.id.toolbar)
-    Toolbar mToolbar;
-    @BindView(R.id.collapsing_toolbar_layout)
-    CollapsingToolbarLayout mCollapsingToolbarLayout;
-    @BindView(R.id.tv_title)
-    TextView mTvTitle;
-    @BindView(R.id.tv_rating)
-    TextView mTvRating;
-    @BindView(R.id.tv_msg)
-    TextView mTvMsg;
-    @BindView(R.id.sliding_tabs)
-    TabLayout mTabLayout;
-    @BindView(R.id.viewpager)
-    ViewPager mViewpager;
+    private ImageView mIvBook;
+    private Toolbar mToolbar;
+    private CollapsingToolbarLayout mCollapsingToolbarLayout;
+    private TextView mTvTitle;
+    private TextView mTvRating;
+    private TextView mTvMsg;
+    private TabLayout mTabLayout;
+    private ViewPager mViewpager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a_c_t);
-        ButterKnife.bind(this);
+        
+        // 初始化视图
+        mIvBook = findViewById(R.id.iv_book_image);
+        mToolbar = findViewById(R.id.toolbar);
+        mCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar_layout);
+        mTvTitle = findViewById(R.id.tv_title);
+        mTvRating = findViewById(R.id.tv_rating);
+        mTvMsg = findViewById(R.id.tv_msg);
+        mTabLayout = findViewById(R.id.sliding_tabs);
+        mViewpager = findViewById(R.id.viewpager);
+        
         initView();
     }
 

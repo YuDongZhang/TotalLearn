@@ -80,11 +80,11 @@ public class CustomRecyclerActivity extends AppCompatActivity {
     }
 
     private void updateSuspensionBar() {
-        Picasso.with(this)
-                .load(getAvatarResId(mCurrentPosition))
-                .centerInside()
-                .fit()
-                .into(mSuspensionIv);
+//        Picasso.with(this)
+//                .load(getAvatarResId(mCurrentPosition))
+//                .centerInside()
+//                .fit()
+//                .into(mSuspensionIv);
         mSuspensionTv.setText("NetEase "  + mCurrentPosition);
     }
 

@@ -36,9 +36,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
+
 import okhttp3.Headers;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -56,7 +54,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Fragment02 extends Fragment {
 
     public static final String TAG = Fragment02.class.getSimpleName();
-    Unbinder unbinder;
+
     private Retrofit retrofit;
 
     public String[] data = {
@@ -91,7 +89,7 @@ public class Fragment02 extends Fragment {
         Frag09Adapter adapter = new Frag09Adapter(data);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
-        unbinder = ButterKnife.bind(this, view);
+
         adapter.setOnItemClickListener(new Frag09Adapter.OnItemClickListener() {
             @Override
             public void onItemClick(int pos) {
@@ -154,7 +152,7 @@ public class Fragment02 extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         Log.d(TAG, "onDestroyView");
-        unbinder.unbind();
+
     }
 
     @Override

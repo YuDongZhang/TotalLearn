@@ -9,9 +9,6 @@ import com.example.totallearn.R;
 import com.example.totallearn.activity.base.BaseActivity;
 
 import java.io.IOException;
-
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -36,20 +33,19 @@ public class OkhttpActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_okhttp);
-        ButterKnife.bind(this);
+        
+        // 设置点击事件
+        findViewById(R.id.oh_get).setOnClickListener(this::onViewClicked);
+        findViewById(R.id.oh_post).setOnClickListener(this::onViewClicked);
     }
 
 
-    @OnClick({R.id.oh_get, R.id.oh_post})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.oh_get:
-                okhttpGet();
-                break;
-
-            case R.id.oh_post:
-                okhttpPost();
-                break;
+    private void onViewClicked(View view) {
+        int id = view.getId();
+        if (id == R.id.oh_get) {
+            okhttpGet();
+        } else if (id == R.id.oh_post) {
+            okhttpPost();
         }
     }
 

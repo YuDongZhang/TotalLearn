@@ -26,8 +26,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
@@ -59,38 +58,33 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_test_rx);
-        ButterKnife.bind(this);
 
         tv_register_ui = findViewById(R.id.tv_login_ui);
         tv_login_ui = findViewById(R.id.tv_login_ui);
+        
+        // 设置点击事件
+        findViewById(R.id.bt_1).setOnClickListener(this::onViewClicked);
+        findViewById(R.id.bt_2).setOnClickListener(this::onViewClicked);
+        findViewById(R.id.bt_3).setOnClickListener(this::onViewClicked);
+        findViewById(R.id.bt_4).setOnClickListener(this::onViewClicked);
+        findViewById(R.id.bt_5).setOnClickListener(this::onViewClicked);
+        findViewById(R.id.bt_6).setOnClickListener(this::onViewClicked);
     }
 
-    @OnClick({R.id.bt_1, R.id.bt_2,R.id.bt_3,R.id.bt_4,R.id.bt_5,R.id.bt_6})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.bt_1:
-                request(null);
-                break;
-            case R.id.bt_2:
-                request2(null);
-                break;
-            case R.id.bt_3:
-                request3();
-                break;
-
-            case R.id.bt_4:
-                request4();
-                break;
-
-            case R.id.bt_5:
-                request5();
-                break;
-
-            case R.id.bt_6:
-                request6();
-                break;
-
-
+    private void onViewClicked(View view) {
+        int id = view.getId();
+        if (id == R.id.bt_1) {
+            request(null);
+        } else if (id == R.id.bt_2) {
+            request2(null);
+        } else if (id == R.id.bt_3) {
+            request3();
+        } else if (id == R.id.bt_4) {
+            request4();
+        } else if (id == R.id.bt_5) {
+            request5();
+        } else if (id == R.id.bt_6) {
+            request6();
         }
     }
 

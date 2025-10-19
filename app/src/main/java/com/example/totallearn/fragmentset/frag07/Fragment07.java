@@ -13,9 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.totallearn.R;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
+
 
 /**
  * Created by pateo on 18-12-27.
@@ -24,7 +22,7 @@ import butterknife.Unbinder;
 public class Fragment07 extends Fragment {
 
     public static final String TAG = Fragment07.class.getSimpleName();
-    Unbinder unbinder;
+
 
     @Override
     public void onAttach(Context context) {
@@ -44,7 +42,10 @@ public class Fragment07 extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
         View view = inflater.inflate(R.layout.fragment_07, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        
+        // 设置点击事件
+        view.findViewById(R.id.f7_tv1).setOnClickListener(v -> onViewClicked());
+        
         return view;
     }
 
@@ -82,7 +83,6 @@ public class Fragment07 extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         Log.d(TAG, "onDestroyView");
-        unbinder.unbind();
     }
 
     @Override
@@ -98,7 +98,6 @@ public class Fragment07 extends Fragment {
     }
 
 
-    @OnClick(R.id.f7_tv1)
     public void onViewClicked() {
         Intent intent = new Intent(getActivity(),StaticActivity.class);
         startActivity(intent);

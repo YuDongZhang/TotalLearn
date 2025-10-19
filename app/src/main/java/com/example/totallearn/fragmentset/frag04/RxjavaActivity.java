@@ -13,8 +13,7 @@ import com.example.totallearn.fragmentset.adapter.Frag09Adapter;
 import com.example.totallearn.fragmentset.frag04.f4entity.JokeEntity;
 import com.google.gson.Gson;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -74,8 +73,7 @@ import okhttp3.ResponseBody;
 
 public class RxjavaActivity extends BaseActivity {
 
-    @BindView(R.id.recyclerView)
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
 
     private String[] data = {
             "0. 测试方法一",
@@ -88,7 +86,7 @@ public class RxjavaActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rxjava);
-        ButterKnife.bind(this);
+        recyclerView = findViewById(R.id.recyclerView);
         Frag09Adapter adapter = new Frag09Adapter(data);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);

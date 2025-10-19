@@ -18,9 +18,7 @@ import com.blankj.utilcode.util.LogUtils;
 import com.example.totallearn.R;
 import com.example.totallearn.testRoom.MultiFunctionActivity;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
+
 
 /**
  * Created by pateo on 18-12-27.
@@ -29,7 +27,7 @@ import butterknife.Unbinder;
 public class Fragment06 extends Fragment {
 
     public static final String TAG = Fragment06.class.getSimpleName();
-    Unbinder unbinder;
+
 
     @Override
     public void onAttach(Context context) {
@@ -49,8 +47,21 @@ public class Fragment06 extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
         View view = inflater.inflate(R.layout.fragment_06, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        
+        // 设置点击事件
+        setClickListeners(view);
+        
         return view;
+    }
+    
+    private void setClickListeners(View view) {
+        // 为按钮设置点击事件
+        if (view.findViewById(R.id.f6_t1) != null) {
+            view.findViewById(R.id.f6_t1).setOnClickListener(this::onViewClicked);
+        }
+        if (view.findViewById(R.id.room) != null) {
+            view.findViewById(R.id.room).setOnClickListener(this::onViewClicked);
+        }
     }
 
     @Override
@@ -86,7 +97,6 @@ public class Fragment06 extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         Log.d(TAG, "onDestroyView");
-        unbinder.unbind();
     }
 
     @Override
@@ -102,19 +112,15 @@ public class Fragment06 extends Fragment {
     }
 
 
-    @OnClick({R.id.f6_t1, R.id.room})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.f6_t1:
-                LogUtils.d("f6测试点击了");
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.popBackStack();
-                break;
-            case R.id.room:
-                Intent intent = new Intent(getActivity(), MultiFunctionActivity.class);
-                startActivity(intent);
-                break;
+    private void onViewClicked(View view) {
+        int id = view.getId();
+        if (id == R.id.f6_t1) {
+            LogUtils.d("f6测试点击了");
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            fragmentManager.popBackStack();
+        } else if (id == R.id.room) {
+            Intent intent = new Intent(getActivity(), MultiFunctionActivity.class);
+            startActivity(intent);
         }
-
     }
 }

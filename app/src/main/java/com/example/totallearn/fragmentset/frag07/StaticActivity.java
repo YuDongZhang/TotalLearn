@@ -6,8 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.totallearn.R;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+
 
 public class StaticActivity extends AppCompatActivity {
 
@@ -21,11 +20,12 @@ public class StaticActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_static);
-        ButterKnife.bind(this);
         sActivity = this;
+        
+        // 设置点击事件
+        findViewById(R.id.finish).setOnClickListener(v -> onViewClicked());
     }
 
-    @OnClick(R.id.finish)
     public void onViewClicked() {
         finish();
     }

@@ -13,14 +13,9 @@ import com.example.totallearn.R;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 public class TimeActivity extends AppCompatActivity {
 
-    @BindView(R.id.time_tv)
-    TextView timeTv;
+    private TextView timeTv;
 
     private int recLen = 0;
     private volatile boolean isStart;
@@ -29,7 +24,14 @@ public class TimeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time);
-        ButterKnife.bind(this);
+        
+        // 初始化视图
+        timeTv = findViewById(R.id.time_tv);
+        
+        // 设置点击事件
+        findViewById(R.id.time_bt1).setOnClickListener(this::onViewClicked);
+        findViewById(R.id.time_bt2).setOnClickListener(this::onViewClicked);
+        
         isStart = true;
         new Thread(new MyThread()).start();
 
@@ -51,31 +53,26 @@ public class TimeActivity extends AppCompatActivity {
         }
     };
 
-    @OnClick({R.id.time_bt1, R.id.time_bt2})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.time_bt1:
-                isStart = false;
+    private void onViewClicked(View view) {
+        int id = view.getId();
+        if (id == R.id.time_bt1) {
+            isStart = false;
 
 //                isStart=true;
 //                new Thread(new MyThread()).start();
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        recLen = 0;
-                        isStart=true;
-                        new Thread(new MyThread()).start();
-                    }
-                },100);
-
-                break;
-
-            case R.id.time_bt2:
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    recLen = 0;
+                    isStart=true;
+                    new Thread(new MyThread()).start();
+                }
+            },100);
+        } else if (id == R.id.time_bt2) {
 //                isStart = false;
-                isStart=true;
-                new Thread(new MyThread()).start();
-                break;
+            isStart=true;
+            new Thread(new MyThread()).start();
         }
     }
 
