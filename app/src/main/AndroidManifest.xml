@@ -21,7 +21,7 @@
         <activity android:name=".fragmentset.frag04.RxActivity" />
         <activity android:name=".fragmentset.frag09.BigImgActivity" />
         <activity android:name=".testRoom.MultiFunctionActivity" />
-        <activity android:name=".activity.ManyTestActivity" />
+<!--        <activity android:name=".activity.ManyTestActivity" />-->
         <activity android:name=".fragmentset.frag03.paint.PaintActivity" />
         <activity android:name=".fragmentset.frag03.paint.XfermodeActivity" />
         <activity android:name=".fragmentset.frag03.paint.XfermodesActivity" />
@@ -48,7 +48,7 @@
         <activity android:name=".fragmentset.frag07.StaticActivity" />
         <activity android:name=".SwipeScrollRecyclerActivity" />
 
-        <activity android:name=".MainActivity"
+        <activity android:name=".activity.ManyTestActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
