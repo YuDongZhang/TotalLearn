@@ -22,6 +22,7 @@ public class ManyTestActivity extends AppCompatActivity {
     private Switch dividerSwitch;
     private Button changeColorButton;
     private Button changeVisibleItemsButton;
+    private Button scrollTestButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class ManyTestActivity extends AppCompatActivity {
         dividerSwitch = findViewById(R.id.dividerSwitch);
         changeColorButton = findViewById(R.id.changeColorButton);
         changeVisibleItemsButton = findViewById(R.id.changeVisibleItemsButton);
+        scrollTestButton = findViewById(R.id.scrollTestButton);
         
         // 设置间隔线开关监听器
         if (dividerSwitch != null) {
@@ -78,6 +80,20 @@ public class ManyTestActivity extends AppCompatActivity {
                     currentVisible = currentVisible == 3 ? 5 : (currentVisible == 5 ? 7 : 3);
                     wheelView.setVisibleItems(currentVisible);
                     Toast.makeText(ManyTestActivity.this, "可见项目数量: " + currentVisible, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        
+        // 设置滚动测试按钮监听器
+        if (scrollTestButton != null) {
+            scrollTestButton.setOnClickListener(new View.OnClickListener() {
+                private int testIndex = 0;
+                @Override
+                public void onClick(View v) {
+                    // 每次点击增加20，测试滚动到不同数字
+                    testIndex = (testIndex + 20) % 100;
+                    wheelView.setSelectedIndex(testIndex);
+                    Toast.makeText(ManyTestActivity.this, "滚动到: " + wheelView.getSelectedItem(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

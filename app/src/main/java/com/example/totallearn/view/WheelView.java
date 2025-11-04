@@ -60,10 +60,10 @@ public class WheelView extends View {
         
         float centerY = getHeight() / 2;
         
-        // 计算可见范围
-        int halfVisible = visibleItems / 2;
-        int start = Math.max(0, selectedIndex - halfVisible - 1);
-        int end = Math.min(items.size() - 1, selectedIndex + halfVisible + 1);
+        // 计算可见范围 - 扩大范围以确保滚动时能看到更多项目
+        int halfVisible = Math.max(visibleItems, 5) / 2; // 确保至少显示5个项目
+        int start = Math.max(0, selectedIndex - halfVisible - 2); // 扩大范围
+        int end = Math.min(items.size() - 1, selectedIndex + halfVisible + 2); // 扩大范围
         
         // 绘制所有可见项目
         for (int i = start; i <= end; i++) {
@@ -108,12 +108,15 @@ public class WheelView extends View {
                     float deltaY = event.getY() - lastY;
                     scrollOffset += deltaY;
                     
-                    // 限制滚动范围
-                    float maxOffset = (items.size() - 1) * itemHeight;
-                    if (scrollOffset > maxOffset) {
-                        scrollOffset = maxOffset;
-                    } else if (scrollOffset < -maxOffset) {
-                        scrollOffset = -maxOffset;
+                    // 计算滚动偏移对应的项目索引变化
+                    int offsetItems = (int) (scrollOffset / itemHeight);
+                    if (offsetItems != 0) {
+                        // 修正滚动方向：向上滑动（deltaY为负）应该增加索引
+                        int newIndex = selectedIndex - offsetItems; // 注意这里是减法，修正方向
+                        if (newIndex >= 0 && newIndex < items.size()) {
+                            selectedIndex = newIndex;
+                            scrollOffset -= offsetItems * itemHeight; // 减去已处理的偏移量
+                        }
                     }
                     
                     lastY = event.getY();
@@ -126,15 +129,14 @@ public class WheelView extends View {
                 if (isScrolling) {
                     // 计算最近的选中项
                     float totalOffset = scrollOffset;
-                    int newIndex = selectedIndex;
+                    int offsetItems = Math.round(totalOffset / itemHeight); // 使用四舍五入
                     
-                    if (totalOffset > itemHeight / 2) {
-                        newIndex = Math.max(0, selectedIndex - 1);
-                    } else if (totalOffset < -itemHeight / 2) {
-                        newIndex = Math.min(items.size() - 1, selectedIndex + 1);
-                    }
+                    // 修正滚动方向：向上滑动（totalOffset为负）应该增加索引
+                    // 更新选中索引
+                    int newIndex = selectedIndex - offsetItems; // 注意这里是减法，修正方向
+                    newIndex = Math.max(0, Math.min(items.size() - 1, newIndex)); // 确保在有效范围内
                     
-                    // 计算滚动到选中项的偏移量
+                    // 重置滚动状态
                     scrollOffset = 0;
                     selectedIndex = newIndex;
                     isScrolling = false;
