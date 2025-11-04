@@ -23,6 +23,7 @@ public class ManyTestActivity extends AppCompatActivity {
     private Button changeColorButton;
     private Button changeVisibleItemsButton;
     private Button scrollTestButton;
+    private Button toggleBoldButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class ManyTestActivity extends AppCompatActivity {
         changeColorButton = findViewById(R.id.changeColorButton);
         changeVisibleItemsButton = findViewById(R.id.changeVisibleItemsButton);
         scrollTestButton = findViewById(R.id.scrollTestButton);
+        toggleBoldButton = findViewById(R.id.toggleBoldButton);
         
         // 设置间隔线开关监听器
         if (dividerSwitch != null) {
@@ -94,6 +96,18 @@ public class ManyTestActivity extends AppCompatActivity {
                     testIndex = (testIndex + 20) % 100;
                     wheelView.setSelectedIndex(testIndex);
                     Toast.makeText(ManyTestActivity.this, "滚动到: " + wheelView.getSelectedItem(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        
+        // 设置切换粗体按钮监听器
+        if (toggleBoldButton != null) {
+            toggleBoldButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    boolean isBold = wheelView.isCenterItemBold();
+                    wheelView.setCenterItemBold(!isBold);
+                    Toast.makeText(ManyTestActivity.this, "中间项目粗体: " + (!isBold ? "开启" : "关闭"), Toast.LENGTH_SHORT).show();
                 }
             });
         }

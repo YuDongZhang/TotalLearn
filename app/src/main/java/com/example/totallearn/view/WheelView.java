@@ -15,6 +15,7 @@ import java.util.List;
 public class WheelView extends View {
     private Paint paint;
     private Paint linePaint;
+    private Paint boldPaint; // 粗体画笔
     private List<String> items = new ArrayList<>();
     private int selectedIndex = 0;
     private float itemHeight = 60;
@@ -23,6 +24,7 @@ public class WheelView extends View {
     private boolean isScrolling = false;
     private boolean showDividerLines = true; // 是否显示间隔线
     private int visibleItems = 5; // 可见项目数量
+    private boolean centerItemBold = true; // 中间项目是否粗体
 
     public WheelView(Context context) {
         super(context);
@@ -43,6 +45,12 @@ public class WheelView extends View {
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setTextSize(40);
         paint.setTextAlign(Paint.Align.CENTER);
+        
+        // 初始化粗体画笔
+        boldPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        boldPaint.setTextSize(40);
+        boldPaint.setTextAlign(Paint.Align.CENTER);
+        boldPaint.setFakeBoldText(true); // 设置为粗体
         
         linePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         linePaint.setStrokeWidth(2);
@@ -87,17 +95,20 @@ public class WheelView extends View {
                 continue;
             }
             
+            // 选择画笔：中间项目使用粗体，其他使用普通画笔
+            Paint currentPaint = (centerItemBold && i == selectedIndex) ? boldPaint : paint;
+            
             // 设置透明度，离中心越远越透明
             float distance = Math.abs(itemY - centerY);
             float alpha = Math.max(0.3f, 1 - distance / (itemHeight * (visibleItems / 2)));
-            paint.setAlpha((int) (255 * alpha));
+            currentPaint.setAlpha((int) (255 * alpha));
             
             // 设置大小，离中心越远越小
             float scale = Math.max(0.7f, 1 - distance / (itemHeight * (visibleItems / 2 + 1)));
             float textSize = 40 * scale;
-            paint.setTextSize(textSize);
+            currentPaint.setTextSize(textSize);
             
-            canvas.drawText(items.get(i), getWidth() / 2, itemY, paint);
+            canvas.drawText(items.get(i), getWidth() / 2, itemY, currentPaint);
         }
         
         // 绘制中心线（如果启用）
@@ -226,5 +237,22 @@ public class WheelView extends View {
      */
     public int getVisibleItems() {
         return visibleItems;
+    }
+    
+    /**
+     * 设置中间项目是否为粗体
+     * @param bold 是否为粗体
+     */
+    public void setCenterItemBold(boolean bold) {
+        this.centerItemBold = bold;
+        invalidate();
+    }
+    
+    /**
+     * 获取中间项目是否为粗体
+     * @return 是否为粗体
+     */
+    public boolean isCenterItemBold() {
+        return centerItemBold;
     }
 }
