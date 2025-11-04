@@ -60,10 +60,23 @@ public class WheelView extends View {
         
         float centerY = getHeight() / 2;
         
-        // 计算可见范围 - 扩大范围以确保滚动时能看到更多项目
-        int halfVisible = Math.max(visibleItems, 5) / 2; // 确保至少显示5个项目
-        int start = Math.max(0, selectedIndex - halfVisible - 2); // 扩大范围
-        int end = Math.min(items.size() - 1, selectedIndex + halfVisible + 2); // 扩大范围
+        // 计算可见范围 - 使用用户设置的visibleItems
+        int halfVisible = visibleItems / 2;
+        int start = Math.max(0, selectedIndex - halfVisible);
+        int end = Math.min(items.size() - 1, selectedIndex + halfVisible);
+        
+        // 如果visibleItems是奇数且当前显示的项目数量不足，扩展显示范围
+        int currentVisibleCount = end - start + 1;
+        if (currentVisibleCount < visibleItems) {
+            // 尝试向下扩展
+            if (end + 1 < items.size()) {
+                end = Math.min(items.size() - 1, end + (visibleItems - currentVisibleCount));
+            }
+            // 如果向下扩展不够，尝试向上扩展
+            else if (start > 0) {
+                start = Math.max(0, start - (visibleItems - currentVisibleCount));
+            }
+        }
         
         // 绘制所有可见项目
         for (int i = start; i <= end; i++) {
