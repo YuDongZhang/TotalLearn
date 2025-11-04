@@ -243,15 +243,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
 
-            <com.example.totallearn.view.OtpEditText
-                android:background="@null"
-                android:padding="8dp"
-                android:layout_width="200dp"
-                android:layout_height="60dp"/>
 
-            <com.example.totallearn.view.OtpInputView
-                android:layout_width="200dp"
-                android:layout_height="60dp"/>
+
 
 
 
