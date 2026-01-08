@@ -4,77 +4,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".activity.ManyTestActivity">
 
-    <com.example.totallearn.view.WheelView
-        android:id="@+id/wheelView"
-        android:layout_width="200dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="80dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Switch
-        android:id="@+id/dividerSwitch"
+    <TextView
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:text="Perfetto 学习测试"
+        android:textSize="24sp"
+        android:textStyle="bold"
         android:layout_marginTop="16dp"
-        android:text="显示间隔线"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/wheelView" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="此 Activity 包含启动耗时测试和多种内存泄漏场景，用于学习使用 Perfetto 进行性能分析。"
+        android:textSize="14sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/changeColorButton"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_leak_1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:text="改变间隔线颜色"
+        android:text="泄漏场景1: Handler"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_description"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dividerSwitch" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/changeVisibleItemsButton"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_leak_2"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:text="改变可见项目数量"
+        android:text="泄漏场景2: 静态集合"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_leak_1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/changeColorButton" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/scrollTestButton"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_leak_3"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:text="滚动测试(20步进)"
+        android:text="泄漏场景3: Timer"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_leak_2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/changeVisibleItemsButton" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/toggleBoldButton"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_leak_4"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:text="切换中间项目粗体"
+        android:text="泄漏场景4: 匿名内部类"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_leak_3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollTestButton" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <com.example.totallearn.view.VerificationCodeInput
-        android:background="@color/aqua"
-        android:id="@+id/verificationCodeInput"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="480dp"
+    <Button
+        android:id="@+id/btn_jump_test"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="跳转到 TestActivity"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        app:layout_constraintTop_toBottomOf="@id/btn_leak_4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_tips"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="使用提示:\n1. 启动 Activity 会自动执行启动耗时测试\n2. 点击按钮触发不同的内存泄漏场景\n3. 使用 Perfetto 捕获 trace 进行分析\n4. 观察内存泄漏和启动性能问题"
+        android:textSize="12sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_jump_test"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
