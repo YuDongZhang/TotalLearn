@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>录音测试页面</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95); border-radius: 20px; padding: 40px;
+            text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.2); max-width: 400px; width: 100%;
+        }
+        h1 { color: #333; margin-bottom: 10px; font-size: 24px; }
+        .subtitle { color: #666; margin-bottom: 30px; font-size: 14px; }
+        #recordBtn {
+            padding: 25px 50px; font-size: 22px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;
+            border: none; border-radius: 50px; cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); transition: all 0.3s ease;
+        }
+        #recordBtn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5); }
+        #recordBtn:active { transform: scale(0.98); }
+        #recordBtn.recording {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(245, 87, 108, 0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(245, 87, 108, 0); }
+        }
+        #status { margin-top: 25px; color: #666; font-size: 16px; min-height: 24px; }
+        #timer {
+            margin-top: 10px; font-size: 32px; color: #667eea; font-weight: bold;
+            display: none;
+        }
+        .waveform { display: none; margin-top: 20px; height: 40px; align-items: center; justify-content: center; gap: 4px; }
+        .waveform.active { display: flex; }
+        .bar { width: 6px; background: linear-gradient(to top, #667eea, #764ba2); border-radius: 3px; animation: wave 0.5s ease-in-out infinite; }
+        @keyframes wave { 0%, 100% { height: 10px; } 50% { height: 40px; } }
+        .bar:nth-child(2) { animation-delay: 0.1s; }
+        .bar:nth-child(3) { animation-delay: 0.2s; }
+        .bar:nth-child(4) { animation-delay: 0.3s; }
+        .bar:nth-child(5) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WebView 录音</h1>
+        <p class="subtitle">点击按钮开始/停止录音</p>
+        <button id="recordBtn">开始录音</button>
+        <div class="waveform" id="waveform">
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        </div>
+        <p id="timer">00:00</p>
+        <p id="status">准备就绪</p>
+    </div>
+    <script>
+        let mediaRecorder;
+        let isRecording = false;
+        let timerInterval;
+        let seconds = 0;
+        
+        function formatTime(totalSeconds) {
+            const mins = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+            const secs = (totalSeconds % 60).toString().padStart(2, '0');
+            return mins + ':' + secs;
+        }
+        
+        function startTimer() {
+            seconds = 0;
+            document.getElementById('timer').style.display = 'block';
+            document.getElementById('timer').textContent = '00:00';
+            timerInterval = setInterval(function() {
+                seconds++;
+                document.getElementById('timer').textContent = formatTime(seconds);
+            }, 1000);
+        }
+        
+        function stopTimer() {
+            clearInterval(timerInterval);
+            document.getElementById('timer').style.display = 'none';
+        }
+        
+        async function startRecording() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream);
+                const chunks = [];
+                mediaRecorder.ondataavailable = function(event) {
+                    if (event.data.size > 0) {
+                        chunks.push(event.data);
+                    }
+                };
+                mediaRecorder.onstop = function() {
+                    const blob = new Blob(chunks, { type: 'audio/webm' });
+                    const url = URL.createObjectURL(blob);
+                    const status = document.getElementById('status');
+                    status.innerHTML = '录音完成!<br><audio controls style="margin-top:10px"></audio>';
+                    status.querySelector('audio').src = url;
+                    stream.getTracks().forEach(function(track) { track.stop(); });
+                };
+                mediaRecorder.start(1000);
+                isRecording = true;
+                document.getElementById('recordBtn').textContent = '停止录音';
+                document.getElementById('recordBtn').classList.add('recording');
+                document.getElementById('waveform').classList.add('active');
+                document.getElementById('status').textContent = '正在录音... (REC)'; 
+                startTimer();
+            } catch(err) {
+                console.error('录音错误:', err);
+                let errorMsg = '录音失败';
+                if (err.name === 'NotAllowedError') {
+                    errorMsg = '请允许录音权限后重试';
+                } else if (err.name === 'NotFoundError') {
+                    errorMsg = '未找到麦克风设备';
+                }
+                document.getElementById('status').textContent = errorMsg;
+            }
+        }
+        
+        function stopRecording() {
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                mediaRecorder.stop();
+            }
+            isRecording = false;
+            stopTimer();
+            document.getElementById('recordBtn').textContent = '开始录音';
+            document.getElementById('recordBtn').classList.remove('recording');
+            document.getElementById('waveform').classList.remove('active');
+        }
+        
+        document.getElementById('recordBtn').addEventListener('click', function() {
+            if (!isRecording) {
+                startRecording();
+            } else {
+                stopRecording();
+            }
+        });
+    </script>
+</body>
+</html>

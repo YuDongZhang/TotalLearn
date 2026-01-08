@@ -27,6 +27,7 @@ import com.example.totallearn.PdfActivity;
 import com.example.totallearn.R;
 import com.example.totallearn.activity.AnotherBarActivity;
 import com.example.totallearn.activity.TestViewPagerActivity;
+import com.example.totallearn.activity.WebViewActivity;
 import com.example.totallearn.activity.base.BaseFragment;
 import com.example.totallearn.blue.BlueActivity;
 import com.example.totallearn.databinding.Fragment01Binding;
@@ -99,6 +100,7 @@ public class Fragment01 extends BaseFragment implements View.OnClickListener {
         binding.f1Tv15.setOnClickListener(this);
         binding.f1Tv17.setOnClickListener(this);
         binding.f1Tv18.setOnClickListener(this);
+        binding.f1Tv19.setOnClickListener(this);
     }
 
     @Override
@@ -180,6 +182,9 @@ public class Fragment01 extends BaseFragment implements View.OnClickListener {
             startActivity(intent);
         } else if (view.getId() == R.id.f1_tv18) {
             intent = new Intent(getActivity(), BlueActivity.class);
+            startActivity(intent);
+        }else if (view.getId() == R.id.f1_tv19) {
+            intent = new Intent(getActivity(), WebViewActivity.class);
             startActivity(intent);
         }
     }
