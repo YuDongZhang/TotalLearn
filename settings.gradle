@@ -12,10 +12,7 @@ pluginManagement {
 
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         maven { url 'https://maven.aliyun.com/repository/google' }
-        maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url 'https://jitpack.io' }
-        maven { url 'https://dl.bintray.com/umsdk/release' }
-        maven { url 'https://maven.aliyun.com/mvn/guide' }
     }
 }
 dependencyResolutionManagement {
@@ -26,10 +23,7 @@ dependencyResolutionManagement {
 
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         maven { url 'https://maven.aliyun.com/repository/google' }
-        maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url 'https://jitpack.io' }
-        maven { url 'https://dl.bintray.com/umsdk/release' }
-        maven { url 'https://maven.aliyun.com/mvn/guide' }
     }
 }
 
